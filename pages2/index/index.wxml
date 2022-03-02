@@ -1,0 +1,411 @@
+<view style="padding: 0 20rpx;background-color:#FFFAF1;">
+  <view style="background: #FFFAF1;height: {{statusBarHeight}}px;">
+  </view>
+<view >
+  <view>
+    <image src='{{domain}}{{imghead}}' mode='widthFix' style="width: 100%;">
+    </image>
+    <view style="color:#AA895B;position:relative;left:530rpx;top:-170rpx;  width:160rpx" bindtap="xiaoshang_tap" >
+       <!-- 城市： {{cityName}} ▼   -->
+       <image src='{{domain}}{{imgxiaoshang}}' mode='widthFix' style="width: 100%;" >
+    </image>
+    </view>
+  </view>
+  <view style="margin-top:-44rpx">
+  <!-- <view style="margin-top:-44rpx"> -->
+    <block wx:for="{{pageData.activityList}}" wx:for-item="item" wx:key="index">
+  
+      <view wx:if="{{item.code=='benefit12'}}" data-url="" style="height: 377rpx;" data-url="{{item.url}}"
+        bindtap='activity_tap'>
+        <image src='{{item.imgurl}}' mode='widthFix' style="width: 100%;">
+        </image>
+        <view
+          style="position: relative;bottom: 90rpx;margin-left: 36rpx;width: 412rpx;height: 65rpx; display: flex;flex-flow: row nowrap;justify-content:space-between;align-items: center;">
+          <view class="u_row_nowrap "
+            style="background:linear-gradient(180deg,#c9a063 0%,#f9e7a8 0%,#c9a063 100%);width: 230rpx;height:50rpx;margin-right: 5rpx;justify-content:space-between;align-items: center;border-radius: 50rpx;padding: 0 10rpx;">
+            <view>
+              <view class="cu-avatar-group" style="padding:0 10rpx 0 30rpx;direction: ltr;">
+                <view class="cu-avatar round sm" wx:for="{{item.data.avatarUrlList}}" wx:key wx:for-item="sitem"
+                  style="background-image:url({{sitem}});margin-left:-34rpx;width: 40rpx;height:40rpx;">
+                </view>
+              </view>
+            </view>
+            <view style="color: rgb(61, 40, 3);font-size: 20rpx;">
+              共{{item.data.orderCount}}人已购买
+            </view>
+          </view>
+          <image src="{{domain}}/image/buynow.gif" style="width: 182rpx;;" mode="widthFix" data-url="{{item.url}}">
+          </image>
+
+        </view>
+
+      </view>
+      <view wx:else>
+        <image src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-url="{{item.url}}"
+          data-type="{{item.type}}" data-data="{{item.data}}" bindtap='activity_tap'>
+        </image>
+      </view>
+    </block>
+    <swiper id='list0' class="screen-swiper square-dot" style="height:392rpx;" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500"> 
+
+<swiper-item wx:for="{{adList}}" wx:key="index" wx:for-item="item"   
+  data-type="{{item.type}}"  data-data="{{item.data}}" data-url="{{item.url}}" bindtap="ad_tap">
+    <image src="{{item.imgurl}}" mode="scaleToFill" style="width: 100%;">
+    </image>
+  </swiper-item>
+</swiper> 
+</view>
+
+<view class='turntable' style="height:130rpx;padding-top:30rpx;background:#fff;border-radius:6rpx">
+    <view wx:if="{{isYZ==1}}" class='row-turntable' style="padding-left:16rpx;;padding-right:16rpx;">
+      <view style="width:40%" bindtap="QiaTan_tap">
+        <view style="width:100%;padding-top:18rpx;color:#AA895B;" class="center"> 
+          <text>尊敬的业主，您好！</text>
+        </view>
+        
+      </view>
+      <view class="item-turntable">
+        <view style="width:100%" class="center"> 
+          <image  class="item-Content-img"></image>
+        </view>
+      </view>
+      <view class="item-turntable" bindtap="xsjlive_km_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{domain}}{{img1_1}}" class="item-Content-img"></image>
+        </view>
+      </view>
+      <view class="item-turntable" bindtap="xsjlive_jf_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{domain}}{{img1_2}}" class="item-Content-img"></image>
+        </view>
+      </view>
+      <view class="item-turntable" bindtap="guanjia_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{domain}}{{img1_3}}" class="item-Content-img"></image>
+        </view>
+      </view>
+      <!-- <view class="item-turntable">
+        <view style="width:100%" class="center"> 
+          <image  src="{{domain}}{{img1_4}}" class="item-Content-img"></image>
+        </view>
+      </view> -->
+    </view>
+    <view wx:elif="{{isYZ==2}}" class='row-turntable' style="padding-left:16rpx;;padding-right:16rpx;">
+      <view style="width:40%" bindtap="QiaTan_tap">
+        <view style="width:100%;padding-top:18rpx;color:#AA895B;" class="center"> 
+          <text>尊敬的业主，您好！</text>
+        </view>
+        
+      </view>
+      <view class="item-turntable">
+        <view style="width:100%" class="center"> 
+          <image  class="item-Content-img"></image>
+        </view>
+      </view>
+      <view class="item-turntable" bindtap="xsjlive_zh_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{domain}}{{img1_7}}" class="item-Content-img"></image>
+        </view>
+      </view>
+      <view class="item-turntable" bindtap="guanjia_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{domain}}{{img1_3}}" class="item-Content-img"></image>
+        </view>
+      </view>
+      <!-- <view class="item-turntable">
+        <view style="width:100%" class="center"> 
+          <image  src="{{domain}}{{img1_4}}" class="item-Content-img"></image>
+        </view>
+      </view> -->
+    </view>
+    <view  wx:else class='row-turntable' style="padding-left:16rpx;;padding-right:16rpx;">
+      <view style="width:40%">
+        <view style="width:100%;padding-top:18rpx;color:#AA895B;" class="center"> 
+          <text>尊敬的客户，您好！</text>
+        </view>
+      </view>
+      <view class="item-turntable">
+        <view style="width:100%" class="center"> 
+          <image class="item-Content-img"></image>
+        </view>
+      </view>
+      <view class="item-turntable">
+        <view style="width:100%" class="center"> 
+          <image class="item-Content-img"></image>
+        </view>
+      </view>
+      <view class="item-turntable">
+        <view style="width:100%" class="center"> 
+          <image class="item-Content-img"></image>
+          <!-- <image  src="{{domain}}{{img1_3}}" class="item-Content-img"></image> -->
+        </view>
+      </view>
+      <view class="item-turntable" bindtap="guwen_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{domain}}{{img1_5}}" class="item-Content-img"></image>
+          <!-- <image  src="{{domain}}{{img1_4}}" class="item-Content-img"></image> -->
+        </view>
+      </view>
+    </view>
+</view>
+
+<view class='turntable' style="padding:14rpx 18rpx;background-image:url({{domain}}{{img2_0}});background-size:100% auto">
+  <view class='row-turntable'>
+      <view class="item-turntable" bindtap="guanjia_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{domain}}{{img2_1}}" class="item-Content-img2"></image>
+        </view>
+      </view>
+      <view class="item-turntable" bindtap="xsjlive_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{domain}}{{img2_2}}" class="item-Content-img2"></image>
+        </view>
+      </view>
+      <view class="item-turntable" bindtap="xsjcrm_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{domain}}{{img2_3}}" class="item-Content-img2"></image>
+        </view>
+      </view>
+      <view class="item-turntable" bindtap="xsjkfx_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{domain}}{{img2_4}}" class="item-Content-img2"></image>
+        </view>
+      </view>
+    </view>
+</view>
+
+<view style="text-align:center;">
+  <view style="height:25rpx"></view>
+  <image src="{{domain}}{{img3_0}}" mode="widthFix" style="width:100%"></image>
+  <view style="height:15rpx"></view>
+</view>
+
+  <!-- ad 轮播图  -->
+  <!-- <swiper id='list' class="screen-swiper square-dot" style="height:392rpx;" indicator-dots="true" circular="true"
+    autoplay="true" interval="5000" duration="500">
+
+    <swiper-item wx:for="{{pageData.adList}}" wx:key="index" wx:for-item="item" data-type="{{item.type}}"
+      data-data="{{item.data}}" data-url="{{item.url}}" bindtap="ad_tap">
+      <image src="{{item.imgurl}}" mode="scaleToFill" style="width: 100%;">
+      </image>
+    </swiper-item>
+  </swiper>
+<view style="border-bottom:2px solid #BE9C6F;height:3px"></view> -->
+<!-- 楼盘tab -->
+<view class="tabNav view-bg"> 
+  <view class="{{tabTitle==0 ? 'cur' : ''}}" data-idx="0" bindtap="tab_tap">
+    <text>所有</text>
+  </view>
+  <view class="{{tabTitle==1 ? 'cur' : ''}}" data-idx="1" bindtap="tab_tap">
+    <text>大湾区</text>
+  </view>
+  <view class="{{tabTitle==4 ? 'cur' : ''}}" data-idx="4" bindtap="tab_tap">
+    <text>武汉</text>
+  </view>
+  <view class="{{tabTitle==2 ? 'cur' : ''}}" data-idx="2" bindtap="tab_tap">
+    <text>宁波</text>
+  </view>
+  <view class="{{tabTitle==3 ? 'cur' : ''}}" data-idx="3" bindtap="tab_tap">
+    <text>东北区</text>
+  </view>
+  <view class="{{tabTitle==5 ? 'cur' : ''}}" data-idx="5" bindtap="tab_tap">
+    <text>益阳</text>
+  </view>
+  <view class="{{tabTitle==6 ? 'cur' : ''}}" data-idx="6" bindtap="tab_tap">
+    <text>杭州</text>
+  </view>
+</view>
+
+<view>
+  <view id="projList" wx:if='{{tabContent==0 }}'>
+    <!-- ad 轮播图  -->
+  <swiper id='list' class="screen-swiper square-dot" style="height:392rpx;" indicator-dots="true" circular="true"
+    autoplay="true" interval="5000" duration="500">
+
+    <swiper-item wx:for="{{pageData.adList}}" wx:key="index" wx:for-item="item" data-type="{{item.type}}"
+      data-data="{{item.data}}" data-url="{{item.url}}" bindtap="ad_tap">
+      <image src="{{item.imgurl}}" mode="scaleToFill" style="width: 100%;">
+      </image>
+    </swiper-item>
+  </swiper>
+<view style="border-bottom:2px solid #BE9C6F;height:3px"></view>
+  </view>
+  <!-- 广州 -->
+ <view id="projList" wx:if='{{tabContent==1 || tabContent==0 }}'>
+    <!-- <image wx:if="{{pageData.NewProjList!=null && pageData.NewProjList.length>0}}" src='https://xyclientnew.ai-fox.net/image/proj_new.png'mode='widthFix' style="width: 40%;margin: 10px auto;" ></image>
+  -->
+    <image wx:for="{{pageData.NewProjList}}" wx:key="index" wx:for-item="item" data-code="{{item.code}}"
+      src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-code="{{item.code}}" bindtap="proj_tap">
+    </image>
+    <image wx:for="{{pageData.projList}}" wx:key="index" wx:for-item="item" data-code="{{item.code}}"
+      src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-code="{{item.code}}" bindtap="proj_tap">
+    </image>
+  </view>
+  <!-- 武汉 -->
+  <view id="projList" wx:if='{{tabContent==4 || tabContent==0}}'>
+    <image wx:for="{{pageData.projList_WuHan}}" wx:key="index" wx:for-item="item" data-code="{{item.code}}"
+      src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-code="{{item.code}}" bindtap="proj_tap">
+    </image>
+  </view>
+
+  <!-- 宁波 -->
+  <view id="projList" wx:if='{{tabContent==2 || tabContent==0}}'>
+    <image wx:for="{{pageData.projList_NingBo}}" wx:key="index" wx:for-item="item" data-code="{{item.code}}"
+      src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-code="{{item.code}}" bindtap="proj_tap">
+    </image>
+  </view>
+
+<!-- 沈阳 -->
+<view id="projList" wx:if='{{tabContent==3 || tabContent==0}}'>
+    <image wx:for="{{pageData.projList_ShenYang}}" wx:key="index" wx:for-item="item" data-code="{{item.code}}"
+      src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-code="{{item.code}}" bindtap="proj_tap">
+    </image>
+  </view>
+<!-- 益阳 -->
+  <view id="projList" wx:if='{{tabContent==5 || tabContent==0}}'>
+    <image wx:for="{{pageData.projList_ZSH}}" wx:key="index" wx:for-item="item" data-code="{{item.code}}"
+      src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-code="{{item.code}}" bindtap="proj_tap">
+    </image>
+  </view>
+<!-- 杭州 -->
+  <view id="projList" wx:if='{{tabContent==6 || tabContent==0}}'>
+    <image wx:for="{{pageData.projList_HangZhou}}" wx:key="index" wx:for-item="item" data-code="{{item.code}}"
+      src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-code="{{item.code}}" bindtap="proj_tap">
+    </image>
+  </view>
+
+</view>
+  <!-- 弹窗广告 -->
+
+  <view wx:if='{{pageData.adModal!=null}}' class="cu-modal {{adModalShow?'show':''}} ">
+    <view style="position: relative;display: inline-block;vertical-align: middle;width:80%;">
+      <view>
+        <image src='{{pageData.adModal.imgurl}}' mode='widthFix' style="width:100%;border-radius: 26rpx;"
+          data-type="{{pageData.adModal.type}}" data-data="{{pageData.adModal.data}}"
+          data-url="{{pageData.adModal.url}}" bindload="ad_load" bindtap="admodal_tap">
+        </image>
+      </view>
+      <view class="action" bindtap="hideAdModal" style="text-align: center;margin-top: 20rpx;">
+        <text class="cuIcon-roundclose" style="color: white;font-size: 70rpx;line-height: 66rpx;"></text>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view bindtap="teee_tap">
+        ssdsdfsdf
+    </view> -->
+
+    <view class="u_column_nowrap" style="position: fixed;bottom: 220rpx;right: 22rpx;z-index: 999;width: 100rpx;">
+       <view wx:if="{{pageData.game != null}}" style="padding-bottom: 40rpx;" >
+          <image src='{{pageData.game.imgurl}}' mode='widthFix' style="width: 100%;" data-url="{{pageData.game.url}}" bindtap="game_tap">
+          </image>
+       </view>
+
+        <view wx:for="{{pageData.exSideMenu}}" wx:key="index" wx:for-item="item">
+                <image src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-type="{{item.type}}"
+                    data-data="{{item.data}}" data-url="{{item.url}}" bindtap="exSideMenu_tap">
+                </image>
+            </view>
+    </view>
+
+  </view>
+</view>
+
+<view style="height: 160rpx;">
+</view>
+<view class="box itabbar">
+  <view class="cu-bar tabbar bg-white">
+    <view class="action" bindtap='xinyunjia_tap'>
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar01a.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-green" style="padding-top: 9rpx;">新赏家</view>
+    </view>
+    <view class="action" bindtap='im_tap'>
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar02b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;" bindtap="wechatindex_tap">蕴服务</view>
+    </view>
+    <view class="action text-gray add-action" style="color:#C7A366;" bindtap="benefit_tap">
+      <button class="cu-btn cuIcon-choiceness bg-green shadow"
+        style="background:linear-gradient(180deg,rgba(249,231,168,1) 0%,rgba(235,205,166,1) 0%,rgba(201,160,99,1) 100%);"></button>
+      活动
+    </view>
+    <view class="action" bindtap="nw_tap">
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar03b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">生态圈</view>
+    </view>
+    <view class="action" bindtap="my_tap">
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar04b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">我的</view>
+    </view>
+  </view>
+</view>
+
+<!-- 推荐项目选择 -->
+<!-- <view wx:if='{{tjArea}}' class="cu-modal {{tjArea?'show':''}} ">
+    <view style="position: relative;display: inline-block;vertical-align: middle;width:80%;height:280px;background-color: #fff;border-radius: 30rpx;">
+      <view>
+        <text>选择区域</text>
+      </view>
+      <view>
+        <button style="width: 100px;">广州</button>
+        <br />
+        <button style="width: 100px;">宁波</button>
+      </view>
+    </view>
+  </view> -->
+
+
+
+<!-- 推荐项目选择 -->
+  <view wx:if='{{tjArea}}'>
+    <view class='mask_layer' bindtap='modal_click_Hidden' />
+    <view class='modal_box'>
+      <view style="position: relative;display: inline-block;vertical-align: middle;width:100%;height:350px;background-color: #fff;border-radius: 30rpx;">
+      <view style="text-align: center;font-size: 16px;margin-top: 40px;font-weight: bold;">
+        <text>请阁下选择所属地区：</text>
+      </view>
+      <view style="margin-top: 35px;text-align:center;">
+        <view style="width: 150px;height:36px;font-size: 15px;margin:auto;vertical-align: middle;color:#BDA26C;"
+        data-area="1" bindtap="goTJ_tap"
+        >大湾区</view>
+        <!-- <view style="height: 2px;width: 120px;border-bottom:1px solid rgba(252, 232, 144, 0.959);margin:auto"></view>
+        <view style="height: 16px;width: 150px;margin:auto"></view>
+        <view style="width: 150px;height:34px;font-size: 15px;margin:auto;vertical-align: middle;color:#BDA26C;"
+        data-area="2" bindtap="goTJ_tap"
+        >宁波地区</view> -->
+        <!-- <view style="height: 2px;width: 120px;border-bottom:1px solid rgba(252, 232, 144, 0.959);margin:auto"></view>
+        <view style="height: 16px;width: 150px;margin:auto"></view>
+        <view style="width: 150px;height:40px;font-size: 15px;margin:auto;vertical-align: middle;color:#BDA26C;"
+        data-area="3" bindtap="goTJ_tap"
+        东北地区</view> -->
+        <view style="height: 2px;width: 120px;border-bottom:1px solid rgba(252, 232, 144, 0.959);margin:auto"></view>
+        <view style="height: 16px;width: 150px;margin:auto"></view>
+        <view style="width: 150px;height:34px;font-size: 15px;margin:auto;vertical-align: middle;color:#BDA26C;"
+        data-area="4" bindtap="goTJ_tap"
+        >武汉地区</view>
+        
+        <image src="{{domain}}{{op_bottom}}" mode='widthFix' style="width: 100%;padding-bottom: 0;">
+        </image>
+      
+      </view>
+    </view>
+    </view>
+     <!-- 关闭弹窗 -->
+     <view class="modal_cancle" bindtap="maskHide_tap" style="text-align: center;margin-top: 10rpx;">
+                <text class="cuIcon-roundclose" style="color: white;font-size: 70rpx;line-height: 66rpx;">×</text>
+            </view>
+</view>
+
+
+<!-- <Author></Author> -->
+<!-- <view wx:if="{{!UserInfoStatus}}" style="position: fixed;top: 0;right: 0;bottom: 0;left: 0;z-index: 1000;opacity: 0;">
+    <button style="position: fixed;top: 0;right: 0;bottom: 0;left: 0;bottom: #FF0;margin:0;width: 100vw;opacity: 0;"
+        open-type="getUserInfo" bindgetuserinfo="UserInfo_tap"></button>
+</view> -->

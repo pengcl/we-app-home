@@ -1,0 +1,9 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">春节不打烊</view>
+</cu-custom>
+
+<view wx:for="{{pageData.list}}" wx:key="index" wx:for-item="item">
+  <image src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-type="{{item.type}}" data-data="{{item.data}}"
+    data-url="{{item.url}}" bindtap="image_tap"></image>
+</view>

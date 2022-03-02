@@ -1,0 +1,65 @@
+<!-- 导航条 -->
+<cu-custom bgColor="bg-white" isBack="{{false}}">
+  <view slot="content">新世界生态圈</view>
+</cu-custom>
+<view class="u_column_nowrap" style="padding-bottom: 30rpx;">
+  <view wx:if="{{NWList.length>0}}">
+    <view wx:for="{{NWList}}" wx:for-item="item" wx:key="id" class="u_row_nowrap"
+      style="padding: 36rpx 36rpx 0 36rpx;background: white;" data-id="{{item.ID}}"
+      bindtap='{{(item.type=="K11")?"K11View_tap":(item.type=="h5")?"h5view_tap":"nwview_tap"}}' data-content="{{item.contentInfo}}"  data-wxid="{{item.remark}}"> 
+      <view>
+        <image src="{{domain}}{{item.imgurl}}" mode="aspectFit" lazy-load="false"
+          style="width: 266rpx;height: 188rpx;" />
+      </view>
+      <view class="u_column_nowrap" style="padding-left: 36rpx;justify-content: space-between;">
+        <view class="text_ellipsis2"
+          style="font-size:34rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(61,61,61,1);line-height:48rpx;">
+          {{item.title}}
+        </view>
+        <view
+          style="font-size:29rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(148,148,148,1);line-height:41rpx;">
+          {{item.createTime}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:else class="u_column_nowrap"
+    style="justify-content: center;align-items: center;background: #FEFDF7;height:50vh;">
+    暂无记录
+  </view>
+</view>
+<view style="height: 160rpx;">
+</view>
+<view class="box" style=" position:fixed;bottom:0;width: 100%;z-index: 10000;">
+  <view class="cu-bar tabbar bg-white">
+    <view class="action" bindtap='xinyunjia_tap'>
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar01b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">新赏家</view>
+    </view>
+    <view class="action" bindtap='im_tap'>
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar02b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">蕴服务</view>
+    </view>
+    <view class="action text-gray add-action" style="color:#C7A366;" bindtap="benefit_tap">
+      <button class="cu-btn cuIcon-choiceness bg-green shadow"
+        style="background:linear-gradient(180deg,rgba(249,231,168,1) 0%,rgba(235,205,166,1) 0%,rgba(201,160,99,1) 100%);"></button>
+        活动
+    </view>
+    <view class="action" bindtap="nw_tap">
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar03a.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-green" style="padding-top: 9rpx;">生态圈</view>
+    </view>
+    <view class="action" bindtap="my_tap">
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar04b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">我的</view>
+    </view>
+  </view>
+</view>

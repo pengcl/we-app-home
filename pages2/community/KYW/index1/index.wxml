@@ -1,0 +1,114 @@
+<!--pages2/community/KYW/index/index.wxml-->
+<view style="min-height: 100vh;">
+    <cu-custom bgColor="bg-white" isCustom="{{true}}">
+        <view slot="backText">返回</view>
+        <view slot="content">新世界·凯粤湾</view>
+    </cu-custom>
+    <!-- <video id="v1" class="video" src="image/kyw/video.mp4" autoplay="true" loop="true"></video> -->
+
+    <view wx:for="{{pageData.kywList}}" wx:key="index" wx:for-item="item">
+        <video wx:if="{{item.type=='video'}}" id="v_{{item.id}}" muted="{{true}}" show-mute-btn="{{true}}" class="video"
+            style="height: 584rpx;" src="{{item.imgurl}}" autoplay="true" loop="true"></video>
+        <image wx:elif="{{item.type=='img'}}" src='{{item.imgurl}}' mode='widthFix' style="width: 100%;"
+            data-vrurl="{{item.vrurl}}" bindtap="{{item.isVR?'vr_tap':''}}"></image>
+        <swiper wx:elif="{{item.type=='swiper'}}" style="height: {{item.height}}rpx;" class="screen-swiper square-dot"
+            indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+            <swiper-item wx:for="{{item.images}}" wx:key="index" wx:for-item="sitem" data-id="{{sitem.id}}">
+                <image src="{{sitem.imgurl}}" mode="widthFix" style="width: 100%;"></image>
+            </swiper-item>
+        </swiper>
+        <view wx:elif="{{item.type=='swiper_l'}}"
+            style="height: 401rpx;background-image:url({{item.imgurl}});background-repeat:no-repeat;background-position:right;background-size:124rpx 100%;">
+            <swiper style="height: 401rpx;width:626rpx;" class="screen-swiper square-dot" indicator-dots="true"
+                circular="true" autoplay="true" interval="5000" duration="500">
+                <swiper-item wx:for="{{item.images}}" wx:key="index" wx:for-item="sitem" data-id="{{sitem.id}}">
+                    <image src="{{sitem.imgurl}}" mode="widthFix" style="width: 100%;"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view wx:elif="{{item.type=='swiper_r'}}"
+            style="height: 401rpx;background-image:url({{item.imgurl}});background-repeat:no-repeat;background-position:left;background-size:124rpx 100%;padding-left: 124rpx;">
+            <swiper style="height: 401rpx;width:626rpx;" class="screen-swiper square-dot" indicator-dots="true"
+                circular="true" autoplay="true" interval="5000" duration="500">
+                <swiper-item wx:for="{{item.images}}" wx:key="index" wx:for-item="sitem" data-id="{{sitem.id}}">
+                    <image src="{{sitem.imgurl}}" mode="widthFix" style="width: 100%;"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+
+    <view id="YuYue" style="padding: 36rpx 36rpx 50vh;" bindtap="view_YuYue_tap">
+        <input class="myinput" placeholder="姓名" placeholder-style="color:gary" value="{{YuYue_UserName}}"
+            bindinput="YuYue_UserName_input"></input>
+        <input class="myinput" placeholder="手机" placeholder-style="color:gary" value="{{YuYue_UserPhone}}"
+            bindinput="YuYue_UserPhone_input"></input>
+        <picker bindchange="bindSalerPickerChange" value="{{index}}" range="{{SalerList}}" range-key="username">
+            <view class="myinput">
+                置业顾问：{{currSaler.username}}
+            </view>
+        </picker>
+        <!-- <view class="u_row_nowrap" style="padding-bottom: 36rpx;align-items: center;">
+        <checkbox value="Y" checked="" color="#cab08b" bindtap="YuYue_Cache_tap" />保存信息，下次自动填写
+    </view> -->
+        <view bindtap="YuYue_tap"
+            style="background: #cab08b;padding: 10rpx;text-align: center;font-size: 30rpx;line-height: 72rpx; color: #FFF;">
+            预约品鉴
+        </view>
+    </view>
+
+    <view class="u_column_nowrap" style="position: fixed;bottom: 220rpx;right: 22rpx;z-index: 999;width: 100rpx;">
+        <block wx:if="{{hasPhoneNum}}">
+            <view wx:for="{{pageData.exSideMenu}}" wx:key="index" wx:for-item="item">
+                <image src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-type="{{item.type}}"
+                    data-data="{{item.data}}" data-url="{{item.url}}" bindtap="exSideMenu_tap">
+                </image>
+            </view>
+        </block>
+        <block wx:else>
+            <button wx:for="{{pageData.exSideMenu}}" wx:key="index" wx:for-item="item" data-type="{{item.type}}"
+                data-data="{{item.data}}" data-url="{{item.url}}" open-type="getPhoneNumber"
+                bindgetphonenumber="exSideMenu_tap" style="width: 100%;padding-left:0;padding-right:0;">
+                <image src='{{item.imgurl}}' mode='widthFix' style="width: 100%;"></image>
+            </button>
+        </block>
+        <image src='{{domain}}image/kyw/icon_01.png' mode='widthFix' style="width: 100%;" bindtap="wechat_tap"></image>
+        <image src='{{domain}}image/kyw/icon_02.png' mode='widthFix' style="width: 100%;" bindtap="map_tap"></image>
+        <image src='{{domain}}image/kyw/icon_03.png' mode='widthFix' style="width: 100%;" bindtap="goYuYue"></image>
+    </view>
+
+    <!-- <view class="u_column_nowrap" style="position: fixed;bottom: 0;z-index: 999;width: 100vw;padding: 36rpx;">
+        <image src='{{domain}}image/i26.png' mode='widthFix' style="width: 100%;" bindtap="benefit12_tap"></image>
+    </view> -->
+
+    <view wx:if="{{pageData.banner!=null}}" class="u_column_nowrap"
+        style="position: fixed;bottom: 0;z-index: 900;width: 100vw;padding: 36rpx;">
+        <image src='{{pageData.banner.imgurl}}' mode='widthFix' style="width: 80%; height: 190px;margin:0 auto"
+            data-type="{{pageData.banner.type}}" data-data="{{pageData.banner.data}}" data-url="{{pageData.banner.url}}"
+            bindtap="banner_tap"></image>
+    </view>
+
+    <!-- 弹窗广告 -->
+    <view wx:if="{{pageData.adModal!=null}}" class="cu-modal {{adModalShow?'show':''}} ">
+        <view style="position: relative;display: inline-block;vertical-align: middle;width:80%;">
+            <view wx:if="{{hasPhoneNum}}">
+                <image src='{{pageData.adModal.imgurl}}' mode='widthFix' style="width:100%;border-radius: 26rpx;"
+                    data-type="{{pageData.adModal.type}}" data-data="{{pageData.adModal.data}}"
+                    data-url="{{pageData.adModal.url}}" bindtap="admodal_tap">
+                </image>
+            </view>
+
+            <button wx:else style="padding-left:0;padding-right:0;" data-type="{{pageData.adModal.type}}"
+                data-data="{{pageData.adModal.data}}" data-url="{{pageData.adModal.url}}" open-type="getPhoneNumber"
+                bindgetphonenumber="admodal_tap">
+                <image src='{{pageData.adModal.imgurl}}' mode='widthFix' style="width:100%;border-radius: 26rpx;">
+                </image>
+            </button>
+
+            <view class="action" bindtap="hideAdModal" style="text-align: center;margin-top: 20rpx;">
+                <text class="cuIcon-roundclose" style="color: white;font-size: 70rpx;line-height: 66rpx;"></text>
+            </view>
+        </view>
+    </view>
+
+</view>
+<!-- <Author></Author> -->

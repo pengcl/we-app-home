@@ -1,0 +1,36 @@
+<!-- 导航条 -->
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">更多动态</view>
+</cu-custom>
+<view>
+      <view class="u_column_nowrap" wx:for="{{ZhiYeGuWenFaBu}}" wx:for-item="item" wx:key="id"
+          style="padding:36rpx ;border: solid 1rpx #EAEAEA;">
+          <view class="u_row_nowrap" style="justify-content: space-between;align-items:center;">
+              <image src="{{item.gwavatar}}" style="width: 90rpx;height: 90rpx;border-radius: 50%;" mode="aspectFit"
+                  lazy-load="false" />
+              <view style="flex:1 1 auto;padding: 0 30rpx;">
+                  <view
+                      style="font-size:33rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(18,18,18,1);line-height:46rpx;">
+                      {{item.gwname}}</view>
+                  <view
+                      style="font-size:29rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(148,148,148,1);line-height:41rpx;">
+                      {{item.date}}</view>
+              </view>
+              <image style="width: 60rpx;height: 60rpx;" src="{{domain}}/image/i15.png" mode="aspectFit"
+                  lazy-load="false" />
+              <image style="width: 60rpx;height: 60rpx;margin-left: 35rpx;" src="{{domain}}/image/i16.png"
+                  mode="aspectFit" lazy-load="false" />
+          </view>
+          <view
+              style="padding:40rpx 0 35rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(0,0,0,1);line-height:42rpx;">
+              {{item.content}}
+          </view>
+          <view id='ZhiYeGuWenFaBu_img' class="u_row_wrap" style="justify-content:space-between;">
+              <view wx:for="{{item.imageurl}}" wx:for-item="img" wx:key="index"
+                  style="width: 213rpx;height: 213rpx;margin-bottom:20rpx;">
+                  <image style="width: 100%;height: 100%;;" src="{{img}}" mode="aspectFit" lazy-load="false" />
+              </view>
+          </view>
+      </view>
+</view>

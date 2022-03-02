@@ -1,0 +1,58 @@
+<!--pages/index/index2.wxml-->
+<!-- 头部 -->
+<view style="position: relative; background:#E9E9E9;opacity:0.75;width:100%;height: 268rpx;">
+    <image style="width:100%;height: 268rpx;" src="{{domain}}/image/indexv2_head.png" mode="scaleToFill">
+    </image>
+    <view style="height: 268rpx;position: absolute; top: 0; left: 0;">
+        <view class="u_column_nowrap" style="justify-content:flex-end;padding:134rpx 36rpx 36rpx;">
+            <view class="u_row_nowrap" style="align-items:center;">
+                <image src="{{domain}}/image/logo.png" style="width: 54rpx;height: 42rpx;" mode="aspectFit"
+                    lazy-load="false">
+                </image>
+                <view
+                    style="font-size:40rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(82,11,15,1);line-height:56rpx;padding-left:7rpx;">
+                    新赏家-置业大赏
+                </view>
+            </view>
+            <view
+                style="margin-top: 7rpx;font-size:25rpx;font-family:PingFangSC-Light,PingFang SC;font-weight:300;color:rgba(82,11,15,1);line-height:36rpx;">
+                新中华南大湾区无忧置业平台
+            </view>
+        </view>
+    </view>
+</view>
+
+<view style="height: 700vh;background: #F00;" hover-class="none" hover-stop-propagation="false">
+    
+</view>
+
+<view class="cu-modal {{adModalShow?'show':''}} ">
+    <view style="position: relative;display: inline-block;vertical-align: middle;width:80%;">
+             <view class="action" bindtap="hideAdModal" style="text-align: right;">
+                 <text class="cuIcon-roundclose" style="color: white;font-size: 70rpx;line-height: 66rpx;"></text>
+             </view>
+             <view style="margin-right: 35rpx;border-right: solid 1px white;height: 20rpx;">
+                 
+             </view>
+               
+             <view >
+                 <image src='../../images/ad.png' mode='widthFix' style="width:100%;border-radius: 26rpx;"></image>
+             </view>
+  
+      
+   
+      
+         <!-- <view class="cu-dialog">
+             <view class="bg-img" style="background-image: url('../../images/ad.png');height:80vh;">
+                 <view class="cu-bar justify-end text-white" style="">
+                     <view class="action" bindtap="hideModal">
+                         <text class="cuIcon-close "></text>
+                     </view>
+                 </view>
+             </view>
+
+         </view> -->
+    </view>
+      
+    
+</view>

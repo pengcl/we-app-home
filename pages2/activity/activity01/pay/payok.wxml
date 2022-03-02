@@ -1,0 +1,69 @@
+<view style="min-height: 100vh;">
+	<cu-custom bgColor="bg-white" isCustom="{{true}}">
+		<view slot="backText">返回</view>
+		<view slot="content">权益详情</view>
+	</cu-custom>
+	<view>
+		<view>
+			<image src='{{bgimage}}' style='width:750rpx;z-index:-1' mode="widthFix"></image>
+			<view style='display: flex;margin: -430rpx 0 0 80rpx;'>
+				<view>
+					<open-data type='userAvatarUrl' style='overflow: hidden;display: block;border-radius: 200rpx;width: 136rpx;height: 136rpx;'></open-data>
+				</view>
+				<view style='font-size:40rpx;font-weight:400;color:rgba(127,37,37,1);line-height:56rpx;letter-spacing:1rpx;margin-bottom: 20rpx;margin-left:20rpx'>
+					<open-data type='userNickName'></open-data>
+					<view style='margin-top:20rpx'>{{orderInfo.UserPhone}}</view>
+				</view>
+
+			</view>
+		</view>
+		<view style='margin: 50rpx 0 0 240rpx;font-size:36rpx;font-weight:400;'>{{orderInfo.endTime}}到期</view>
+		<view style='width:687rpx;height:119rpx;background:linear-gradient(to right,rgba(199,163,102,1) 0%,rgba(235,224,160,1) 50%,rgba(198,162,101,1) 100%);box-shadow:0rpx 5rpx 3rpx 2rpx rgba(224,205,161,0.59);border-radius:5rpx;text-align:center;font-size:40rpx;font-weight:400;color:rgba(127,64,37,1);line-height:119rpx;letter-spacing:1rpx;margin: 20rpx 0 0 30rpx' bindtap="qrcode_tap">出示我的十二大权益码</view>
+	</view>
+
+	<view style='margin-top: 30rpx;'>
+		<block wx:for='{{orderInfo.hexiaolst}}' wx:for-item='item' wx:key="index">
+			<view style="display: flex;flex-direction: column;" bindtap="qy_tap" data-id='{{item.UseM}}' data-use='{{item.IsUse}}' data-enbale='{{item.IsEnable}}'>
+				<image src='{{item.Img}}' style='width:100%;' mode='widthFix' data-id='{{item.UseM}}'></image>
+				<text wx:if='{{item.IsUse}}' style='position: absolute;margin:{{index==0?86:60}}rpx 0 0 550rpx;'>已使用</text>
+				<text wx:else style='position: absolute;margin: {{index==0?86:60}}rpx 0 0 550rpx;'>未使用</text>
+			</view>
+		</block>
+	</view>
+
+	<!-- <view bindtap="detail_tap">
+  <image src='{{detailimg}}' style='width: 58rpx;height: 180rpx;position: fixed;bottom: 500rpx;margin-left: 696rpx;'></image>
+</view> -->
+
+	<view class="u_column_nowrap" style="position: fixed;bottom: 220rpx;right: 22rpx;z-index: 999;width: 100rpx;align-items: flex-end;">
+
+		<image src='{{item.imgurl}}' mode='widthFix' style="width: 100%;margin-bottom: 30rpx;" wx:for="{{pageData.exSideMenu}}" wx:key="index" wx:for-item="item" data-type="{{item.type}}" data-data="{{item.data}}" data-url="{{item.url}}" bindtap="exSideMenu_tap"></image>
+		<image src='{{detailimg}}' mode='widthFix' style="width:  58rpx;" bindtap="detail_tap">
+		</image>
+	</view>
+
+
+
+	<view style='height:200rpx'></view>
+	<view style='position: fixed;bottom: 0;margin: 0 0 0 40rpx;' bindtap="assist_tap">
+		<image src='{{assit}}' style='width: 680rpx;' mode='widthFix'></image>
+	</view>
+
+	<!-- 二维码弹窗 -->
+	<view class='mask' bindtap="mask_tap" style='display:{{maskdisplay}}'>
+		<image src='{{qrcode}}' style='width:500rpx;margin: 500rpx 0 0 125rpx;' mode='widthFix'></image>
+	</view>
+
+	<!-- 弹窗广告 -->
+	<view wx:if="{{pageData.adModal!=null}}" class="cu-modal {{adModalShow?'show':''}} ">
+		<view style="position: relative;display: inline-block;vertical-align: middle;width:80%;">
+			<view>
+				<image src='{{pageData.adModal.imgurl}}' mode='widthFix' style="width:100%;border-radius: 26rpx;" data-type="{{pageData.adModal.type}}" data-data="{{pageData.adModal.data}}" data-url="{{pageData.adModal.url}}" bindtap="admodal_tap">
+				</image>
+			</view>
+			<view class="action" bindtap="hideAdModal" style="text-align: center;margin-top: 20rpx;">
+				<text class="cuIcon-roundclose" style="color: white;font-size: 70rpx;line-height: 66rpx;"></text>
+			</view>
+		</view>
+	</view>
+</view>

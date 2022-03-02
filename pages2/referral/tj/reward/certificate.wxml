@@ -1,0 +1,128 @@
+<!-- 引入wxs脚本 -->
+<!-- <wxs module="tool" src='check.wxs'></wxs> -->
+
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">被推荐人举证</view>
+</cu-custom>
+<view>
+  <image src='{{bgimg}}' style='width:750rpx;' mode="widthFix"></image>
+  <view style='width: 700rpx;margin: 0 26rpx;'>
+    <!-- 填写信息 -->
+    <view>
+      <!-- 姓名 -->
+      <view>
+        <view class="item_row">
+          <text class="item_name">姓名</text>
+          <input type="text" placeholder="请输入您的真实姓名" placeholder-style="color:#CCCCCC" maxlength="8" class="item_font" bindinput="bindUserName" value="{{userName}}" />
+        </view>
+        <view class='item_line'></view>
+      </view>
+      <!-- 性别 -->
+      <view>
+        <view class="item_row">
+          <text class="item_name">性别</text>
+          <view class="item_font" style='display: flex;'>
+            <view bindtap="ChangeSex_tap" data-value="M">
+              <image src='{{iconM}}' style='width:24rpx' mode='widthFix'></image>
+              <text style='margin-left: 10rpx;'>先生</text>
+            </view>
+            <text style='margin-left: 30rpx;margin-right:30rpx'>/</text>
+            <view bindtap="ChangeSex_tap" data-value='W'>
+              <image src='{{iconW}}' style='width:24rpx' mode="widthFix"></image>
+              <text style='margin-left: 10rpx;'>女士</text>
+            </view>
+          </view>
+        </view>
+        <view class='item_line'></view>
+      </view>
+      <!-- 手机号 -->
+      <view>
+        <view class="item_row">
+          <text class="item_name">手机号</text>
+          <input type="number" placeholder="请授权手机号" placeholder-style="color:#CCCCCC" maxlength="11"
+          class="item_font" disabled="{{true}}" value="{{phonenum}}" />
+          <!-- <button
+            style='width: 200rpx;height: 42rpx;font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #BC9C63;line-height: 42rpx;background: white;'
+            open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权手机</button> -->
+        </view>
+        <view class='item_line'></view>
+      </view>
+      <!-- 身份证号 -->
+      <view>
+        <view class="item_row">
+          <text class="item_name">身份证号</text>
+          <input type="text" placeholder="请输入本人身份证号码" placeholder-style="color:#CCCCCC" maxlength="18" class="item_font"
+          bindinput="bindsfzno" value="{{sfzno}}" />
+        </view>
+        <view class='item_line'></view>
+      </view>
+    </view>
+    <!-- 上传资料 -->
+    <view>
+      <view class="item_imgView"> </view>
+      <view style='width: 697rpx;height: 287rpx;background: #FFFFFF;'>
+        <!-- 上传图片 -->
+        <view wx:for='{{picsthumb}}' class="uploadView">
+          <image style='width: 697rpx;height:287rpx' src='{{item}}' bindtap="preview_tap" data-value="1"></image>
+        </view>
+        <image src='{{icon2}}' class="uploadDelete" style='display:{{deleteVisible}};'
+          mode='widthFix' bindtap="delete_tap" data-value="1"></image>
+        <image src='{{img_cert1}}' style='width: 697rpx;display:{{uploadVisible}}' bindtap="chooseImage" data-value="1" mode='widthFix'>
+        </image>
+      </view>
+    </view>
+    <view>
+      <view class="item_imgView"> </view>
+      <view style='width: 697rpx;height: 287rpx;background: #FFFFFF;'>
+        <!-- 上传图片2 -->
+        <view wx:for='{{picsthumb2}}' class="uploadView">
+          <image style='width: 697rpx;height:287rpx' src='{{item}}' bindtap="preview_tap" data-value="2"></image>
+        </view>
+        <image src='{{icon2}}' class="uploadDelete"style='display:{{deleteVisible2}};'
+          mode='widthFix' bindtap="delete_tap" data-value="2"></image>
+        <image src='{{img_cert2}}' style='width: 697rpx;display:{{uploadVisible2}}' bindtap="chooseImage" data-value="2" mode='widthFix'>
+        </image>
+      </view>
+    </view>
+    <view>
+      <view class="item_imgView"> </view>
+      <view style='width: 697rpx;height: 287rpx;background: #FFFFFF;'>
+        <!-- 上传图片3 -->
+        <view wx:for='{{picsthumb3}}' class="uploadView">
+          <image style='width: 697rpx;height:287rpx' src='{{item}}' bindtap="preview_tap" data-value="3" ></image>
+        </view>
+        <image src='{{icon2}}' class="uploadDelete"style='display:{{deleteVisible3}};'
+          mode='widthFix' bindtap="delete_tap" data-value="3"></image>
+        <image src='{{img_cert3}}' style='width: 697rpx;display:{{uploadVisible3}}' bindtap="chooseImage" data-value="3" mode='widthFix'>
+        </image>
+      </view>
+    </view>
+  </view>
+  <!-- 提交 -->
+  <view style='width:100%;height:200rpx'></view>
+  <view>
+    <view
+      style='width:750rpx;height:150rpx;background:rgba(255,255,255,1);position:fixed;bottom:0;display:flex;justify-content: space-around;'>
+      <view
+        style='width:702rpx;height:88rpx;background:#BC9C63;box-shadow:0rpx 5rpx 3rpx 2rpx rgba(224,205,161,0.59);border-radius:5rpx;text-align:center;font-size:40rpx;font-weight:500;color:#FFFFFF;line-height:88rpx;letter-spacing:1rpx;margin: 18px 0 0 0rpx;position: absolute;'
+        bindtap="submit_tap">提交</view>
+    </view>
+  </view>
+
+  <!-- 遮罩层 -->
+  <!-- <view class='mask' style='display:{{maskDisplay}};flex-direction: column;' catchtouchmove='true'>
+    <view
+      style='width: 528rpx;height: 348rpx;background: #FFFFFF;border-radius: 16rpx;margin-left:112rpx;    margin-top: 600rpx;display: flex;flex-direction: column;align-items: center;justify-content: space-evenly;'>
+      <text
+        style='height: 66rpx;font-size: 34rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #0E0E0E;line-height: 48rpx;'>注册信息授权</text>
+      <text
+        style='height: 49rpx;font-size: 24rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #949292;line-height: 33rpx;'>为确保注册有效性，请授权头像、昵称</text>
+      <view>
+        <button
+          style='width: 201rpx;height: 77rpx;background: #BC9C63;border-radius: 3rpx;font-size: 34rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #FFFFFF;line-height: 44rpx;display: flex;justify-content: center;align-items: center;'
+          open-type="getUserInfo" bindgetuserinfo="UserInfo_tap">授权信息</button>
+      </view>
+    </view>
+  </view> -->
+</view>

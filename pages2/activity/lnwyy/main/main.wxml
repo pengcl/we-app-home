@@ -1,0 +1,28 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">仲夏夜之梦</view>
+</cu-custom>
+<view style='width:100%;overflow-x:hidden'>
+	<view>
+		<image src='{{activityInfo.activBanner1}}' style='width:100%;' mode='widthFix'></image>
+	</view>
+
+	<view style="display: flex;justify-content: flex-end;padding-right: 15px;">
+		<image src="{{button}}" style='width:100rpx;display: flex;position: fixed;bottom: 300rpx;' mode='widthFix' bindtap="createOrder">
+		</image>
+		<image src="{{button1}}" style='width:100rpx;display: flex;position: fixed;bottom: 180rpx;' mode='widthFix' bindtap="lntj_tap">
+		</image>
+	</view>
+	<view style='display: flex;justify-content: space-around;'>
+		<image src='{{button2}}' style='width:600rpx;display: flex;position: fixed;bottom: 30rpx;' mode='widthFix' bindtap="lnwyy_tap"></image>
+	</view>
+	<!-- 底部 -->
+	<!-- <view style='height:146rpx'></view>
+	<view style='width:750rpx;height:153rpx;background:rgba(255,255,255,1);display: flex;position: fixed;bottom: 0rpx;'>
+		<button style="width:323rpx;height:83rpx;background:linear-gradient(180deg,rgba(234,199,156,1) 0%,rgba(232,197,151,1) 0%,rgba(208,167,109,1) 100%);margin: 34rpx 0 0 27rpx;color:#ffffff;box-shadow:0rpx 5rpx 3rpx 2rpx rgba(224,205,161,0.59);border-radius:5rpx;" bindtap="createOrder">
+			我要发起活动
+		</button>
+		<button style="width:323rpx;height:83rpx;background:linear-gradient(180deg,rgba(234,199,156,1) 0%,rgba(232,197,151,1) 0%,rgba(208,167,109,1) 100%);margin: 34rpx 0 0 27rpx;color:#ffffff;box-shadow:0rpx 5rpx 3rpx 2rpx rgba(224,205,161,0.59);border-radius:5rpx;" bindtap="lntj_tap">推荐活动</button>
+	</view> -->
+</view>
+<Author needUserInfo="{{true}}"></Author>

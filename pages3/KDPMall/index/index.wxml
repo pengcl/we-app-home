@@ -1,0 +1,133 @@
+<wxs module="filter" src="../filter.wxs"></wxs>
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">积分商城</view>
+</cu-custom>
+<view class="page">
+    <view class="weui-cell">
+        <view wx:if="{{isKDP}}" style="color: #AA7F42;" class="weui-cell__bd">
+            尊敬的新中会会员，您好！
+        </view>
+        <view bindtap="xsjcrm_tap" wx:if="{{!isKDP}}" style="color: #AA7F42;" class="weui-cell__bd">
+            客户您好，点击此处注册新中会会员，享受会员权益>>
+        </view>
+        <view wx:if="{{isKDP}}" class="weui-cell__ft">
+            <view class="points">
+                <image src="../../images/k.png"></image>
+                <view class="num">我的积分：{{filter.formatAmount(points)}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="page-section page-section-swiper swiper">
+        <swiper class="banners" previous-margin="30rpx" next-margin="30rpx" indicator-dots="{{false}}" autoplay="{{true}}" duration="500">
+            <block wx:for="{{swipers}}" wx:key="*this">
+                <swiper-item>
+                    <view bindtap="imgTap" data-format="{{item.dataformat}}" data-url="{{item.imgtitle}}" class="swiper-item {{item}}">
+                        <image src="{{item.imgurl}}"></image>
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class="navs weui-grids">
+        <view bindtap="xsjcrm_tap" class="weui-grid">
+            <view class="weui-grid__label">会员注册</view>
+        </view>
+        <view bindtap="webview" data-url="https://mp.weixin.qq.com/s?__biz=MzA5NDQ1MTYzMQ==&mid=2651433203&idx=1&sn=6f490c6b9f99b9ffd99b504c5c93184b&chksm=8bb36a33bcc4e325f68590b58a42fd178280e6f9269bd1595e928b44eb45beae2155890459c8&token=527021363&lang=zh_CN#rd" class="weui-grid">
+            <view class="weui-grid__label">玩转积分</view>
+        </view>
+        <view bindtap="soon" data-url="https://tests.veevlink.com/custom/NWCLProject/dist-copy/index.html#/memberEquity?type=home&appid=wx1f48551b68b0bacf&v=1" class="weui-grid">
+            <view class="weui-grid__label">会员权益</view>
+        </view>
+        <view bindtap="soon" data-url="https://tests.veevlink.com/custom/NWCLProject/dist-copy/index.html#/privilege?type=home&appid=wx1f48551b68b0bacf&v=1" class="weui-grid">
+            <view class="weui-grid__label">尊享礼遇</view>
+        </view>
+    </view>
+
+    <view class="page-section page-section-areas">
+        <view bindtap="setRegion" data-key="regionCode" data-value="{{null}}" class="{{params.regionCode === null ? 'current' : ''}}">全部推荐</view>
+        <view wx:for="{{regions}}" bindtap="setRegion" data-key="regionCode" data-value="{{item.regioncode}}" wx:key="regioncode" class="{{params.regionCode === item.regioncode ? 'current' : ''}}">
+            {{item.regionname}}
+        </view>
+    </view>
+    <view class="weui-search-bar {{inputShowed ? 'weui-search-bar_focusing' : ''}}" id="searchBar">
+        <form class="weui-search-bar__form">
+            <view class="weui-search-bar__box">
+                <i class="weui-icon-search"></i>
+                <input disabled="{{filtersShow}}" type="text" class="weui-search-bar__input" placeholder-style="color: rgba(38, 50, 56, 0.3);" placeholder="请输入商品关键词搜索" value="{{params.goodsName}}" bindinput="inputTyping" />
+                <view aria-role="button" aria-label="清除" class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput"></view>
+            </view>
+        </form>
+        <view aria-role="button" class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view>
+    </view>
+
+    <view class="filters weui-grids">
+        <view class="weui-grid {{filterType === 0 ? 'curr' : ''}}">
+            <view bindtap="setDefult" class="weui-grid__label">推荐</view>
+        </view>
+        <view class="weui-grid {{(filterType === 1 || filterType === 2) ? 'curr' : ''}}">
+            <view bindtap="setPointsFilter" class="weui-grid__label {{filterType === 1 ? 'up' : filterType === 2 ? 'down' : ''}}">积分<view class="arrow"></view>
+            </view>
+        </view>
+        <view class="weui-grid {{filterType === 3 ? 'curr' : ''}}">
+            <view class="weui-grid__label" bindtap="showFilters">
+                <image src="../../images/filter.png"></image>筛选
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{filterGoods && filterGoods.length === 0}}" class="nodata">
+        <image src="/pages3/images/nodata.png"></image>
+    </view>
+    <view class="goods weui-grids">
+        <view data-url="/pages3/KDPMall/item/item?guid={{item.goodsguid}}" bindtap="link" wx:for="{{filterGoods}}" wx:key="*this" class="weui-grid">
+            <view class="weui-grid__image">
+                <image src="{{item.imgurl}}"></image>
+            </view>
+            <view class="weui-grid__label">
+                <view class="name">{{item.goodsname}}</view>
+                <view class="address">使用地点：{{item.address}}</view>
+                <view class="points">
+                    <image src="../../images/k.png"></image>
+                    <view class="num">{{filter.formatAmount(item.kdppoints)}}积分</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{loading}}" class="weui-loadmore" aria-role="alert">
+        <text aria-hidden="true" aria-label="加载中" class="weui-primary-loading" aria-role="img">
+            <text class="weui-primary-loading__dot"></text>
+        </text>
+        <text class="weui-loadmore__tips">正在加载</text>
+    </view>
+    <view wx:if="{{!loading && goods.length === filterGoods.length}}"  class="weui-loadmore weui-loadmore_line">
+        <text class="weui-loadmore__tips">暂无数据</text>
+    </view>
+</view>
+<view data-url="/pages3/KDPMall/order/list/list" bindtap="link" class="float-btn">
+    <image src="/pages3/images/record.png"></image>
+</view>
+<page-container class="filters-container" bindenter="onEnter" bind:afterleave="onLeave" duration="{{duration}}" position="position" show="{{filtersShow}}" overlay="{{true}}" duration="{{300}}" position="bottom" close-on-slide-down="{{false}}">
+    <view class="detail-page">
+        <view wx:for="{{filters}}" wx:for-item="i" wx:key="*code" class="filters-item">
+            <view class="filters-item__label">{{i.name}}</view>
+            <view class="filters-item__items">
+                <view class="weui-grids">
+                    <view catchtap="setParams" data-key="{{i.code}}" data-value="{{item.code}}" wx:for="{{i.items}}" wx:key="code" class="{{item.selected ? 'selected' : ''}} weui-grid">
+                        <view class="weui-grid__label">{{item.label}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="detail-page-footer">
+        <view class="weui-grids">
+            <view class="weui-grid">
+                <view catchtap="cancelFilter" class="weui-grid__label">重置筛选项</view>
+            </view>
+            <view class="weui-grid">
+                <view catchtap="confirmFilter" class="weui-grid__label">确定</view>
+            </view>
+        </view>
+    </view>
+</page-container>
+<Author></Author>

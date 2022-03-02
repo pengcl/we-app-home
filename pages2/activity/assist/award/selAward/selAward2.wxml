@@ -1,0 +1,6 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">领取成功</view>
+</cu-custom>
+<view><image src='{{image}}' style='width:100%' mode='widthFix'></image>
+</view>

@@ -1,0 +1,191 @@
+<!--pages/index/index.wxml-->
+<!-- 头部 -->
+<view style="position: relative; background:#E9E9E9;opacity:0.75;width:100%;height: 268rpx;">
+  <image style="width:100%;height: 268rpx;" src="{{domain}}/image/indexv2_head.png" mode="scaleToFill">
+  </image>
+  <view style="height: 268rpx;position: absolute; top: 0; left: 0;">
+    <view class="u_column_nowrap" style="justify-content:flex-end;padding:134rpx 36rpx 36rpx;">
+      <view class="u_row_nowrap" style="align-items:center;">
+        <image src="{{domain}}/image/logo.png" style="width: 54rpx;height: 42rpx;" mode="aspectFit" lazy-load="false">
+        </image>
+        <view
+          style="font-size:40rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(82,11,15,1);line-height:56rpx;padding-left:7rpx;">
+          新赏家-置业大赏
+        </view>
+      </view>
+      <view
+        style="margin-top: 7rpx;font-size:25rpx;font-family:PingFangSC-Light,PingFang SC;font-weight:300;color:rgba(82,11,15,1);line-height:36rpx;">
+        新中华南大湾区无忧置业平台
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 轮播图 -->
+<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000"
+  duration="500">
+  <swiper-item wx:for="{{info.swiperList}}" wx:key='id'>
+    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    <!-- <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video> -->
+  </swiper-item>
+</swiper>
+<!-- 工具 -->
+<view style="background: url({{domain}}/image/indexv2_bg_black.png) repeat-x;padding: 16rpx 20rpx;">
+  <view class="u_row_nowrap tools_view">
+    <view class="u_column_nowrap tools_item" bindtap="interview_tap">
+      <image class="tools_item_img" src="{{domain}}/image/i21.png" mode="aspectFill"></image>
+      <view class="tools_item_title">
+        专家访谈
+      </view>
+      <view class="tools_item_subtitle">
+        置业智慧
+      </view>
+    </view>
+    <view class="u_column_nowrap tools_item" bindtap="discount_tap">
+      <image class="tools_item_img" src="{{domain}}/image/i22.png" mode="aspectFill"></image>
+      <view class="tools_item_title">
+        优惠活动
+      </view>
+      <view class="tools_item_subtitle">
+        最新楼盘活动
+      </view>
+    </view>
+    <view class="u_column_nowrap tools_item" bindtap="">
+      <button open-type="contact" style='border: 0;height: 95rpx;background-color: white;width: 95rpx;'>
+        <image class="tools_item_img" src="{{domain}}/image/i23.png" mode="aspectFill"
+          style='position:absolute;margin: -16rpx 0 0 -50rpx;'></image>
+      </button>
+      <view class="tools_item_title">
+        在线客服
+      </view>
+      <view class="tools_item_subtitle">
+      </view>
+    </view>
+    <view class="u_column_nowrap tools_item" bindtap="calculator_tap">
+      <image class="tools_item_img" src="{{domain}}/image/i24.png" mode="aspectFill"></image>
+      <view class="tools_item_title">
+        房贷计算器
+      </view>
+      <view class="tools_item_subtitle">
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 搜索 -->
+<view class="sreach_view u_row_nowrap">
+  <picker bindchange="areaData_Change" value="{{areaIndex}}" range="{{areaData}}">
+    <view class="u_row_nowrap" style="justify-content: space-between;align-items: center;">
+      <view class="u_row_nowrap" style="justify-content:flex-start;align-items: center;">
+        <image style="width:22rpx;height: 30rpx;" src="{{domain}}/image/i25.png" mode="aspectFill"></image>
+        <view
+          style="font-size:30rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(0,0,0,1);line-height:42rpx;padding:0 10rpx;">
+          {{areaData[areaIndex]}}
+        </view>
+        <text class="cuIcon-unfold lg" style="color: #000;"></text>
+      </view>
+    </view>
+  </picker>
+  <view class="u_row_nowrap sreach_button">
+    <view class="cuIcon-search lg" style="color: #000;padding: 0 10rpx 0 75rpx;line-height:42rpx;"></view>
+    <view
+      style="font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(135,135,135,1);line-height:42rpx;">
+      请输入楼盘名/地址
+    </view>
+  </view>
+</view>
+
+<!-- 公告 -->
+<view style="padding:0 47rpx 36rpx;">
+  <view class="u_row_nowrap"
+    style="height:62rpx;background:rgba(253,232,211,1);border-radius:31rpx;align-items: center;">
+    <text class="cuIcon-notificationfill lg"
+      style="color: #BEA15B;padding: 0 12rpx 0 16rpx;font-size:25rpx;line-height:36rpx;"></text>
+    <view class="text_ellipsis"
+      style="width: 558rpx;font-size:25rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(96,86,65,1);line-height:36rpx;">
+      {{info.Notice}}
+    </view>
+
+  </view>
+</view>
+
+<!-- 项目列表 -->
+<view style="padding: 0 20rpx 20rpx 20rpx;">
+  <view wx:for="{{info.CommunityList}}" wx:for-item="item" wx:key='id' class="u_column_nowrap"
+    style="background: #F1F1F1;padding: 25rpx 26rpx 27rpx 15rpx;margin-bottom: 20rpx;">
+    <view class="u_row_nowrap">
+      <view>
+        <image src="{{item.imgurl}}" mode="scaleToFill" style="width: 349rpx;height: 188rpx;" lazy-load="false">
+        </image>
+      </view>
+      <view class="u_column_nowrap" style="padding-left:22rpx;align-items:flex-start;">
+        <view class="comm_name">
+          {{item.name}}
+        </view>
+        <view class="comm_desc">
+          {{item.desc}}
+        </view>
+        <view class="comm_subDesc">
+          {{item.subDesc}}
+        </view>
+        <view class="u_row_wrap" style="align-self: flex-end;justify-content: start;">
+          <view wx:for="{{item.tags}}" wx:for-item="tag" wx:key="index" class="comm_tag">
+            {{tag}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="u_row_nowrap" style="justify-content: center;align-items: center;margin-top: 21rpx;">
+      <view>
+        {{item.follower}}人关注
+      </view>
+      <view style="flex: 1 1 auto;">
+        <view class="cu-avatar-group" style="direction: ltr;padding:0 36rpx;">
+          <view class="cu-avatar round lg" wx:for="{{item.followerAvatarList}}" wx:for-item="avat" wx:key="index"
+            style="background-image:url({{avat}});width: 48rpx;height: 48rpx;">
+          </view>
+        </view>
+      </view>
+      <view class="comm_watch" data-commid="{{item.id}}" bindtap='comm_watch_tap'>
+        线 上 看 房
+      </view>
+    </view>
+
+  </view>
+
+</view>
+
+<view style="height: 160rpx;">
+</view>
+<view class="box itabbar">
+  <view class="cu-bar tabbar bg-white">
+    <view class="action" bindtap='xinyunjia_tap'>
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar01a.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-green" style="padding-top: 9rpx;">新赏家</view>
+    </view>
+    <view class="action" bindtap='im_tap'>
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar02b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">悦沟通</view>
+    </view>
+    <view class="action text-gray add-action" style="color:#C7A366;" bindtap="benefit_tap">
+      <button class="cu-btn cuIcon-choiceness bg-green shadow"
+        style="background:linear-gradient(180deg,rgba(249,231,168,1) 0%,rgba(235,205,166,1) 0%,rgba(201,160,99,1) 100%);"></button>
+      权益
+    </view>
+    <view class="action" bindtap="nw_tap">
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar03b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">生态圈</view>
+    </view>
+    <view class="action" bindtap="my_tap">
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar04b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">我的</view>
+    </view>
+  </view>
+</view>

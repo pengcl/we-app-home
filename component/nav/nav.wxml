@@ -1,0 +1,6 @@
+  <view class='nav bg-white' style='height:{{navBarHeight}}px'>
+    <!-- <view class='nav-goback' bindtap="back">{{'返回'}}</view> -->
+    <view class='nav-title'>
+      <slot name="content"></slot>
+    </view>
+  </view>

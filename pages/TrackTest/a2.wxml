@@ -1,0 +1,12 @@
+<!--pages/TrackTest/a2.wxml-->
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">详情</view>
+</cu-custom>
+<view style="display: flex;justify-content: center;align-items: center;height: 100vh;flex-flow: column ;">
+    <text>a2</text>
+    <view style="padding: 30rpx;background-color: aqua;" bindtap='go_tap'>
+        go a1
+    </view>
+</view>
+

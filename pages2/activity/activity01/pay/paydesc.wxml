@@ -1,0 +1,10 @@
+<!--pages2/activity/activity01/pay/paydesc.wxml-->
+<view style="min-height: 100vh;">
+  <cu-custom bgColor="bg-white" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">活动详情</view>
+  </cu-custom>
+  <view wx:for="{{pageData}}" wx:key="id" wx:for-item="item">
+    <image src="{{item.url}}" mode="widthFix" style="width: 100%;"></image>
+  </view>
+</view>

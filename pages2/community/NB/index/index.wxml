@@ -1,0 +1,269 @@
+<view>
+    <cu-custom bgColor="bg-white" isBack="{{false}}" isCustom="{{true}}">
+        <view slot="backText">返回</view>
+        <view slot="content">宁铸中心</view>
+    </cu-custom>
+
+    <!-- 顶部按钮 -->
+    <!-- <i-tabs current="{{ current }}" color="#BE9E61" style="position:fixed;z-index: 999;width: 100%;"> -->
+        <!-- <i-tab key="t1" title="项目介绍" bindtap="click1"></i-tab>
+        <i-tab key="t2" title="项目楼书" bindtap="click2"></i-tab> -->
+        <!-- <i-tab key="t3" title="区域头条" bindtap="click3"></i-tab> -->
+    <!-- </i-tabs> -->
+
+    <!-- 中部内容 -->
+    <view class="list" scroll-y="true" >
+        <view class="xiangmu" >
+        <!-- <view class="xiangmu" style="margin-top:100rpx"> -->
+            <view wx:for="{{pageData.list}}" wx:key="index" wx:for-item="item">
+                <video wx:if="{{item.type=='video'}}" id="v_{{item.id}}" muted="{{true}}" show-mute-btn="{{true}}"
+                    class="video" style="height: 584rpx;" src="{{item.imgurl}}" autoplay="true" loop="true"></video>
+                <image wx:elif="{{item.type=='img'}}" src='{{item.imgurl}}' mode='widthFix' style="width: 100%;"
+                    data-vrurl="{{item.vrurl}}" bindtap="{{item.isVR?'vr_tap':''}}"></image>
+                <swiper wx:elif="{{item.type=='swiper'}}" style="height: {{item.height}}rpx;"
+                    class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true"
+                    interval="5000" duration="500">
+                    <swiper-item wx:for="{{item.images}}" wx:key="index" wx:for-item="sitem" data-id="{{sitem.id}}">
+                        <image src="{{sitem.imgurl}}" mode="widthFix" style="width: 100%;"></image>
+                    </swiper-item>
+                </swiper>
+                <view wx:elif="{{item.type=='swiper_l'}}"
+                    style="height: 401rpx;background-image:url({{item.imgurl}});background-repeat:no-repeat;background-position:right;background-size:124rpx 100%;">
+                    <swiper style="height: 401rpx;width:626rpx;" class="screen-swiper square-dot" indicator-dots="true"
+                        circular="true" autoplay="true" interval="5000" duration="500">
+                        <swiper-item wx:for="{{item.images}}" wx:key="index" wx:for-item="sitem" data-id="{{sitem.id}}">
+                            <image src="{{sitem.imgurl}}" mode="widthFix" style="width: 100%;"></image>
+                        </swiper-item>
+                    </swiper>
+                </view>
+                <view wx:elif="{{item.type=='swiper_r'}}"
+                    style="height: 401rpx;background-image:url({{item.imgurl}});background-repeat:no-repeat;background-position:left;background-size:124rpx 100%;padding-left: 124rpx;">
+                    <swiper style="height: 401rpx;width:626rpx;" class="screen-swiper square-dot" indicator-dots="true"
+                        circular="true" autoplay="true" interval="5000" duration="500">
+                        <swiper-item wx:for="{{item.images}}" wx:key="index" wx:for-item="sitem" data-id="{{sitem.id}}">
+                            <image src="{{sitem.imgurl}}" mode="widthFix" style="width: 100%;"></image>
+                        </swiper-item>
+                    </swiper>
+                </view>
+            </view>
+
+            <view class="u_column_nowrap"
+                style="position: fixed;bottom: 280rpx;right: 22rpx;z-index: 999;width: 100rpx;">
+                <block wx:if="{{hasPhoneNum}}">
+                    <view wx:for="{{pageData.exSideMenu}}" wx:key="index" wx:for-item="item">
+                        <image src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-type="{{item.type}}"
+                            data-data="{{item.data}}" data-url="{{item.url}}" bindtap="exSideMenu_tap">
+                        </image>
+                    </view>
+                </block>
+                <block wx:else>
+                    <button wx:for="{{pageData.exSideMenu}}" wx:key="index" wx:for-item="item" data-type="{{item.type}}"
+                        data-data="{{item.data}}" data-url="{{item.url}}" open-type="getPhoneNumber"
+                        bindgetphonenumber="exSideMenu_tap" style="width: 100%;padding-left:0;padding-right:0;">
+                        <image src='{{item.imgurl}}' mode='widthFix' style="width: 100%;"></image>
+                    </button>
+                </block>
+                <image src='{{domain}}image/loushu/icon_01.png' mode='widthFix' style="width: 100%;" bindtap="wechat_tap">
+                </image>
+                <image src='{{domain}}image/loushu/icon_02.png' mode='widthFix' style="width: 100%;" bindtap="map_tap">
+                </image>
+                <!-- <image src='{{domain}}image/referral/SideMenu.png' mode='widthFix' style="width: 97%;margin-top: 10px;" bindtap="tj_tap">
+                </image> -->
+            </view>
+
+            <!-- <view class="u_column_nowrap" style="position: fixed;bottom: 0;z-index: 999;width: 100vw;padding: 36rpx;">
+        <image src='{{domain}}image/i26.png' mode='widthFix' style="width: 100%;" bindtap="benefit12_tap"></image>
+    </view> -->
+
+            <view wx:if="{{pageData.banner!=null}}" class="u_column_nowrap"
+                style="position: fixed;bottom: 0;z-index: 900;width: 100vw;padding: 36rpx;">
+                <image src='{{pageData.banner.imgurl}}' mode='widthFix' style="width: 80%; height: 190px;margin:0 auto"
+                    data-type="{{pageData.banner.type}}" data-data="{{pageData.banner.data}}"
+                    data-url="{{pageData.banner.url}}" bindtap="banner_tap"></image>
+            </view>
+
+
+        </view>
+        <!-- <view class="loushu" style="position:relative;" bindtap="LS_tap">
+            <image src='{{pageData.loushuTitle}}' mode='widthFix' style="width: 100%;position:absolute;top: 0;" ></image>
+            <image src='{{pageData.loushuImg}}' mode='widthFix' style="width: 100%;z-index:-1;" ></image>
+            
+        </view> -->
+        <!-- <view class="toutiao" >
+            <view class="u_column_nowrap" style="padding-bottom: 30rpx;">
+                <image src='{{pageData.toutiaoTitle}}' mode='widthFix' style="width: 100%;"></image>
+                <view wx:if="{{NWList.length>0}}">
+                    <view wx:for="{{NWList}}" wx:for-item="item" wx:key="id" class="u_row_nowrap"
+                        style="padding: 36rpx 36rpx 0 36rpx;background: white;" data-gid="{{item.gid}}"
+                        bindtap='{{(item.type=="xcx")?"xcxView_tap":(item.type=="h5")?"h5view_tap":"nwview_tap"}}'
+                        data-content="{{item.contentInfo}}" data-xcxappid="{{item.xcxappid}}"
+                        data-xcxpath="{{item.xcxpath}}" data-url="{{item.url}}">
+                        <view>
+                            <image src="{{item.imgurlCDN}}" mode="aspectFit" lazy-load="false"
+                                style="width: 266rpx;height: 188rpx;" />
+                        </view>
+                        <view class="u_column_nowrap" style="padding-left: 36rpx;justify-content: space-between;">
+                            <view class="text_ellipsis2"
+                                style="font-size:34rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(61,61,61,1);line-height:48rpx;">
+                                {{item.title}}
+                            </view>
+                            <view
+                                style="font-size:29rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(148,148,148,1);line-height:41rpx;">
+                                {{item.titletimeshow}}
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view wx:else class="u_column_nowrap"
+                    style="justify-content: center;align-items: center;background: #FEFDF7;height:50vh;">
+                    暂无记录
+                </view>
+            </view>
+            <view style="height: 100rpx;"></view>
+        </view> -->
+        <view style="height: 200rpx;"></view>
+    </view>
+
+    <!-- 底部按钮 -->
+    <view class="box itabbar" style="border-top: 1rpx solid #ece7e7">
+  <view class="cu-bar tabbar bg-white">
+    <view class="bottom_bar_item" bindtap="callPhone_tap">
+        <image src="{{zxbtn}}" mode="widthFix" style="width:100%;margin:auto;" ></image>
+    </view>
+    <view>
+        <image src="{{fgx}}" mode="widthFix" style="width:2rpx"></image>
+    </view>
+    <view class="bottom_bar_item" bindtap="maskShow_tap" >
+        <image src="{{yybtn}}" mode="widthFix" style="width:100%;margin:auto;" ></image>
+    </view>
+    <view>
+        <image src="{{fgx}}" mode="widthFix" style="width:2rpx"></image>
+    </view>
+    <view class="bottom_bar_item"  >
+        <button class="buttonShare" style="margin:auto;border:0;outline:none;width:100%;font-size:26rpx;color:#606060" open-type="share">
+        <image src="{{fxbtn}}" mode="widthFix"  ></image>
+        </button>
+    </view>
+  </view>
+    </view>
+
+    <view wx:if='{{maskShow}}'>
+    <view class='mask_layer' bindtap='modal_click_Hidden' />
+    <view class='modal_box'>
+        <view style="background-color:#F5F6F8;height:718rpx;">
+
+
+            <image src="{{yyBackground}}" mode='widthFix' style="width: 100%;"></image>
+            <view style="position:relative;padding:2rpx 80rpx;top:-650rpx">
+            
+                <image src="{{yytitle}}" mode='widthFix' style="width: 100%;"></image>
+                <view style="text-align:center;padding-top:18rpx">
+                    <view style="color:#757575;font-size:20rpx">请留下阁下的联系方式</view>
+                    <view style="color:#757575;padding:0 0rpx;font-size:20rpx">我们将安排一对一专属置业顾问为您定制看房服务</view>
+                </view>
+            
+                <view style="text-align:center">
+                    <!-- 姓名 -->
+                    <view style="border:1px solid gary;display:flex">
+                        <view style='display:flex;width:58%;height: 96rpx;font-size:30rpx;align-items: center;margin-top:29rpx;'>
+                            <input type="text" placeholder="*阁下的称谓" placeholder-style="color:#757575" maxlength="6"
+                                style='width: 90%;font-size: 30rpx;border:1px solid #D5BEA0;height:60rpx;'
+                                bindinput="YuYue_UserName_input" value="{{YuYue_UserName}}" />
+                                
+                        </view>
+                        <!-- 性别 -->
+                        <view style='display:flex;width:42%;height: 96rpx;font-size:24rpx;align-items: center;margin-top:24rpx;'>
+                                    <view bindtap="ChangeSex_tap" data-value="M" style="width:49%;display:flex">
+                                        <image src='{{iconM}}' style='width:24rpx;height:24rpx;margin-top:4rpx' mode='widthFix'></image>
+                                        <text style='margin-left: 10rpx;'>先生</text>
+                                    </view>
+                                    <text style='width:24rpx;height:24rpx;margin-top:4rpx'>/</text>
+                                    <view bindtap="ChangeSex_tap" data-value='W'
+                                    style="width:49%;display:flex">
+                                        <image src='{{iconW}}' style='width:24rpx;height:24rpx;margin-top:4rpx' mode="widthFix"></image>
+                                        <text style='margin-left: 10rpx;'>女士</text>
+                                    </view>
+                        </view>
+                    </view>
+                    <!-- 手机号 -->
+                    <view>
+                        <view
+                            style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;background-color:gary;border:1px solid gary'>
+                            <input type="number" placeholder="*联系方式" placeholder-style="color:#757575" maxlength="11"
+                                style='width: 340rpx;font-size: 30rpx;border:1px solid #D5BEA0;height:60rpx' disabled="{{true}}"
+                                value="{{YuYue_UserPhone}}" />
+                            <button disabled='{{btn_Auth}}'
+                                style='width: 150rpx;height: 52rpx;font-size: 30rpx;align-items: center;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;line-height: 52rpx;color:white;background: #B6A58B;margin-left:14rpx'
+                                open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+                                授权</button>
+                        </view>
+            
+                    </view>
+                    <!-- 置业顾问 -->
+                    <view>
+                        <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;background-color:gary;'>
+                            <text></text>
+                            <picker bindchange="bindSalerPickerChange" value="{{index}}" range="{{SalerList}}" range-key="username">
+            
+                                <view style="width: 450rpx;border:1px solid #D5BEA0;height:60rpx;padding-top:8rpx">
+            
+                                    <text style="color:#757575">置业顾问  </text> {{currSaler.username}}
+                                    <!-- <input placeholder="请选择置业顾问" value="{{currSaler.username}}"></input> -->
+                                </view>
+            
+                            </picker>
+                        </view>
+            
+                    </view>
+                </view>
+                <view style="height:22rpx"></view>
+                <view>
+                    <image src="{{yyConfirm}}" mode='widthFix' style="width: 70%;margin:auto" bindtap="YuYue_tap"></image>
+                </view>
+            
+            </view>
+
+
+
+        </view>
+    </view>
+     <!-- 关闭弹窗 -->
+     <view class="modal_cancle" bindtap="maskHide_tap" style="text-align: center;margin-top: 20rpx;">
+                <text class="cuIcon-roundclose" style="color: white;font-size: 70rpx;line-height: 66rpx;">×</text>
+            </view>
+    </view>
+
+    <view wx:if="{{pageData.banner!=null}}" class="u_column_nowrap"
+        style="position: fixed;bottom: 0;z-index: 900;width: 100vw;padding: 36rpx;">
+        <image src='{{pageData.banner.imgurl}}' mode='widthFix' style="width: 80%; height: 190px;margin:0 auto"
+            data-type="{{pageData.banner.type}}" data-data="{{pageData.banner.data}}" data-url="{{pageData.banner.url}}"
+            bindtap="banner_tap"></image>
+    </view>
+
+    <!-- 弹窗广告 -->
+    <view wx:if="{{pageData.adModal!=null}}" class="cu-modal {{adModalShow?'show':''}} ">
+        <view style="position: relative;display: inline-block;vertical-align: middle;width:80%;">
+            <view wx:if="{{hasPhoneNum}}">
+                <image src='{{pageData.adModal.imgurl}}' mode='widthFix' style="width:100%;border-radius: 26rpx;"
+                    data-type="{{pageData.adModal.type}}" data-data="{{pageData.adModal.data}}"
+                    data-url="{{pageData.adModal.url}}" bindtap="admodal_tap">
+                </image>
+            </view>
+
+            <button wx:else style="padding-left:0;padding-right:0;" data-type="{{pageData.adModal.type}}"
+                data-data="{{pageData.adModal.data}}" data-url="{{pageData.adModal.url}}" open-type="getPhoneNumber"
+                bindgetphonenumber="admodal_tap">
+                <image src='{{pageData.adModal.imgurl}}' mode='widthFix' style="width:100%;border-radius: 26rpx;">
+                </image>
+            </button>
+
+            <!-- 关闭弹窗 -->
+            <view class="action" bindtap="hideAdModal" style="text-align: center;margin-top: 20rpx;">
+                <text class="cuIcon-roundclose" style="color: white;font-size: 70rpx;line-height: 66rpx;"></text>
+            </view>
+        </view>
+    </view>
+
+    <!-- <Author></Author> -->
+    <!-- </scroll-view> -->
+</view>

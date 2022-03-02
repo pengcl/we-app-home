@@ -1,0 +1,34 @@
+var getName = function(val) {
+  if (val.length == 0 || val == undefined) {
+    return;
+  }
+  if (val == '0') {
+    return '确认中' ;
+  } 
+  else if (val == '1') {
+    return '待审核' ;
+  } 
+  else if (val == '2') { 
+    return '待签约'; //其实它是未签约状态
+  }
+  else if (val == '3') {
+    return '待提现' ; //其实它是已签约状态
+  } 
+  else if (val == '4') {
+    return '结算中';
+  }
+  else if (val == '5') {
+    return '已结算' ;
+  }  
+  else if (val == '-1') {
+    return '举证失败' ; 
+  } 
+  else if (val == '-2') {
+    return '签约失败';
+  }
+  else if (val == '-3') {
+    return '结算失败' ;
+  }   
+}
+
+module.exports.getName = getName;

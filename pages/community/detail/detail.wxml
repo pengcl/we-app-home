@@ -1,0 +1,373 @@
+<!-- 导航条 -->
+<!-- <mp-navigation-bar title="{{CommunityInfo.name}}" back="{{true}}"></mp-navigation-bar> -->
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">{{CommunityInfo.name}}</view>
+</cu-custom>
+<!-- 头部项目简介 -->
+<view style="background-color: #FFF; ">
+  <view style="position: relative; ">
+    <view>
+      <image style="width:100%;height: 482rpx;" src="{{CommunityInfo.imgurl}}" mode="aspectFill">
+      </image>
+    </view>
+    <view style="position: absolute; bottom: 0; left: 0;margin-bottom: 26rpx;width: 100%;">
+      <view class="u_row_nowrap" style="justify-content:center;">
+        <view wx:for="{{head_button_select}}" wx:for-item="item" wx:key="code" data-code="{{item.code}}" bindtap='head_button_tap' class="head_button {{item.state?'head_button_active':''}}">
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+
+  </view>
+  <view class="u_row_nowrap" style="justify-content: space-between;padding:36rpx;align-items: center;">
+    <view style="font-size:50rpx;font-family:PingFangSC-Semibold,PingFang SC;font-weight:600;color:#070707;line-height:70rpx;">
+     {{CommunityInfo.name}}
+    </view>
+    <view class="u_column_nowrap" style="justify-content: center;align-items: center;" bindtap='islike_tap'>
+      <image style="width:40rpx;height: 37rpx;" src="{{domain}}/image/{{CommunityInfo.islike?'i07_b':'i07'}}.png" mode="aspectFill" />
+      <view style="font-size:20rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:#070707;line-height:29rpx;padding-top: 5rpx;min-width: 70rpx;text-align: center;">
+        {{CommunityInfo.islike?'已收藏':'收藏'}}
+      </view>
+    </view>
+  </view>
+  <view class="u_row_nowrap" style="justify-content: space-between;padding:36rpx;align-items: flex-start;">
+    <view class="u_row_wrap" style="justify-content: start;">
+      <view wx:for="{{tags}}" wx:for-item="tag" wx:key="index" style="background:#F6F1E7;font-size:18rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:#948669;line-height:25rpx;padding: 0 4rpx;margin-right:24rpx;margin-bottom: 6rpx;">
+        {{tag}}
+      </view>
+    </view>
+    <view class="u_column_nowrap" style="justify-content: center;align-items: center;min-width: 70rpx;" bindtap='loushu_tap'>
+      <image style="width:40rpx;height: 40rpx;" src="{{domain}}/image/i08.png" mode="aspectFill" />
+      <view style="font-size:20rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:#070707;line-height:29rpx;padding-top: 5rpx;min-width: 70rpx;text-align: center;">
+        楼书
+      </view>
+    </view>
+  </view>
+  <view class="u_column_nowrap" style="padding: 0 36rpx;">
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        建筑面积
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.buildingarea}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        建筑面积
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.buildingarea}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        最新开盘
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.LatestOpened}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        总户数
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.TotalHouse}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        车位比
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.ParkingRatio}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        楼盘地址
+      </view>
+      <view class="head_info_right" style="width: 406rpx;">
+        {{CommunityInfo.addr}}
+      </view>
+      <view style="width:86rpx;height: 86rpx;background-color:#F8F3E9;border-radius:50%;margin: 0 5rpx 0 28rpx;" bindtap='map_tap'>
+        <image style="width:49rpx;height: 49rpx;margin:18rpx;" src="{{domain}}/image/i06.png" mode="aspectFit" />
+      </view>
+    </view>
+  </view>
+
+  <view style="padding: 0 36rpx 40rpx;">
+    <view style=" background-color:#F7F3EB;border:1rpx solid #AEA387 ;color: #BE9E61; line-height: 80rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;text-align: center;" bindtap="CommunityMore_tap">
+      查看楼盘更多信息
+    </view>
+  </view>
+</view>
+<!-- 悦活动 -->
+<view class="body_Item">
+  <view class="u_row_nowrap" style="font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;line-height:42rpx;">
+    <view style="color:#3D3D3D;">
+      围观人数
+    </view>
+    <view style="color: #997D46;padding-left: 15rpx;">
+      {{YueHuoDong.watchnum}}
+    </view>
+  </view>
+  <view class="cu-avatar-group" style="direction: ltr;padding: 26rpx 36rpx 36rpx;">
+    <view class="cu-avatar round lg" wx:for="{{YueHuoDong.watchavatarlist}}" wx:for-item="item" wx:key="index" style="background-image:url({{item}});width: 89rpx;height: 89rpx;">
+    </view>
+  </view>
+  <view class="u_row_nowrap" style="font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;line-height:42rpx;">
+    蕴活动
+  </view>
+  <view class="u_row_nowrap" style="margin-top: 26rpx;" wx:for="{{YueHuoDong.huodong}}" wx:for-item="item" wx:key="id">
+    <view style="width: 266rpx;height: 188rpx;">
+      <image src="{{item.imageurl}}" style="width: 266rpx;height: 188rpx;" mode="aspectFit" lazy-load="false" />
+    </view>
+    <view class="u_column_nowrap" style="padding-left: 36rpx;justify-content: space-between;">
+      <view style="font-size:34rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(61,61,61,1);line-height:48rpx;">
+        {{item.name}}
+      </view>
+      <view style="font-size:29rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(148,148,148,1);line-height:41rpx;">
+        {{item.date}}
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 品周边 -->
+<view class="body_Item">
+  <view style="font-size:42rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:#000000;line-height:59rpx;">
+    品周边
+  </view>
+  <view style="padding: 36rpx 0;">
+    <map id="map" longitude="{{CommunityInfo.longitude}}" latitude="{{CommunityInfo.latitude}}" scale="14" markers="{{PinZhouBianMap}}" show-location style="width: 100%; height: 297rpx;"></map>
+  </view>
+  <view class="u_row_nowrap" style="justify-content: space-between;align-items: center;">
+    <view style="text-align: center;" data-code="gj" bindtap='PinZhouBian_Type_tap'>
+      <image src="{{domain}}/image/i09.png" style="width:100rpx;height: 100rpx;" mode="aspectFit" lazy-load="false" />
+      <view style="padding-top:20rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(103,79,50,1);line-height:42rpx;">
+        公交
+      </view>
+    </view>
+    <view style="text-align: center;" data-code="xx" bindtap='PinZhouBian_Type_tap'>
+      <image src="{{domain}}/image/i10.png" style="width:100rpx;height: 100rpx;" mode="aspectFit" lazy-load="false" />
+      <view style="padding-top:20rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(103,79,50,1);line-height:42rpx;">
+        学校
+      </view>
+    </view>
+    <view style="text-align: center;" data-code="dt" bindtap='PinZhouBian_Type_tap'>
+      <image src="{{domain}}/image/i11.png" style="width:100rpx;height: 100rpx;" mode="aspectFit" lazy-load="false" />
+      <view style="padding-top:20rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(103,79,50,1);line-height:42rpx;">
+        地铁
+      </view>
+    </view>
+    <view style="text-align: center;" data-code="yy" bindtap='PinZhouBian_Type_tap'>
+      <image src="{{domain}}/image/i12.png" style="width:100rpx;height: 100rpx;" mode="aspectFit" lazy-load="false" />
+      <view style="padding-top:20rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(103,79,50,1);line-height:42rpx;">
+        医院
+      </view>
+    </view>
+    <view style="text-align: center;" data-code="gw" bindtap='PinZhouBian_Type_tap'>
+      <image src="{{domain}}/image/i13.png" style="width:100rpx;height: 100rpx;" mode="aspectFit" lazy-load="false" />
+      <view style="padding-top:20rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(103,79,50,1);line-height:42rpx;">
+        购物
+      </view>
+    </view>
+  </view>
+
+</view>
+<!-- 赏户型 -->
+<view class="body_Item">
+  <view class="u_row_nowrap body_Title">
+    <view class="body_Title_left">
+      赏户型
+    </view>
+    <view class="body_Title_right" style="background:url({{domain}}/image/i14.png) no-repeat;background-size: 100%;" bindtap="HousTypeMore_tap">
+      更多户型 >
+    </view>
+  </view>
+  <scroll-view class="u_row_nowrap" style="justify-content: space-between;height: 444rpx;" scroll-x="true" enable-flex="true">
+    <view wx:for="{{ShangHuXing}}" wx:for-item="item" wx:key="id" style="position: relative;margin-right:30rpx;" bindtap='ShangHuXing_tap' data-id="{{item.id}}">
+      <image src="{{item.imageurl}}" style="width:295rpx; height: 444rpx;" />
+    </view>
+  </scroll-view>
+
+</view>
+<!-- 置业顾问 -->
+<view class="body_Item">
+  <view class="u_row_nowrap body_Title" style="padding-bottom: 20rpx;">
+    <view class="body_Title_left">
+      置业顾问（10人）
+    </view>
+    <view class="body_Title_right">
+    </view>
+  </view>
+  <view style="font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(150,150,150,1);line-height:42rpx;padding-bottom: 20rpx;">
+    免费为您提供：楼盘信息、户型解读、答疑等
+  </view>
+
+  <view>
+    <view style="min-height: 350rpx;">
+      <!-- 先做假分页 -->
+      <block wx:for='{{GWInfo}}' wx:for-item='item' data-curPage='{{zxcurrent}}' wx:for-index='index' wx:if='{{index<=zxcurrent*3-1 && index>(zxcurrent-1)*3-1}}'>
+        <view style='display: flex;margin-top: 30rpx;'>
+          <image style='width: 90rpx;height: 90rpx;' src='{{item.icon}}'></image>
+          <text class='font8'>{{item.name}}</text>
+          <view style='display:flex;width:115rpx;height:37rpx;background:rgba(249,243,233,1);border-radius:19px;margin: 30rpx 0 0 87rpx;'>
+            <image style='width: 23rpx;height: 23rpx;margin: 6rpx 0 0 25rpx;' src='{{item.icon2}}'></image>
+            <text class='font9'>{{item.point}}分</text>
+          </view>
+          <image style='width: 60rpx;height: 60rpx;margin: 12rpx 0 0 135rpx;' src='{{domain}}/image/i15.png' bindtap="gwChat" data-id='{{item.gwwx}}'></image>
+          <image style='width: 60rpx;height: 60rpx;margin: 12rpx 0 0 35rpx;' src='{{domain}}/image/i16.png' data-phone='{{item.phonenum}}' bindtap="phoneCall"></image>
+        </view>
+      </block>
+    </view>
+    <!-- 分页控件 -->
+    <view style='display:flex;flex-direction:row;margin-top:30rpx'>
+      <!-- 前一页 -->
+      <view class='prebtn' bindtap="btnpre">
+      </view>
+      <text style='position: absolute;margin: 17rpx 0 0 45rpx;color:#595959;font-size:32rpx' bindtap="btnpre">上一页</text>
+      <!-- 页数 -->
+      <view style='margin: 17rpx 120rpx 0 120rpx;color:#595959;font-size: 35rpx;'>{{zxcurrent}}/{{zxtotal}}</view>
+      <!-- 后一页 -->
+      <view class='prebtn' bindtap="btnnext">
+      </view>
+      <text style='position: absolute;margin: 17rpx 0 0 530rpx;color:#595959;font-size:32rpx' bindtap="btnnext">下一页</text>
+    </view>
+  </view>
+
+</view>
+<!-- 悦动态 -->
+<view class="body_Item">
+  <view class="u_row_nowrap body_Title">
+    <view class="body_Title_left">
+      蕴动态
+    </view>
+    <view class="body_Title_right" style="background:url({{domain}}/image/i14.png) no-repeat;background-size: 100%;" bindtap="Moredt_tap">
+      更多动态 >
+    </view>
+  </view>
+  <view class="u_row_nowrap" style="margin-top: 26rpx;" wx:for="{{YueDongTi}}" wx:for-item="item" wx:key="id">
+    <view style="width: 266rpx;height: 188rpx;">
+      <image src="{{item.imageurl}}" style="width: 266rpx;height: 188rpx;" mode="aspectFit" lazy-load="false" />
+    </view>
+    <view class="u_column_nowrap" style="padding-left: 36rpx;justify-content: space-between;">
+      <view style="font-size:34rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(61,61,61,1);line-height:48rpx;">
+        {{item.name}}
+      </view>
+      <view style="font-size:29rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(148,148,148,1);line-height:41rpx;">
+        {{item.date}}
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 置业顾问发布 -->
+<view class="body_Item">
+  <view class="u_row_nowrap body_Title">
+    <view class="body_Title_left">
+      置业顾问发布
+    </view>
+    <view class="body_Title_right" style="background:url({{domain}}/image/i14.png) no-repeat;background-size: 100%;" bindtap="Moregwdt_Tap">
+      更多动态 >
+    </view>
+  </view>
+  <view class="u_column_nowrap" wx:for="{{ZhiYeGuWenFaBu}}" wx:for-item="item" wx:key="id" style="padding-bottom:36rpx ;">
+    <view class="u_row_nowrap" style="justify-content: space-between;align-items:center;">
+      <image src="{{item.gwavatar}}" style="width: 90rpx;height: 90rpx;border-radius: 50%;" mode="aspectFit" lazy-load="false" />
+      <view style="flex:1 1 auto;padding: 0 30rpx;">
+        <view style="font-size:33rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(18,18,18,1);line-height:46rpx;">
+          {{item.gwname}}</view>
+        <view style="font-size:29rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(148,148,148,1);line-height:41rpx;">
+          {{item.date}}</view>
+      </view>
+      <image style="width: 60rpx;height: 60rpx;" src="{{domain}}/image/i15.png" mode="aspectFit" lazy-load="false" bindtap="gwChat" data-id='{{item.gwWx}}' />
+      <image style="width: 60rpx;height: 60rpx;margin-left: 35rpx;" src="{{domain}}/image/i16.png" mode="aspectFit" lazy-load="false" data-phone='{{item.gwphone}}' bindtap="phoneCall" />
+    </view>
+    <view style="padding:40rpx 0 35rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(0,0,0,1);line-height:42rpx;">
+      {{item.content}}
+    </view>
+    <view id='ZhiYeGuWenFaBu_img' class="u_row_wrap" style="justify-content:space-between;">
+      <view wx:for="{{item.imageurl}}" wx:for-item="img" wx:key="index" style="width: 213rpx;height: 213rpx;margin-bottom:20rpx;">
+        <image style="width: 100%;height: 100%;;" src="{{img}}" mode="aspectFit" lazy-load="false" />
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 点评&问答 -->
+<view class="body_Item">
+  <view class="u_row_nowrap body_Title">
+    <view class="body_Title_left">
+      点评&问答
+    </view>
+    <view class="body_Title_right" style="background:url({{domain}}/image/i14.png) no-repeat;background-size: 100%;" bindtap="MoreDianPing_Tap">
+      更多点评 >
+    </view>
+  </view>
+  <view class="u_column_nowrap" wx:for="{{DianPing}}" wx:for-item="item" wx:key="id">
+    <view class="u_row_nowrap" style="justify-content: space-between;align-items:center;">
+      <image src="{{item.uavatar}}" style="width: 90rpx;height: 90rpx;border-radius: 50%;" mode="aspectFit" lazy-load="false" />
+      <view style="flex:1 1 auto;padding-left:30rpx;">
+        <view style="font-size:33rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(18,18,18,1);line-height:46rpx;">
+          {{item.uname}}
+          <view style="float:right;background: #F7F4E7;padding: 0 12rpx;font-size:25rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(122,91,46,1);line-height:38rpx;">
+            已看过
+          </view>
+        </view>
+        <view style="font-size:29rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(148,148,148,1);line-height:41rpx;">
+          {{item.date}}</view>
+      </view>
+    </view>
+    <view style="padding: 20rpx 0 36rpx 121rpx;">
+      <view style="font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(0,0,0,1);line-height:42rpx;">
+        {{item.content}}
+      </view>
+      <view style="background: #FFF9F0;padding: 20rpx 20rpx 32rpx;" wx:for="{{item.Reply}}" wx:for-item="reply" wx:key="id">
+        <view class="u_row_nowrap" style="justify-content: space-between;align-items:center;">
+          <image src="{{reply.gwavatar}}" style="width: 67rpx;height: 67rpx;border-radius: 50%;" mode="aspectFit" lazy-load="false" />
+          <view style="flex:1 1 auto;padding: 0 20rpx;">
+            <view style="font-size:23rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(18,18,18,1);line-height:32rpx;">
+              {{reply.gwname}}</view>
+            <view style="font-size:23rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:#716D6D;line-height:32rpx;">
+              置业顾问回复</view>
+          </view>
+          <image style="width: 60rpx;height: 60rpx;" src="{{domain}}/image/i15.png" mode="aspectFit" lazy-load="false" bindtap="gwChat" data-id='{{reply.gwWx}}' />
+          <image style="width: 60rpx;height: 60rpx;margin-left: 35rpx;" src="{{domain}}/image/i16.png" mode="aspectFit" lazy-load="false" data-phone='{{reply.gwphone}}' bindtap="phoneCall" />
+        </view>
+        <view style="padding: 20rpx 0 0 88rpx;font-size:25rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(55,55,55,1);line-height:36rpx;">
+          {{reply.content}}
+        </view>
+      </view>
+
+
+    </view>
+
+  </view>
+  <view bindtap='DianPing_tap' style="width: 100%;text-align: center;background: #BC9F62;height: 80rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(255,255,255,1);line-height:80rpx;">
+    我要进行点评&提问
+  </view>
+
+</view>
+<view style="min-height:200rpx;">
+
+</view>
+<view class="u_row_nowrap bottombar">
+  <view style="text-align: center;">
+    <image src="{{domain}}/image/i17.png" style="width:41rpx;height: 39rpx;" mode="aspectFit" lazy-load="false" />
+    <view style="font-size:20rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(190,158,97,1);line-height:28rpx;">
+      分享</view>
+  </view>
+  <view style="text-align: center;" bindtap="phoneCall" data-phone="12345678910">
+    <image src="{{domain}}/image/i18.png" style="width:39rpx;height: 39rpx;" mode="aspectFit" lazy-load="false" />
+    <view style="font-size:20rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(190,158,97,1);line-height:28rpx;">电话咨询</view>
+  </view>
+  <view class="bottombar_button" style=" background:url({{domain}}/image/i19.png) no-repeat;background-size: 100%;color:#BEA15B;" bindtap="gwChat" data-id=''>
+    在线咨询
+  </view>
+  <view class="bottombar_button" style=" background:url({{domain}}/image/i20.png) no-repeat;background-size: 100%;color:#FFFFFF;" bindtap="yuyue">
+    预约看房
+  </view>
+</view>

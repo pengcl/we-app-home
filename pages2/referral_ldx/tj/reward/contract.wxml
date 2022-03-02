@@ -1,0 +1,8 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">签约</view>
+</cu-custom>
+<web-view src='https://kaola.kaolashebao.com/p/newReward/index?recruit_id={{recruitID}}&mobile={{mobile}}&third_user_id={{thirdUserID}}&name={{name}}&third_calculate_number={{withdrawID}}' ></web-view>
+
+
+<!-- <web-view src='https://kaolashebao.han-zi.cn/p/newReward/index?recruit_id={{recruitID}}&mobile={{mobile}}&third_user_id={{thirdUserID}}&name={{name}}&third_calculate_number={{withdrawID}}' ></web-view> -->

@@ -1,0 +1,45 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">新世界梓山湖</view>
+</cu-custom>
+<view>
+	<image src="{{bgImg}}" style='width:750rpx' mode='widthFix'></image>
+	<view style='position: relative;margin: -870rpx 0 0 140rpx;'>
+		<view style='color:white;font-size:50rpx;margin-bottom: 10rpx;'>请输入到访信息</view>
+		<view style='display:flex'>
+			<input placeholder="姓 氏" bindinput="bindusername" style='background:white;height:100rpx;line-height:100rpx;padding-left: 20rpx;width:300rpx;text-align: center;border: 1px solid #000000;border-radius: 5px;' maxlength="10" value='{{name}}'></input>
+			<picker bindchange="bindSexTypeChange" value="{{sexindex}}" range="{{sex}}" range-key="{{'value'}}" style='margin-left: 10rpx;width: 136rpx;line-height: 96rpx;height: 96rpx;text-align: center;background: white;border: 1px solid #000000;border-radius: 5px;'>
+				<view>
+					{{sex[sexindex].value}}
+					<image src="{{icon1}}" style='width:25rpx' mode='widthFix'></image>
+				</view>
+			</picker>
+		</view>
+		<view>
+			<button wx:if="{{protocols.length<2}}" bindtap="getPhoneNumber" class="button" style="background:#a8a8a8; border: 1px solid #555454;" size="default">
+				确认提交
+			</button>
+			<button wx:elif='{{phone==""}}' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="button" size="default">
+				确认提交
+			</button>
+			<button wx:else bindtap="saveYiYangUserInfo" class="button" size="default">
+				确认提交
+			</button>
+		</view>
+		<view class="" hover-class="none" hover-stop-propagation="false">
+			<checkbox-group bindchange="checkboxChange">
+				<view style="padding: 10rpx 0;">
+					<label class="checkbox">
+						<checkbox value="cb" style="margin-right: 10rpx;" />我已阅读并同意
+					</label><text bindtap="UserAgreement_tap" style="color: blue;text-decoration:underline;">《用户服务协议》</text>
+				</view>
+				<view style="padding: 10rpx 0;">
+					<label class="checkbox">
+						<checkbox value="cb2" color="#FF0000" style="margin-right: 10rpx;" />我已阅读并同意
+					</label>
+					<text bindtap="PrivacyAgreement_tap" style="color: blue;text-decoration:underline;">《用户个人隐私保密协议》</text>
+				</view>
+			</checkbox-group>
+		</view>
+	</view>
+</view>

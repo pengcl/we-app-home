@@ -1,0 +1,122 @@
+<!--index.wxml-->
+<!-- 头部 -->
+<view style="position: relative;">
+    <image style="width:100%;height: 467rpx;" src="{{domain}}/image/index_head.png" mode="aspectFill">
+    </image>
+    <view
+        style="position: absolute; top: 0; left: 0;width: 100%; display: flex;flex-flow: column nowrap; justify-content:center;align-items: center;">
+        <view
+            style="margin-top: 55rpx;font-size:35rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(255,255,255,1);line-height:49rpx;">
+            新赏家
+        </view>
+        <view style="align-self: start;margin:64rpx auto 30rpx 20rpx;">
+            <image src="{{domain}}/image/index_title.png" style="height: 147rpx;width: 404rpx;" mode="aspectFit">
+            </image>
+        </view>
+        <view class="search">
+
+        </view>
+    </view>
+</view>
+<view style="padding: 44rpx 36rpx 37rpx;">
+    <image src="{{domain}}/image/index_a01.png" style="width:678rpx;height: 291rpx;border-radius: 10rpx;"
+        mode="scaleToFill" lazy-load="false" />
+</view>
+<!-- 二头部 -->
+<view style="display: flex;flex-flow: row nowrap; justify-content:space-around;align-items: center;">
+    <view style="text-align: center;">
+        <image src="{{domain}}/image/i01.png" style="width:86rpx;height: 86rpx;" mode="aspectFill" />
+        <text
+            style="font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(103,79,50,1);line-height:42rpx;">
+            品牌故事
+        </text>
+    </view>
+    <view style="text-align: center;">
+        <image src="{{domain}}/image/i02.png" style="width:86rpx;height: 86rpx;" mode="aspectFill" />
+        <text
+            style="font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(103,79,50,1);line-height:42rpx;">
+            房贷计算
+        </text>
+    </view>
+    <view style="text-align: center;">
+        <image src="{{domain}}/image/i03.png" style="width:86rpx;height: 86rpx;" mode="aspectFill" />
+        <text
+            style="font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(103,79,50,1);line-height:42rpx;">
+            蕴·资讯
+        </text>
+    </view>
+    <view style="text-align: center;">
+        <image src="{{domain}}/image/i04.png" style="width:86rpx;height: 86rpx;" mode="aspectFill" />
+        <text
+            style="font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(103,79,50,1);line-height:42rpx;">
+            悦·优享
+        </text>
+    </view>
+</view>
+
+<!-- 热点 -->
+<view class="u_column_nowrap" style="padding: 36rpx;">
+    <view class="u_row_nowrap" style="justify-content: space-between;align-items: center;padding-bottom: 36rpx;">
+        <view class="item_title">
+            热点
+        </view>
+        <view class="item_subtitle">
+            更多>
+        </view>
+    </view>
+    <scroll-view class="u_row_nowrap" style="justify-content: space-between;height: 228rpx;" scroll-x="true"
+        enable-flex="true">
+        <view wx:for="{{redian}}" wx:for-item="item" wx:key="id" style="position: relative;margin-right:30rpx;"
+            bindtap='redian_tap'
+            data-id="{{item.id}}">
+            <image src="{{item.imgurl}}" style="width:398rpx; height: 228rpx;" />
+            <view
+                style="position: absolute; bottom: 0; left: 0;width:385rpx;height:55rpx;background:linear-gradient(180deg,rgba(203,163,103,1) 0%,rgba(190,161,91,1) 100%);line-height: 55rpx;padding-left: 14rpx;display: block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+                {{item.text}}{{item.text}}
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<!-- 推荐好盘 -->
+<view class="u_column_nowrap" style="padding:0 36rpx 36rpx;">
+    <view class="u_row_nowrap" style="justify-content: space-between;align-items: center;padding-bottom: 36rpx;">
+        <view class="item_title">
+            推荐好盘
+        </view>
+        <view class="item_subtitle">
+        </view>
+    </view>
+    <view wx:for="{{tuijian}}" wx:for-item="item" wx:key="id" style="width: 100%;margin-bottom: 35rpx;">
+        <image src="{{item.imgurl}}"
+            style="width:677rpx;height:258rpx;box-shadow:0 4rpx 15rpx 0 rgba(231,205,205,0.5);border-radius:10rpx 10rpx 0 0;" />
+        <view class="u_column_nowrap"
+            style="background:rgba(255,255,255,1);box-shadow:0rpx 4rpx 15rpx 0rpx rgba(231,205,205,0.5);border-radius:0rpx 0rpx 10rpx 10rpx;padding: 28rpx 31rpx 29rpx 36rpx;">
+            <view class="u_row_nowrap" style="width: 100%;justify-content: space-between;">
+                <view
+                    style="font-size:35rpx;font-family:PingFangSC-Semibold,PingFang SC;font-weight:600;color:rgba(7,7,7,1);line-height:49rpx;">
+                    {{item.Name}}
+                </view>
+                <view style="position: relative; ">
+                    <image style="width:159rpx;height: 56rpx;" src="{{domain}}/image/i05.png" mode="aspectFill"/>
+                   <view style="position: absolute; top: 0; left: 0;width:159rpx;height: 56rpx;text-align: center;font-size:27rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(255,255,255,1);line-height:42rpx;">
+                    预约看房
+                   </view>
+                </view>
+            </view>
+            <view style="font-size:20rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(122,122,122,1);line-height:28rpx;margin-top: 12rpx;">
+                {{item.BriefDesc}}
+            </view>
+            <view style="display: flex;flex-flow: row wrap;align-items: center;margin-top: 15rpx;">
+                <view wx:for="{{item.tags}}" wx:for-item="tag" wx:key="index"
+                    style="background:#F6F1E7;font-size:18rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:#948669;line-height:25rpx;padding: 0 4rpx;margin-right:24rpx;margin-bottom: 6rpx;">
+                    {{tag}}
+                </view>
+            </view>
+            <view class="u_row_nowrap" style="line-height: 56rpx;font-size:23rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:#2C2C2C;justify-self: start;align-items: center;margin-top: 27rpx;">
+                <image style="width:31rpx;height: 28rpx;margin: auto 15rpx;" src="{{domain}}/image/i06.png" mode="aspectFill" />
+                {{item.addr}}
+            </view>
+        </view>
+    </view>
+
+</view>

@@ -1,0 +1,14 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">推荐成功</view>
+</cu-custom>
+<view>
+  <view style="text-align:center;margin-top: 60rpx;">
+    <image src='{{banner1}}' style='width:60%;' mode='widthFix'></image>
+  </view>
+  <view style='height:153rpx'></view>
+  <view style='width:750rpx;height:153rpx;background:rgba(255,255,255,1);position: fixed;bottom: 0;'>
+    <!--<view style='width:679rpx;height:93rpx;background-color:#CEA76E;text-align:center;font-size:40rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(255,255,255,1);line-height:93rpx;letter-spacing:1rpx;margin: 35rpx;' bindtap="book_tap">查看我的权益</view>-->
+    <view style='width:679rpx;height:93rpx;background-color:#CEA76E;text-align:center;font-size:40rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(255,255,255,1);line-height:93rpx;letter-spacing:1rpx;margin: 35rpx;' bindtap="saveImg">保存到本地或截图</view>
+  </view>
+</view>

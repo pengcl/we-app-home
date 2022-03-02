@@ -1,0 +1,47 @@
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+
+page {
+    background: #FFF;
+}
+
+.button {
+    height: 94rpx;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(255, 219, 175, 1) 0%, rgba(231, 179, 117, 1) 100%);
+    border-radius: 10rpx;
+    border: 1px solid rgba(194, 165, 133, 1);
+
+    font-size: 36rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: rgba(116, 75, 37, 1);
+    line-height: 94rpx;
+    margin: 159rpx 0 50rpx;
+}
+
+
+.UserInfoView{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0; 
+    left: 0;
+    z-index: 1000;
+    opacity: 0;
+    background:#F00;
+    height: 300vh;
+}
+
+.UserInfoButton{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin:0;
+    width: 100vw;
+    opacity: 0;
+    background:#FF0;
+}

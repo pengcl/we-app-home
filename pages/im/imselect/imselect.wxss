@@ -1,0 +1,42 @@
+/* pages/im/imlist/imlist.wxss */
+@import "../../../colorui/main.wxss";
+@import "../../../colorui/icon.wxss";
+
+page {
+    background-color: #FEFDF7;
+    /* background-color:red; */
+}
+
+.font6 {
+    font-size: 42rpx;
+    font-family: PingFangSC-Medium, PingFang SC;
+    color: rgba(0, 0, 0, 1);
+    line-height: 59px;
+    margin-left: 25px;
+  }
+  
+  .font7 {
+    font-size: 30rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    color: rgba(150, 150, 150, 1);
+    line-height: 42rpx;
+    margin-left: 25px;
+  }
+
+  .font8 {
+    font-size: 33rpx;
+    font-family: PingFangSC-Medium, PingFang SC;
+    color: rgba(18, 18, 18, 1);
+    line-height: 46rpx;
+    margin: 25rpx 0 0 30rpx;
+    min-width: 100rpx;
+  }
+  
+  .font9 {
+    font-size: 23rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    color: rgba(215, 180, 129, 1);
+    line-height: 32rpx;
+    margin: 3rpx 0 0 5rpx;
+    min-width: 40rpx;
+  }

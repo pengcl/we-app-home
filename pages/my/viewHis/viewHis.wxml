@@ -1,0 +1,28 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">浏览历史</view>
+</cu-custom>
+<view>
+  <block wx:for='{{bookInfo}}' wx:for-item='item'>
+    <view style='background-color: white;margin: 30rpx 0 0 0;'>
+      <view style='margin-left:30rpx;display: flex;' bindtap="prjView">
+        <image src='{{item.prjImg}}' style='width: 239rpx;height: 239rpx;margin: 30rpx 0 30rpx 0;'></image>
+        <view style='display: flex;flex-direction: column;margin: 30rpx;'>
+          <text style='font-size:40rpx;font-family:PingFangSC-Semibold,PingFang SC;font-weight:600;color:rgba(7,7,7,1);line-height:56rpx;'>{{item.prjName}}</text>
+          <text style='font-size:25rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(122,122,122,1);line-height:36rpx;margin: 20rpx 0 0 0;'>{{item.prjInfo}}</text>
+        </view>
+      </view>
+      <view wx:for='{{item.houseInfo}}' wx:for-item='house' style='margin-left:30rpx;'>
+        <view style='width:678rpx;height:2rpx;background-color:#EAEAEA'></view>
+        <view style='display: flex;' bindtap="houseView">
+          <image src='{{house.houseImg}}' style='width: 239rpx;height: 239rpx;margin: 30rpx 0 30rpx 0;'></image>
+          <view style='display: flex;flex-direction: column;margin: 30rpx;max-width: 200px;'>
+            <text style='font-size:40rpx;font-family:PingFangSC-Semibold,PingFang SC;font-weight:600;color:rgba(7,7,7,1);line-height:56rpx;'>{{house.houseName}}</text>
+            <text style='font-size:25rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(122,122,122,1);line-height:36rpx;margin: 20rpx 0 0 0;'>{{house.houseType}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view style='height:50rpx'></view>
+</view>

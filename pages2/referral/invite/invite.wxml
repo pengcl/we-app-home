@@ -1,0 +1,107 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">诚邀到访</view>
+</cu-custom>
+
+<view style='display: flex;flex-direction: column;'>
+  
+  <!-- 背景图 -->
+  <image src='{{bgimg}}' style='width:750rpx;' mode='widthFix'>
+  </image>
+  <view style='margin-top: -1440rpx;z-index: 999;'>
+  <view style="text-align:right;margin-right:30rpx;height:240rpx">
+    <text style="color:#E5E5E5;font-size:24rpx">{{viewGID}}</text>
+  </view>
+  <view
+  style='width: 704rpx;background: #FFFFFF;border-radius: 17px;margin-left: 24rpx;'>
+  
+  <!-- 头部 -->
+    <view>
+      <view style='text-align: center;height: 56rpx;'>
+        <text
+          style='width: 636rpx;height: 66rpx;font-size: 30rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight:bold;color: #0E0E0E;line-height: 110rpx;'>填写信息</text>
+      </view>
+      <view style='text-align: center;height: 60rpx;'>
+        <text
+          style='width: 663rpx;height: 49rpx;font-size: 24rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #949292;line-height: 28rpx;'>
+          请留下您的真实信息，以便帮您预约看房以及VIP跟进</text>
+      </view>
+      <!-- <view style='width: 706rpx;height: 1rpx;border: 1rpx solid #EEEEEE;'></view> -->
+    </view>
+  <!-- 项目 -->
+  <view style="margin-top:30rpx">
+    <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;margin-left: 50rpx;margin-top:14rpx;'>
+      <text style='width: 170rpx;height: 48rpx;font-size: 30rpx;    font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;'>到访项目</text>
+      <picker bindchange="bindPrjTypeChange" value="{{prjindex}}" range="{{projectArray}}" range-key="{{'ProjectName'}}" style='width: 505rpx;font-size: 30rpx;'>
+        <view>
+        {{projectArray[prjindex].ProjectName}}
+          <image src="{{icon1}}" style='width:25rpx;margin-left: 20rpx;' mode='widthFix'></image>
+        </view>
+      </picker>
+    </view>
+    <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;'></view>
+  </view>
+  <!-- 姓名 -->
+  <view>
+    <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;margin-top:29rpx;margin-left:50rpx;margin-top:14rpx;'>
+      <text style='width: 170rpx;height: 48rpx;font-size: 30rpx;    font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;'>姓名</text>
+      <input type="text" placeholder="请输入您的真实姓名" placeholder-style="color:#CCCCCC" maxlength="8" style='width: 505rpx;font-size: 30rpx;' bindinput="bindUserName" value="{{userName}}" />
+    </view>
+    <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;'></view>
+  </view>
+  <!-- 手机号 -->
+  <view>
+    <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;margin-left:50rpx;margin-top:14rpx;'>
+      <text tyle='width: 170rpx;height: 48rpx;font-size: 30rpx;    font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;'>手机号</text>
+      <input type="number" placeholder="请授权手机号" placeholder-style="color:#CCCCCC" maxlength="11"
+            style='width: 270rpx;font-size: 30rpx;margin-left:80rpx' value="{{phonenum}}"  disabled="{{true}}" />
+
+            <!-- disabled="{{true}}"  -->
+      <button style='width: 180rpx;height: 45rpx;font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #BC9C63;line-height: 42rpx;background: white;'
+      open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权手机号
+      </button>
+      </view>
+    <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;'></view>
+  </view>
+  <!-- 性别 -->
+  <view>
+    <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;margin-left:50rpx;margin-top:14rpx;'>
+      <text style='width: 170rpx;height: 48rpx;font-size: 30rpx;line-height: 48rpx;'>性别</text>
+          <view style='width:505rpx;font-size:30rpx;display: flex;'>
+            <view bindtap="ChangeSex_tap" data-value="M">
+              <image src='{{iconM}}' style='width:24rpx' mode='widthFix'></image>
+              <text style='margin-left: 10rpx;'>先生</text>
+            </view>
+            <text style='margin-left: 30rpx;margin-right:30rpx'>/</text>
+            <view bindtap="ChangeSex_tap" data-value='W'>
+              <image src='{{iconW}}' style='width:24rpx' mode="widthFix"></image>
+              <text style='margin-left: 10rpx;'>女士</text>
+            </view>
+          </view>
+        </view>
+        <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;'></view>
+  </view>
+  <!-- 时间选择 -->
+  <view>
+    <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;margin-left:50rpx;margin-top:14rpx;'>
+       <text
+            style='width: 173rpx;height: 48rpx;font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;'>时间选择</text>
+      <picker mode="date" value="{{date}}" start="{{startDate}}" bindchange="bindDateChange"
+            style='width: 230rpx;font-size: 30rpx;' end='{{endDate}}'>
+        <view class="picker">
+              {{date}}
+           <image src="{{icon1}}" style='width:25rpx;margin-left: 20rpx;' mode='widthFix'></image>
+          </view>
+       </picker>
+        </view>
+        <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;'></view>
+    </view>
+  <view style='height:120rpx'>
+  <view
+      style="width: 201rpx;height: 77rpx;background: #BC9C63;border-radius: 3rpx;display:flex;align-items: center;justify-content: center;margin-left: 242rpx;margin-bottom: 63rpx;margin-top:70rpx"  bindtap="invite_tap">
+      <text style='height: 44rpx;font-size: 34rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #FFFFFF;line-height: 44rpx;'>提交</text>
+    </view>
+  </view>
+</view>
+</view>
+</view>

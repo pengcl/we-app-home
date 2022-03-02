@@ -1,0 +1,129 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">Welcome</view>
+</cu-custom>
+
+<view style='display: flex;flex-direction: column;background: #FFFFFF;'>
+  
+  <!-- 背景图 -->
+  <view>
+    <image src='{{bgimg}}' style='width:750rpx;' mode='widthFix'> </image>
+  </view>
+
+  <view
+  style='width: 704rpx;background: #FFFFFF;border-radius: 0px;margin-left: 24rpx;'>
+  
+  
+  <!-- 头部 -->
+    <!-- <view>
+      <view style='text-align: center;height: 56rpx;'>
+        <text
+          style='width: 636rpx;height: 66rpx;font-size: 30rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight:bold;color: #0E0E0E;line-height: 110rpx;'>填写信息</text>
+      </view>
+    </view> -->
+  <!-- 项目 -->
+  <!-- <view style="margin-top:30rpx">
+    <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;margin-left: 50rpx;margin-top:14rpx;'>
+      <text style='width: 170rpx;height: 48rpx;font-size: 30rpx;    font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;'>到访项目</text>
+      {{groupName}}
+      <!-- <picker bindchange="bindPrjTypeChange"  value="{{prjindex}}" range="{{projectArray}}" range-key="{{'ProjectName'}}" style='width: 505rpx;font-size: 30rpx;'>
+        <view>
+        {{projectArray[prjindex].ProjectName}}
+          <image src="{{icon1}}" style='width:25rpx;margin-left: 20rpx;' mode='widthFix'></image>
+        </view>
+      </picker> 
+    </view>
+    <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;'></view>
+  </view> -->
+  <!-- 姓名 -->
+  <view wx:if="{{nameItem}}">
+    <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;margin-top:29rpx;margin-left:50rpx;margin-top:14rpx;'>
+      <text style='width: 170rpx;height: 48rpx;font-size: 30rpx;    font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;'>姓名</text>
+      <input type="text" placeholder="请输入您的真实姓名" placeholder-style="color:#CCCCCC" maxlength="8" style='width: 505rpx;font-size: 30rpx;' bindinput="bindUserName" value="{{userName}}" />
+    </view>
+    <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;'></view>
+  </view>
+  <!-- 性别 -->
+  <view wx:if="{{sexItem}}">
+    <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;margin-left:50rpx;margin-top:14rpx;'>
+      <text style='width: 170rpx;height: 48rpx;font-size: 30rpx;line-height: 48rpx;'>性别</text>
+          <view style='width:505rpx;font-size:30rpx;display: flex;'>
+            <view bindtap="ChangeSex_tap" data-value="M">
+              <image src='{{iconM}}' style='width:24rpx' mode='widthFix'></image>
+              <text style='margin-left: 10rpx;'>先生</text>
+            </view>
+            <text style='margin-left: 30rpx;margin-right:30rpx'>/</text>
+            <view bindtap="ChangeSex_tap" data-value='W'>
+              <image src='{{iconW}}' style='width:24rpx' mode="widthFix"></image>
+              <text style='margin-left: 10rpx;'>女士</text>
+            </view>
+          </view>
+        </view>
+        <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;'></view>
+  </view>
+  <!-- 时间选择 -->
+  <view wx:if="{{visitTimeItme}}">
+    <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;margin-left:50rpx;margin-top:14rpx;'>
+       <text
+            style='width: 173rpx;height: 48rpx;font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;'>时间选择</text>
+      <picker mode="date" value="{{date}}" start="{{startDate}}" bindchange="bindDateChange"
+            style='width: 230rpx;font-size: 30rpx;' end='{{endDate}}'>
+        <view class="picker">
+              {{date}}
+           <image src="{{icon1}}" style='width:25rpx;margin-left: 20rpx;' mode='widthFix'></image>
+          </view>
+       </picker>
+        </view>
+        <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;'></view>
+    </view>
+ <!-- 置业顾问 -->
+ <view wx:if="{{ZYGWItem}}">
+    <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;margin-left: 50rpx;margin-top:14rpx;'>
+      <text style='width: 170rpx;height: 48rpx;font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;'>置业顾问</text>
+        <picker bindchange="bindSalerListChange"  value="{{salerindex}}" range="{{SalerList}}" range-key="{{'username'}}" style='width: 505rpx;font-size: 30rpx;'>
+        <view>
+          {{SalerList[salerindex].username}}
+          <image src="{{icon1}}" style='width:25rpx;margin-left: 20rpx;' mode='widthFix'></image>
+        </view>
+      </picker>
+    </view>
+    <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;'></view>
+  </view>
+ <!-- 备注 -->
+ <view  wx:if="{{moreItem}}">
+    <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;margin-left: 50rpx;margin-top:14rpx;'>
+      <text style='width: 170rpx;height: 48rpx;font-size: 30rpx;    font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;'>备注</text>
+      <input type="text" placeholder="填写备注" placeholder-style="color:#CCCCCC" maxlength="80" style='width: 460rpx;font-size: 30rpx;height:36rpx;' bindinput="bindMemo" value="{{memo}}" />
+    </view>
+    <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;'></view>
+  </view>
+  <!-- 提交 -->
+  <view style='height:120rpx' wx:if="{{finished}}">
+  <view 
+      style="width: 100%;height: 77rpx;background: #BC9C63;border-radius: 8rpx;display:flex;align-items: center;justify-content: center;margin-bottom: 63rpx;margin-top:70rpx;"  bindtap="submit_tap">
+      <text style='height: 44rpx;font-size: 34rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #FFFFFF;line-height: 44rpx;'>提交信息</text>
+    </view>
+  </view>
+</view>
+
+ <!-- 遮罩层 -->
+ <view class='mask' style='display:{{maskDisplay}};flex-direction: column;' catchtouchmove='true'>
+    <view style='width: 528rpx;height: 348rpx;background: #FFFFFF;border-radius: 16rpx;margin-left:112rpx;    margin-top: 600rpx;display: flex;flex-direction: column;align-items: center;justify-content: space-evenly;'>
+      <text style='height: 66rpx;font-size: 34rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #0E0E0E;line-height: 48rpx;'>
+        注册信息授权
+      </text>
+      <text  style='height: 49rpx;font-size: 24rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #949292;line-height: 33rpx;'>
+        为确保注册有效性，请授权头像、昵称
+      </text>
+      <view>
+        <button
+          style='width: 201rpx;height: 77rpx;background: #BC9C63;border-radius: 3rpx;font-size: 34rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #FFFFFF;line-height: 44rpx;display: flex;justify-content: center;align-items: center;'
+          open-type="getUserInfo" bindgetuserinfo="UserInfo_tap">授权信息</button>
+      </view>
+    </view>
+  </view>
+</view>
+<Author></Author>
+
+
+

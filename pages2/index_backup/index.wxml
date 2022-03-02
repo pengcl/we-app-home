@@ -1,0 +1,148 @@
+<view style="padding: 0 20rpx;">
+  <view style="background: #FFF;height: {{statusBarHeight}}px;">
+
+  </view>
+
+  <view>
+
+    <image src='{{pageData.head.imgurl}}' mode='widthFix' style="width: 100%;">
+    </image>
+    <block wx:for="{{pageData.activityList}}" wx:for-item="item" wx:key="index">
+  
+      <view wx:if="{{item.code=='benefit12'}}" data-url="" style="height: 377rpx;" data-url="{{item.url}}"
+        bindtap='activity_tap'>
+        <image src='{{item.imgurl}}' mode='widthFix' style="width: 100%;">
+        </image>
+        <view
+          style="position: relative;bottom: 90rpx;margin-left: 36rpx;width: 412rpx;height: 65rpx; display: flex;flex-flow: row nowrap;justify-content:space-between;align-items: center;">
+          <view class="u_row_nowrap "
+            style="background:linear-gradient(180deg,#c9a063 0%,#f9e7a8 0%,#c9a063 100%);width: 230rpx;height:50rpx;margin-right: 5rpx;justify-content:space-between;align-items: center;border-radius: 50rpx;padding: 0 10rpx;">
+            <view>
+              <view class="cu-avatar-group" style="padding:0 10rpx 0 30rpx;direction: ltr;">
+                <view class="cu-avatar round sm" wx:for="{{item.data.avatarUrlList}}" wx:key wx:for-item="sitem"
+                  style="background-image:url({{sitem}});margin-left:-34rpx;width: 40rpx;height:40rpx;">
+                </view>
+              </view>
+            </view>
+            <view style="color: rgb(61, 40, 3);font-size: 20rpx;">
+              共{{item.data.orderCount}}人已购买
+            </view>
+          </view>
+          <image src="{{domain}}/image/buynow.gif" style="width: 182rpx;;" mode="widthFix" data-url="{{item.url}}">
+          </image>
+
+        </view>
+
+      </view>
+      <view wx:else>
+        <image src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-url="{{item.url}}"
+          data-type="{{item.type}}" data-data="{{item.data}}" bindtap='activity_tap'>
+        </image>
+      </view>
+    </block>
+    <swiper id='list0' class="screen-swiper square-dot" style="height:392rpx;" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+
+<swiper-item wx:for="{{adList}}" wx:key="index" wx:for-item="item"   
+  data-type="{{item.type}}"  data-data="{{item.data}}" data-url="{{item.url}}" bindtap="ad_tap">
+    <image src="{{item.imgurl}}" mode="scaleToFill" style="width: 100%;">
+    </image>
+  </swiper-item>
+</swiper>
+  </view>
+  <!-- ad 轮播图  -->
+  <swiper id='list' class="screen-swiper square-dot" style="height:392rpx;" indicator-dots="true" circular="true"
+    autoplay="true" interval="5000" duration="500">
+
+    <swiper-item wx:for="{{pageData.adList}}" wx:key="index" wx:for-item="item" data-type="{{item.type}}"
+      data-data="{{item.data}}" data-url="{{item.url}}" bindtap="ad_tap">
+      <image src="{{item.imgurl}}" mode="scaleToFill" style="width: 100%;">
+      </image>
+    </swiper-item>
+  </swiper>
+  <!-- 新品热推 -->
+ <view id="projList">
+    <image wx:if="{{pageData.NewProjList!=null && pageData.NewProjList.length>0}}" src='https://xyclientnew.ai-fox.net/image/proj_new.png'mode='widthFix' style="width: 40%;margin: 10px auto;" ></image>
+ 
+    <image wx:for="{{pageData.NewProjList}}" wx:key="index" wx:for-item="item" data-code="{{item.code}}"
+      src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-code="{{item.code}}" bindtap="proj_tap">
+    </image>
+  </view>
+
+  <!-- 热销楼盘 -->
+  <view id="projList">
+    <image src='https://xyclientnew.ai-fox.net/image/proj_hot.png'mode='widthFix' style="width: 40%;margin: 10px auto;" ></image>
+ 
+    <image wx:for="{{pageData.projList}}" wx:key="index" wx:for-item="item" data-code="{{item.code}}"
+      src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-code="{{item.code}}" bindtap="proj_tap">
+    </image>
+  </view>
+
+  <!-- 弹窗广告 -->
+
+  <view wx:if='{{pageData.adModal!=null}}' class="cu-modal {{adModalShow?'show':''}} ">
+    <view style="position: relative;display: inline-block;vertical-align: middle;width:80%;">
+      <view>
+        <image src='{{pageData.adModal.imgurl}}' mode='widthFix' style="width:100%;border-radius: 26rpx;"
+          data-type="{{pageData.adModal.type}}" data-data="{{pageData.adModal.data}}"
+          data-url="{{pageData.adModal.url}}" bindload="ad_load" bindtap="admodal_tap">
+        </image>
+      </view>
+      <view class="action" bindtap="hideAdModal" style="text-align: center;margin-top: 20rpx;">
+        <text class="cuIcon-roundclose" style="color: white;font-size: 70rpx;line-height: 66rpx;"></text>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view bindtap="teee_tap">
+        ssdsdfsdf
+    </view> -->
+
+    <view class="u_column_nowrap" style="position: fixed;bottom: 220rpx;right: 22rpx;z-index: 999;width: 100rpx;">
+        <view wx:for="{{pageData.exSideMenu}}" wx:key="index" wx:for-item="item">
+                <image src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-type="{{item.type}}"
+                    data-data="{{item.data}}" data-url="{{item.url}}" bindtap="exSideMenu_tap">
+                </image>
+            </view>
+    </view>
+</view>
+
+<view style="height: 160rpx;">
+</view>
+<view class="box itabbar">
+  <view class="cu-bar tabbar bg-white">
+    <view class="action" bindtap='xinyunjia_tap'>
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar01a.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-green" style="padding-top: 9rpx;">新赏家</view>
+    </view>
+    <view class="action" bindtap='im_tap'>
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar02b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;" bindtap="wechatindex_tap">悦沟通</view>
+    </view>
+    <view class="action text-gray add-action" style="color:#C7A366;" bindtap="benefit_tap">
+      <button class="cu-btn cuIcon-choiceness bg-green shadow"
+        style="background:linear-gradient(180deg,rgba(249,231,168,1) 0%,rgba(235,205,166,1) 0%,rgba(201,160,99,1) 100%);"></button>
+      权益
+    </view>
+    <view class="action" bindtap="nw_tap">
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar03b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">生态圈</view>
+    </view>
+    <view class="action" bindtap="my_tap">
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar04b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">我的</view>
+    </view>
+  </view>
+</view>
+<!-- <Author></Author> -->
+<!-- <view wx:if="{{!UserInfoStatus}}" style="position: fixed;top: 0;right: 0;bottom: 0;left: 0;z-index: 1000;opacity: 0;">
+    <button style="position: fixed;top: 0;right: 0;bottom: 0;left: 0;bottom: #FF0;margin:0;width: 100vw;opacity: 0;"
+        open-type="getUserInfo" bindgetuserinfo="UserInfo_tap"></button>
+</view> -->

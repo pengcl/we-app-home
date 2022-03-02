@@ -1,0 +1,12 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">奖品核销</view>
+</cu-custom>
+<view>
+  <view>
+    <image src='{{bgImg}}' style='width: 100%;' mode='widthFix'></image>
+  </view>
+  <view>
+    <image src='{{qrcode}}' style='width: 200rpx;height: 200rpx;position: absolute;margin: -1000rpx 0 0 290rpx;'></image>
+  </view>
+</view>

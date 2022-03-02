@@ -1,0 +1,101 @@
+<wxs module="filter" src="../../filter.wxs"></wxs>
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">兑换详情</view>
+</cu-custom>
+<view class="page">
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__hd">{{order.partnershowname}}</view>
+    <view class="weui-panel__bd">
+      <view aria-labelledby="js_p1m1_bd" href="javascript:" class="weui-media-box weui-media-box_appmsg">
+        <view aria-hidden="true" class="weui-media-box__hd">
+          <image class="weui-media-box__thumb" src="{{order.imgurl}}" alt=""></image>
+        </view>
+        <view aria-hidden="true" id="js_p1m1_bd" class="weui-media-box__bd">
+          <view class="weui-media-box__title">{{order.goodsname}} <view class="weui-media-box__title_extra">x{{order.goodscount}}</view>
+          </view>
+          <view class="weui-media-box__desc">
+            <view class="change-able">{{order.ischange ? '可退换' : '不可退换'}}</view>
+          </view>
+          <view class="weui-media-box__desc">
+            <view class="points">
+              <image src="../../../images/k.png"></image>
+              <view class="num">{{filter.formatAmount(order.totalkdppoints)}}积分</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-panel__ft">
+      <view href="javascript:" class="weui-cell weui-cell_active weui-cell_access weui-cell_link">
+        <view class="weui-cell__bd">券详情</view>
+        <view class="weui-cell__ft">{{usedCount}}/{{codes.length}}已使用</view>
+      </view>
+    </view>
+  </view>
+  <swiper bindchange="swiperChange" class="codes" previous-margin="40rpx" next-margin="40rpx" indicator-dots="{{false}}" autoplay="{{false}}" duration="500">
+    <block wx:for="{{codes}}" wx:for-index="idx">
+      <swiper-item>
+        <view class="swiper-item">
+          <view class="code-hd">
+            <view class="title">{{item.goodsname}} <view class="{{item.status === '未使用' ? 'green' : item.status === '即将过期' ? 'red' : 'gray'}} used">{{item.status}}</view>
+            </view>
+            <view class="desc">有效期限：自兑换之日至{{item.deadline}} 00:00前有效</view>
+          </view>
+          <view class="code-bd">
+            <view class="{{item.status === '未使用' ? 'green' : (item.status === '即将过期' || item.status === '快过期') ? 'red' : 'gray'}} qr-code">
+              <image src="{{item.qrcodeurl}}"></image>
+            </view>
+          </view>
+          <view class="code-ft">编号：{{item.qrcode}}</view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="swiper-dots">
+    <view wx:for="{{codes}}" wx:for-index="index" wx:key="qrcodeurl" class="{{index === current ? 'current' : ''}} swiper-dot"></view>
+  </view>
+  <view class="order-detail">
+    <view class="order-detail-hd">
+      <view class="weui-cells">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            兑换编号：
+          </view>
+          <view class="weui-cell__ft">
+            {{order.orderno}}
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">兑换时间：</view>
+          <view class="weui-cell__ft">
+            {{order.createtime}}
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">兑换数量：</view>
+          <view class="weui-cell__ft">
+            {{order.goodscount}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="order-detail-bd">
+      <view wx:for="{{contentRole}}" wx:key="headlinedata">
+        <view class="h3">{{item.headlinedata}}</view>
+        <view wx:for="{{item.contentdescribelist}}" class="txt">{{item.contentdata}}</view>
+      </view>
+
+      <view wx:if="{{good.exchangeaddress}}">
+        <view class="h3">适用商家</view>
+        <view class="address">
+          <image src="../../../images/pin.png"></image>{{good.exchangeaddress}}
+        </view>
+      </view>
+      <view wx:for="{{contentPhone}}" wx:key="headlinedata" class="text">
+        <text class="txt">{{item.headlinedata}}：</text>
+        <text wx:for="{{item.contentdescribelist}}" class="txt">{{item.contentdata}}</text>
+      </view>
+    </view>
+  </view>
+</view>

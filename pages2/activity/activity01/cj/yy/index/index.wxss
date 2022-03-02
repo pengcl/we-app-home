@@ -1,0 +1,159 @@
+@import "../../../../../../colorui/main.wxss";
+@import "../../../../../../colorui/icon.wxss";
+
+/* page {
+  background: #CE1E0D;
+} */
+.lottery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  width:100%;
+  height:1446rpx;
+  padding-bottom:38rpx;
+}
+.img-lottery {
+  width: 100%;
+  height: 716rpx;
+  position: absolute;
+  top: 0;
+}
+.img-lottery1 {
+  width: 115rpx;
+  height: 186rpx;
+  position:absolute;
+  top:970rpx;
+  left:0;
+}
+.img-bang {
+  width: 561rpx;
+  height: 193rpx;
+  position: absolute;
+  top: 29rpx;
+}
+.title {
+  width:290rpx;
+  height:52rpx;
+  background:rgba(255,252,228,1);
+  border:1px solid rgba(243,239,44,1);
+  border-radius:26rpx;
+  font-size:24rpx;
+  font-weight:500;
+  color:rgba(255,97,0,1);
+  line-height:30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position:absolute;
+  top:302rpx;
+}
+.turntable {
+  width:684rpx;
+  height:617rpx;
+  position: absolute;
+  top: 500rpx;
+}
+.turntable .img-turntable {
+  width:684rpx;
+  height:617rpx;
+}
+.turntable .row-turntable {
+  width:586rpx;
+  height:166rpx;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  align-items:center;
+  position:absolute;
+  top:0;
+  margin-left:44rpx;
+  margin-top:39rpx;
+}
+.turntable .item-turntable {
+  width:190rpx;
+  height:166rpx;
+}
+.top-174 {
+  top: 174rpx!important;
+}
+.top-348 {
+  top: 348rpx!important;
+}
+.record {
+  width:302rpx;
+  height:88rpx;
+  background:rgba(255,206,0,1);
+  border-radius:16rpx;
+  font-size:32rpx;
+  font-weight:500;
+  color:rgba(233,43,45,1);
+  line-height:64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position:absolute;
+  top: 998rpx;
+  margin-top:24rpx;
+}
+.footer {
+  width:667rpx;
+  height:306rpx;
+  border-radius:6rpx;
+  position: absolute;
+  top: 1110rpx;
+  margin-top: 30rpx;
+  margin-bottom: 38rpx;
+  background: #A80120;
+}
+.footer .footer-title {
+  width:132rpx;
+  height:44rpx;
+  background:rgba(254,239,202,1);
+  border-radius:6rpx;
+  font-size:28rpx;
+  font-weight:500;
+  color:rgba(255,0,0,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18rpx;
+  margin-left: -5rpx;
+}
+.footer .footer-tip {
+  margin-top: 28rpx;
+  padding: 0 21rpx;
+  display: flex;
+  flex-direction: column;
+}
+.footer .tip {
+  font-size:28rpx;
+  font-family:PingFang-SC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height:40rpx;
+}
+.prize {
+  font-size:24rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(135,14,0,1);
+  line-height:30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.img-prize {
+  width:160rpx;
+  height:84rpx;
+  border-radius:10rpx;
+}
+.prize-tip {
+  padding-top: 10rpx;
+  font-size:24rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(135,14,0,1);
+}

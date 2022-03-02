@@ -1,0 +1,21 @@
+@import "../../../colorui/main.wxss";
+@import "../../../colorui/icon.wxss";
+
+page {
+  background-color: #fff;
+  /* background-color:red; */
+}
+
+.font1 {
+  font-size: 33rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  line-height: 46rpx;
+}
+
+.split {
+  width: 678rpx;
+  height: 1px;
+  background-color: #e2e2e2;
+}

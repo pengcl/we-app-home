@@ -1,0 +1,26 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">欢迎光临</view>
+</cu-custom>
+<view style="padding: 0 20rpx;">
+    <view style="background: #FFF;height: {{statusBarHeight}}px;">
+    </view>
+    <view  style="display: flex;justify-content: center;margin: 0 auto;padding-top: 50px;">
+    <image src='{{domain}}image/uniongoto/logo.png' mode='widthFix' style="width: 50%;">
+    </image>
+    </view>
+    <!--<view style="display: flex;justify-content: center;margin: 0 auto;padding-top: 20px;">
+    <image src='{{domain}}image/uniongoto/loading.gif' mode='widthFix' style="width: 10%;">
+    </image>
+    </view>-->
+    <!--<view  style="display: flex;justify-content: center;margin: 0 auto;padding-top: 60px;" bindtap="GotoNext_tap">
+    <image src='{{domain}}image/uniongoto/n.png' mode='widthFix' style="width: 90%;">
+    </image>
+    </view>-->
+    <view wx:if="{{isshowgoto==true}}" style="display: flex;justify-content: center;">
+    <button bindtap="gotoTap" class="button"
+        style="border: 0px solid #555454;margin-top: 150rpx;width: 90%;" size="default">
+        查看项目介绍
+    </button>
+    </view>
+</view>

@@ -1,0 +1,89 @@
+<!-- 导航条 -->
+<cu-custom bgColor="bg-white" isBack="{{false}}">
+    <view slot="backText">返回</view>
+    <view slot="content">沟通列表</view>
+</cu-custom>
+<view class="u_column_nowrap" style="margin-top: 30rpx;">
+    <view wx:if="{{IMList.length>0}}">
+        <view wx:for="{{IMList}}" wx:for-item="item" wx:key="id" class="u_row_nowrap"
+            style="padding: 30rpx 40rpx 0 38rpx;background:#FFF;" data-id="{{item.id}}" bindtap='imview_tap'
+            data-salercode="{{item.LastSalerCode}}" data-projectgid="{{item.LastShowProjectGID}}">
+            <view>
+                <image src="{{domain}}/{{item.LastSalerPic}}" mode="aspectFit" lazy-load="false"
+                    style="width: 128rpx;height: 128rpx;border-radius: 50%;" />
+            </view>
+            <view class="u_column_nowrap" style="padding-left: 36rpx;">
+                <view class="u_row_nowrap" style="justify-content: start;align-items: center;">
+                    <view
+                        style="font-size:33rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(12,12,12,1);line-height:46rpx;">
+                        {{item.LastSalerName}}
+                    </view>
+                    <view
+                        style="background:#F9F3E9;border-radius:19px;font-size:25rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:#D7B481;line-height:37rpx;padding: 0 14rpx;margin-left: 20rpx;">
+                        {{item.LastShowProjectName}}
+                    </view>
+                </view>
+                <view class="text_ellipsis"
+                    style="width: 508rpx; padding: 24rpx 0 41rpx 0;border-bottom:solid 1px #E4E4E4;font-size:28rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(132,132,132,1);line-height:40rpx;">
+                    {{item.LastShowContext}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:else class="u_column_nowrap"
+        style="justify-content: center;align-items: center;background: #FFF;height:50vh;text-align: center;">
+        <text>{{imlist_empty.msg}}</text>
+        <view class="u_row_nowrap"
+            style="margin-top: 47rpx;justify-content:space-around;align-items: center;width: 100%;">
+            <view wx:for="{{imlist_empty.projList}}" wx:for-item="item" wx:key="id" class="u_column_nowrap"
+                style="justify-content: center;align-items: center;" data-guid="{{item.projGuid}}"
+                bindtap="imselect_tap">
+                <image src="{{item.projLogo}}" mode="aspectFit" lazy-load="false"
+                    style="width: 159rpx;height:159rpx;" />
+                <view class="ll">
+                    聊聊
+                </view>
+
+            </view>
+
+        </view>
+    </view>
+
+</view>
+
+<view style="height: 160rpx;">
+</view>
+<view class="box" style=" position:fixed;bottom:0;width: 100%;z-index: 10000;">
+    <view class="cu-bar tabbar bg-white">
+        <view class="action" bindtap='xinyunjia_tap'>
+            <view class="cuIcon-cu-image">
+                <image src="{{domain}}/image/bar01b.png" style="width: 44rpx;height: 38rpx;"></image>
+            </view>
+            <view class="text-gray" style="padding-top: 9rpx;">新赏家</view>
+        </view>
+        <view class="action" bindtap='im_tap'>
+            <view class="cuIcon-cu-image">
+                <image src="{{domain}}/image/bar02a.png" style="width: 44rpx;height: 38rpx;"></image>
+            </view>
+            <view class="text-green" style="padding-top: 9rpx;">蕴服务</view>
+        </view>
+        <view class="action text-gray add-action" style="color:#C7A366;" bindtap="benefit_tap">
+            <button class="cu-btn cuIcon-choiceness bg-green shadow"
+                style="background:linear-gradient(180deg,rgba(249,231,168,1) 0%,rgba(235,205,166,1) 0%,rgba(201,160,99,1) 100%);"></button>
+                活动
+        </view>
+        <view class="action" bindtap="nw_tap">
+            <view class="cuIcon-cu-image">
+                <image src="{{domain}}/image/bar03b.png" style="width: 44rpx;height: 38rpx;"></image>
+            </view>
+            <view class="text-gray" style="padding-top: 9rpx;">生态圈</view>
+        </view>
+        <view class="action" bindtap="my_tap">
+            <view class="cuIcon-cu-image">
+                <image src="{{domain}}/image/bar04b.png" style="width: 44rpx;height: 38rpx;"></image>
+            </view>
+            <view class="text-gray" style="padding-top: 9rpx;">我的</view>
+        </view>
+    </view>
+</view>
+<Author></Author>

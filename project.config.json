@@ -1,0 +1,618 @@
+{
+    "description": "项目配置文件",
+    "packOptions": {
+        "ignore": [
+            {
+                "type": "folder",
+                "value": "node_modules"
+            }
+        ]
+    },
+    "setting": {
+        "urlCheck": true,
+        "es6": true,
+        "enhance": false,
+        "postcss": true,
+        "preloadBackgroundData": false,
+        "minified": true,
+        "newFeature": true,
+        "coverView": true,
+        "nodeModules": true,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "uglifyFileName": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": true,
+        "uploadWithSourceMap": true,
+        "compileHotReLoad": false,
+        "useMultiFrameRuntime": true,
+        "useApiHook": true,
+        "useApiHostProcess": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "enableEngineNative": false,
+        "useIsolateContext": true,
+        "userConfirmedBundleSwitch": false,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "minifyWXSS": true,
+        "disableUseStrict": false,
+        "minifyWXML": true,
+        "showES6CompileOption": false,
+        "useCompilerPlugins": false
+    },
+    "compileType": "miniprogram",
+    "libVersion": "2.17.0",
+    "appid": "wxbc54366afc539c0b",
+    "projectname": "XinYunJia",
+    "debugOptions": {
+        "hidedInDevtools": []
+    },
+    "isGameTourist": false,
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "首页",
+                    "pathName": "pages2/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 1,
+                    "name": "项目详情",
+                    "pathName": "pages/community/detail/detail",
+                    "query": "id=1",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "悦沟通",
+                    "pathName": "pages/im/imlist/imlist",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 4,
+                    "name": "沟通IM",
+                    "pathName": "pages/im/imview/imview",
+                    "query": "ProjectGID= 852FA663-9EA1-44F9-A109-1C8990266D92&SalerUserCode=15521076200",
+                    "scene": null
+                },
+                {
+                    "id": 3,
+                    "name": "周边配置",
+                    "pathName": "pages/aroundMap/map/map",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "我的",
+                    "pathName": "pages/my/main/main",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "我的预约",
+                    "pathName": "pages/my/myBook/myBook",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "预约看房",
+                    "pathName": "pages/book/seeHouse/seehouse",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "新世界生态圈",
+                    "pathName": "pages/nw/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "专家访谈",
+                    "pathName": "pages/interview/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "更多悦动态",
+                    "pathName": "pages/community/dtmore/dtmore",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "首页v1",
+                    "pathName": "pages/indexv1/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 18,
+                    "name": "埋点测试",
+                    "pathName": "pages/TrackTest/index",
+                    "query": "id=1&c=123",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "视频测试",
+                    "pathName": "pages/test/video",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 14,
+                    "name": "首页v2",
+                    "pathName": "pages2/index/index",
+                    "query": "aa=sd&sds=qq",
+                    "scene": 1005
+                },
+                {
+                    "id": 15,
+                    "name": "仲夏夜之梦活动",
+                    "pathName": "pages2/activity/lnwyy/main/main",
+                    "query": "code=AT20003",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "授权页",
+                    "pathName": "pages2/permission/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 17,
+                    "name": "活动详情页",
+                    "pathName": "pages2/activity/assist/detail/detail",
+                    "query": "orderCode=AT158607653439631&activCode=AT20001",
+                    "scene": null
+                },
+                {
+                    "id": 18,
+                    "name": "沟通IM列表",
+                    "pathName": "pages/im/imselect/imselect",
+                    "query": "ProjectGID=D8834E95-AE3B-4A92-B503-DDB73B0C74D8",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "快速登陆",
+                    "pathName": "pages2/permission/phone/phone",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "广汇项目",
+                    "pathName": "pages2/community/KYW/index2/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 21,
+                    "name": "助力页面",
+                    "pathName": "pages2/activity/lnwyy/assist/assist",
+                    "query": "orderCode=AT159542542918147&activCode=AT20003",
+                    "scene": null
+                },
+                {
+                    "id": 28,
+                    "name": "分享",
+                    "pathName": "pages/share/loushumingpian",
+                    "query": "scene=1-2",
+                    "scene": null
+                },
+                {
+                    "id": 23,
+                    "name": "助力核销页",
+                    "pathName": "pages2/activity/lnwyy/assist/assistaward",
+                    "query": "orderCode=AT159521108560278&activCode=AT20003",
+                    "scene": null
+                },
+                {
+                    "id": 24,
+                    "name": "pages2/community/KYW/index/index",
+                    "pathName": "pages2/community/KYW/index/index",
+                    "query": "",
+                    "scene": 1026
+                },
+                {
+                    "id": 25,
+                    "name": "十二大权益",
+                    "pathName": "pages2/activity/activity01/pay/main",
+                    "query": "code=001",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "购买成功",
+                    "pathName": "pages2/activity/activity01/pay/payok",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "预约滴滴",
+                    "pathName": "pages2/activity/activity01/bookcar/book",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 28,
+                    "name": "专车预约",
+                    "pathName": "pages2/activity/activity01/bookcar/detail",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 29,
+                    "name": "拼团二维码",
+                    "pathName": "pages2/activity/assist/award/qrcode/qrcode",
+                    "query": "orderCode=AT158432662852757&activCode=AT20001&type=yy",
+                    "scene": null
+                },
+                {
+                    "id": 30,
+                    "name": "购买",
+                    "pathName": "pages2/activity/activity01/pay/pay",
+                    "query": "pcode=001",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "支付说明",
+                    "pathName": "pages2/activity/activity01/pay/paydesc",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 32,
+                    "name": "推荐来访",
+                    "pathName": "pages2/activity/lnwyy/tj/tj",
+                    "query": "orderCode=AT159428075145772",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "购买",
+                    "pathName": "pages2/activity/activity01/pay/pay",
+                    "query": "pcode=001",
+                    "scene": null
+                },
+                {
+                    "id": 34,
+                    "name": "推荐列表页",
+                    "pathName": "pages2/activity/activity01/tj/list",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/share/anchang",
+                    "pathName": "pages/share/anchang",
+                    "query": "scene=202003181551429396",
+                    "scene": null
+                },
+                {
+                    "id": 36,
+                    "name": "推荐来访兑奖",
+                    "pathName": "pages2/activity/lnwyy/tj/tjaward",
+                    "query": "orderCode=AT159428075145772",
+                    "scene": null
+                },
+                {
+                    "id": 37,
+                    "name": "九宫格抽奖",
+                    "pathName": "pages2/activity/activity01/cj/kyw/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "投票",
+                    "pathName": "pages2/activity/photocontest/vote/vote",
+                    "query": "contestCode=contest0001",
+                    "scene": null
+                },
+                {
+                    "id": 39,
+                    "name": "摄影大赛",
+                    "pathName": "pages2/activity/photocontest/main/main",
+                    "query": "contestCode=contest0001",
+                    "scene": null
+                },
+                {
+                    "id": 40,
+                    "name": "投票留咨",
+                    "pathName": "pages2/activity/photocontest/userInfo/userInfo",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 41,
+                    "name": "获奖列表",
+                    "pathName": "pages2/activity/photocontest/awardList/awardList",
+                    "query": "contestCode=contest0001",
+                    "scene": null
+                },
+                {
+                    "id": 43,
+                    "name": "转介-注册",
+                    "pathName": "pages2/referral/regist/main/main",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "推介首页",
+                    "pathName": "pages2/referral/tj/main/main",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "推介",
+                    "pathName": "pages2/referral/tj/tj/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "推介详情",
+                    "pathName": "pages2/referral/tj/tjdetail/detail",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 46,
+                    "name": "pages2/referral/main/main",
+                    "pathName": "pages2/referral/main/main",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": 47,
+                    "name": "pages2/activity/activity20200919/main/main",
+                    "pathName": "pages2/activity/activity20200919/main/main",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "pages2/activity/activity02/pay/qy/main",
+                    "pathName": "pages2/activity/activity02/pay/qy/main",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "id": -1,
+                    "name": "活动-助力",
+                    "pathName": "pages2/activity/assist/assist/assist",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "购买detail",
+                    "pathName": "pages2/activity/activity20200919/paydetail/detail",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "yunyi",
+                    "pathName": "pages2/community/YY/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "授权页",
+                    "pathName": "pages2/permission/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "电话授权",
+                    "pathName": "pages2/permission/phone/phone",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "助力详细页",
+                    "pathName": "pages2/activity/assist/detail/detail",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages2/activity/lnwyy/assist/assist",
+                    "pathName": "pages2/activity/lnwyy/assist/assist",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "奖品核销",
+                    "pathName": "pages2/activity/lnwyy/assist/assistaward",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "助力帮助",
+                    "pathName": "pages2/activity/activity20201114/assist/assist",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "清远",
+                    "pathName": "pages2/community/TG/index/index",
+                    "query": "scene=202003181551429396",
+                    "scene": null
+                },
+                {
+                    "name": "全心惠您首页",
+                    "pathName": "pages2/activity/activity20201114/main/main",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "全心惠您YY",
+                    "pathName": "pages2/activity/activity20201114/pay/yy/main",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "全心惠您ZQ",
+                    "pathName": "pages2/activity/activity20201114/pay/kyw/main",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages2/activity/activity20201114/cj/yy/index/index",
+                    "pathName": "pages2/activity/activity20201114/cj/yy/index/index",
+                    "query": "orderCode=AAA",
+                    "scene": null
+                },
+                {
+                    "name": "抽奖2",
+                    "pathName": "pages2/activity/activity20201114/cj/yy/detail/detail",
+                    "query": "orderCode=C201118133304715548F08",
+                    "scene": null
+                },
+                {
+                    "name": "pages2/activity/activity20201114/cj003/zc/index/index",
+                    "pathName": "pages2/activity/activity20201114/cj003/zc/index/index",
+                    "query": "sence=202003181551429396",
+                    "scene": null
+                },
+                {
+                    "name": "测试菊花码",
+                    "pathName": "pages2/activity/assist/detail/detail",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "转介 - 邀请",
+                    "pathName": "pages2/referral/invite/invite",
+                    "query": "gid=FDD66AAE-2F8A-4CED-8C9B-2E21D6977BE0&pid=FDD35F63-EA2D-4D8A-A02D-CCA9798C7FB6",
+                    "scene": null
+                },
+                {
+                    "name": "邀请完成",
+                    "pathName": "pages2/referral/invite/finished",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "转介-邀请分享",
+                    "pathName": "pages2/referral/invite/share",
+                    "query": "scene=202012102038276145",
+                    "scene": null
+                },
+                {
+                    "name": "2",
+                    "pathName": "pages2/referral/invite/share",
+                    "query": "scene=202012111753248220",
+                    "scene": null
+                },
+                {
+                    "name": "活动码测试",
+                    "pathName": "pages2/activity/activityHDM/Record",
+                    "query": "scene=202102071603447773",
+                    "scene": null
+                },
+                {
+                    "name": "抽奖测试",
+                    "pathName": "pages2/activity/cj/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "我的权益页",
+                    "pathName": "pages2/activity/activity20210114/paydetail/detail",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "TG",
+                    "pathName": "pages2/community/TG/index/index",
+                    "query": "scene=202104301050082351",
+                    "scene": null
+                },
+                {
+                    "name": "pages/nw/index/index",
+                    "pathName": "pages2/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "aaa",
+                    "pathName": "pages2/activity/activityPorsche/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "首页V2",
+                    "pathName": "pages2/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/article/test",
+                    "pathName": "pages/article/test",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages2/activity/activity20210520_DQFY/index",
+                    "pathName": "pages2/activity/activity20210520_DQFY/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/article/test1",
+                    "pathName": "pages/article/test1",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "金湖花园",
+                    "pathName": "pages2/community/JH/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages2/community/TG/map/map",
+                    "pathName": "pages2/community/TG/map/map",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages2/activity/activity01/cj/kyw/index/index",
+                    "pathName": "pages2/activity/activity01/cj/kyw/index/index",
+                    "query": "lotterygid=E0F8EEE7-F84F-4CD8-B961-A39D1AD63AC5",
+                    "scene": null
+                }
+            ]
+        }
+    }
+}

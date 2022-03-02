@@ -1,0 +1,36 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">点评&提问</view>
+</cu-custom>
+<view>
+  <!--<view style='width:750rpx;height:223rpx;background:rgba(255,255,255,1);display: flex;flex-direction: column;'>
+    <text style='font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(0,0,0,1);line-height:42rpx;margin: 36rpx 0 0 36rpx;'>请问您是否去售楼处看过房？</text>
+    <view style='display:flex;margin: 36rpx 0 0 36rpx;'>
+      <view class='{{viewClass1}}' bindtap="seeHouse" data-id='no'>
+        <text class='{{fontclass1}}' style="margin: 10rpx 0 0 46rpx;">考虑看房</text>
+      </view>
+      <view class='{{viewClass2}}' bindtap="seeHouse" data-id='yes' style='margin-left: 36rpx;'>
+        <text class='{{fontclass2}}' style='margin: 10rpx 0 0 56rpx;'>已看过</text>
+      </view>
+    </view>
+  </view>
+  <view style='width:750rpx;background-color:#ffffff;margin: 30rpx 0 0 0;min-height: 950rpx;'>
+    <view style='display: flex;'>
+      <textarea style='width:678rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(121,121,121,1);line-height:42rpx;margin: 53rpx 0 0 36rpx;' placeholder="对该楼盘的配套、环境、位置等还满意吗？请在此写下您的看法" maxlength="100" value='{{content}}'
+        bindinput="inputInfo"></textarea>
+    </view>
+    <view style='display:flex'>
+      <text style='font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(121,121,121,1);line-height:42rpx;margin: 0 0 30rpx 539rpx;'>字数：{{fontCount}}/100</text>
+    </view>
+    <view style='width:750rpx;height:1rpx;background-color:#EAEAEA'></view>
+    <view style='display: flex;margin: 50rpx 0 0 36rpx;flex-wrap: wrap;'>
+      <view wx:for='{{pics}}' style=' width: 145rpx;height: 145rpx;margin: 17rpx;'>
+        <image style='width: 145rpx;height: 145rpx;' src='{{item}}'></image>
+      </view>
+      <image src='{{icon}}' style='width: 145rpx;height: 145rpx;margin: 17rpx;' bindtap="chooseImage"></image>
+    </view>
+    <view style="width:678rpx;height:80rpx;background:rgba(190,158,97,1);border:1rpx solid rgba(190,158,97,1);margin: 180rpx 0 36rpx 37rpx;display: flex;" bindtap="submit">
+      <text style="width:278rpx;height:42rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(255,255,255,1);line-height:42rpx;margin: 19rpx 0 0 320rpx;">提交</text>
+    </view>
+  </view>-->
+</view>

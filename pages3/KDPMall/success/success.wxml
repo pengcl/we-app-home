@@ -1,0 +1,73 @@
+<wxs module="filter" src="../filter.wxs"></wxs>
+<cu-custom bgColor="bg-white" isCustom="{{false}}"></cu-custom>
+<view class="page">
+  <view class="weui-msg">
+    <view class="weui-msg__icon-area">
+      <view class="weui-icon-success weui-icon_msg"></view>
+    </view>
+    <view class="weui-msg__text-area">
+      <view class="weui-msg__title">兑换完成</view>
+      <view class="weui-msg__desc">
+        <view class="points">
+          <view class="label">数量{{order.goodscount}}，共消耗：</view>
+          <image src="../../images/k.png"></image>
+          <view class="num">{{filter.formatAmount(order.totalkdppoints)}}积分</view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            兑换编号：
+          </view>
+          <view class="weui-cell__ft">
+            {{order.orderno}}
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">兑换时间：</view>
+          <view class="weui-cell__ft">
+            {{order.createtime}}
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">兑换数量：</view>
+          <view class="weui-cell__ft">
+            {{order.goodscount}}
+          </view>
+        </view>
+      </view>
+  </view>
+  <swiper bindchange="swiperChange" class="codes" previous-margin="40rpx" next-margin="40rpx" indicator-dots="{{false}}" autoplay="{{false}}" duration="500">
+    <block wx:for="{{codes}}" wx:for-index="idx" wx:key="*this">
+      <swiper-item>
+        <view class="swiper-item">
+          <view class="code-hd">
+            <view class="title">{{item.goodsname}} <view class="{{item.status === '未使用' ? 'green' : item.status === '即将过期' ? 'red' : 'gray'}} used">{{item.status}}</view>
+            </view>
+            <view class="desc">有效期限：自兑换之日至{{item.deadline}} 00:00前有效</view>
+          </view>
+          <view class="code-bd">
+            <view class="{{item.status === '未使用' ? 'green' : item.status === '即将过期' ? 'red' : 'gray'}} qr-code">
+              <image src="{{item.qrcodeurl}}"></image>
+            </view>
+          </view>
+          <view class="code-ft">编号：{{item.qrcode}}</view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="swiper-dots">
+    <view wx:for="{{codes}}" wx:for-index="index" wx:key="*index" class="{{index === current ? 'current' : ''}} swiper-dot"></view>
+  </view>
+</view>
+<view class="page-footer">
+  <view class="weui-grids">
+    <view class="weui-grid">
+      <view data-url="/pages3/KDPMall/order/list/list" bindtap="link" class="records weui-grid__label">兑换记录</view>
+    </view>
+    <view class="weui-grid">
+      <view data-url="/pages3/KDPMall/index/index" bindtap="link" class="weui-grid__label">返回首页</view>
+    </view>
+  </view>
+</view>

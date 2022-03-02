@@ -1,0 +1,9 @@
+<!--pages2/community/YY/detail/detail.wxml-->
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">新世界云耀</view>
+</cu-custom>
+<view wx:for="{{detailList}}" wx:key="id" wx:for-item="item">
+ <image wx:if="{{item.code==currCode}}" src="{{item.img}}" mode="widthFix" style="width: 100%;"></image>
+</view>
+<!-- <Author></Author> -->

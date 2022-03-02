@@ -1,0 +1,32 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">优秀作品</view>
+</cu-custom>
+<view>
+	<view>
+		<image src='{{bgimage}}' style='width:750rpx' mode='widthFix'></image>
+	</view>
+	<view style='display: flex;justify-content: space-around;'>
+		<image src='{{typeimg1}}' style='width: 180rpx;' mode='widthFix' bindtap="changeType_tap" data-id='Y11'></image>
+		<image src='{{typeimg2}}' style='width: 180rpx;' mode='widthFix' bindtap="changeType_tap" data-id='Y21'></image>
+		<image src='{{typeimg3}}' style='width: 180rpx;' mode='widthFix' bindtap="changeType_tap" data-id='Y31'></image>
+	</view>
+	<view style='display:flex;flex-direction:column;align-items:center'>
+		<view wx:for='{{infos}}' wx:key='index' style='width:675rpx;margin-top: 30rpx;background: #F3E7D7;'>
+			<image src='{{item.PhotoThumbUrl}}' style='width:675rpx;padding-top: 20rpx;' mode='aspectFit' bindtap="preview" data-url='{{item.PhotoUrl}}'></image>
+			<view style='display:flex;color: #B28247;margin-left: 50rpx;'>
+				<view style='display:flex;justify-content: center;flex-direction: column;'>
+					<text wx:if='{{index==0}}' style='font-size: 40rpx;font-weight: bold;'>一等奖</text>
+					<text wx:if='{{index==1}}' style='font-size: 40rpx;font-weight: bold;'>二等奖</text>
+					<text wx:if='{{index==2}}' style='font-size: 40rpx;font-weight: bold;'>三等奖</text>
+				</view>
+				<view style='display: flex;flex-direction: column;margin-left: 30rpx;justify-content: space-around;width:450rpx;margin-bottom: 20rpx;margin-top: 10rpx;'>
+					<text>作品编号：{{item.WorkCode}}</text>
+					<text>作品主题：{{item.PhotoName}}</text>
+					<text>作品简介：{{item.PhotoIntro}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view style='height:100rpx'></view>
+</view>

@@ -1,0 +1,176 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">推荐</view>
+</cu-custom>
+<view style='display: flex;flex-direction: column;'>
+  <image src='{{bgimg}}' style='width:750rpx' mode='widthFix'></image>
+  <view
+    style='width: 704rpx;background: #FFFFFF;border-radius: 17px;margin-left: 24rpx;margin-top: -30rpx;z-index: 999;'>
+    <!-- 进度条 -->
+    <view>
+      <view class="cu-steps" style='margin-top: 31rpx;'>
+        <view class="cu-item {{index>num?'':'text-BC9C63'}}" wx:for="{{numList}}" wx:key>
+          <text class="num" data-index="{{index + 1}}"></text> {{item.name}}
+        </view>
+      </view>
+    </view>
+    <view style='width: 705rpx;height: 1rpx;background:#D3D3D3;margin-top: 36rpx;margin-bottom: 49rpx;'></view>
+    <!-- 第一步 -->
+    <view wx:if="{{num==0}}">
+      <view style='text-align: center;height: 66rpx;'>
+        <text
+          style='width: 636rpx;height: 66rpx;font-size: 34rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #0E0E0E;line-height: 48rpx;'>第一步.选择项目及输入手机号</text>
+      </view>
+      <view style='text-align: center;height: 66rpx;'>
+        <text
+          style='width: 663rpx;height: 49rpx;font-size: 24rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #949292;line-height: 33rpx;'>
+          请输入您选择要推荐的项目楼盘及填写客户手机号进行审核</text></view>
+      <view>
+        <view
+          style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;margin-top:29rpx;    margin-left: 24rpx;'>
+          <text
+            style='width: 173rpx;height: 48rpx;font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;'>手机号</text>
+          <input type="number" placeholder="请填写您要推荐的客户手机号码" placeholder-style="color:#CCCCCC" maxlength="11"
+            style='width: 420rpx;font-size: 30rpx;' bindinput="bindtjPhone" value="{{tjPhone}}" />
+        </view>
+        <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;'></view>
+      </view>
+      <view>
+        <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;margin-left: 24rpx;'>
+          <text
+            style='width: 173rpx;height: 48rpx;font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;'>项目</text>
+          <picker bindchange="bindPrjTypeChange" value="{{prjindex}}" range="{{projectArray}}"
+            range-key="{{'ProjectName'}}" style='width: 505rpx;font-size: 30rpx;'>
+            <view>
+              {{projectArray[prjindex].ProjectName}}
+              <image src="{{icon1}}" style='width:25rpx;margin-left: 20rpx;' mode='widthFix'></image>
+            </view>
+          </picker>
+        </view>
+        <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;'></view>
+      </view>
+      <view
+        style='width: 663rpx;font-size: 26rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;margin-left: 24rpx;margin-top: 28rpx;margin-bottom: 100rpx;'>
+        <text style='color:#7B7B7B'>奖励规则：</text>
+        <text style='color:#8F6D49'>{{rule}}</text>
+        <text wx:if='{{rule!="" && rule!="暂无"}}' style='text-decoration:underline;color:#8F6D49'
+          bindtap="tjrule_tap">查看细则</text>
+      </view>
+    </view>
+    <!-- 第二步 -->
+    <view wx:elif="{{num==1}}">
+      <view style='text-align: center;height: 66rpx;'>
+        <text
+          style='width: 636rpx;height: 66rpx;font-size: 34rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #0E0E0E;line-height: 48rpx;'>第二步.完善推荐客户资料</text>
+      </view>
+      <view style='text-align: center;height: 66rpx;'>
+        <text
+          style='width: 663rpx;height: 49rpx;font-size: 24rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #949292;line-height: 33rpx;'>
+          该活动为实名认证兑换奖励，请正确填写推荐客户的信息</text>
+      </view>
+      <!-- 姓名 -->
+      <view>
+        <view
+          style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;margin-top:29rpx;    margin-left: 24rpx;'>
+          <text
+            style='width: 173rpx;height: 48rpx;font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;'>姓名</text>
+          <input type="text" placeholder="请填写您要推荐的客户姓名" placeholder-style="color:#CCCCCC" maxlength="8"
+            style='width: 420rpx;font-size: 30rpx;' bindinput="bindtjUserName" value="{{tjuserName}}" />
+        </view>
+        <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;'></view>
+      </view>
+      <!-- 性别 -->
+      <view>
+        <view
+          style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;margin-left: 24rpx;'>
+          <text style='width: 190rpx;height: 48rpx;font-size: 30rpx;line-height: 48rpx;'>性别</text>
+          <view style='width:460rpx;font-size:30rpx;display: flex;'>
+            <view bindtap="ChangeSex_tap" data-value="M">
+              <image src='{{iconM}}' style='width:24rpx' mode='widthFix'></image>
+              <text style='margin-left: 10rpx;'>先生</text>
+            </view>
+            <text style='margin-left: 30rpx;margin-right:30rpx'>/</text>
+            <view bindtap="ChangeSex_tap" data-value='W'>
+              <image src='{{iconW}}' style='width:24rpx' mode="widthFix"></image>
+              <text style='margin-left: 10rpx;'>女士</text>
+            </view>
+          </view>
+        </view>
+        <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;'></view>
+      </view>
+      <!-- 置业顾问 -->
+      <view>
+        <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;margin-left: 24rpx;'>
+          <text
+            style='width: 173rpx;height: 48rpx;font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;'>置业顾问</text>
+          <picker bindchange="bindGWChange" value="{{gwindex}}" range="{{gwArray}}" range-key="{{'SalerUserName'}}"
+            style='width: 505rpx;font-size: 30rpx;'>
+            <view>
+              {{gwArray[gwindex].SalerUserName}}
+              <image src="{{icon1}}" style='width:25rpx;margin-left: 20rpx;' mode='widthFix'></image>
+            </view>
+          </picker>
+        </view>
+        <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;'></view>
+      </view>
+      <!-- 时间选择 -->
+      <view>
+        <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;margin-left: 24rpx;'>
+          <text
+            style='width: 173rpx;height: 48rpx;font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;'>时间选择</text>
+          <picker mode="date" value="{{date}}" start="{{startDate}}" bindchange="bindDateChange"
+            style='width: 230rpx;font-size: 30rpx;' end='{{endDate}}'>
+            <view class="picker">
+              {{date}}
+              <image src="{{icon1}}" style='width:25rpx;margin-left: 20rpx;' mode='widthFix'></image>
+            </view>
+          </picker>
+          <!-- <picker value="{{timeindex}}" range="{{timeArray}}" range-key="{{'name'}}" bindchange="bindTimeChange"
+            style='width: 260rpx;font-size: 30rpx;height: 44rpx;'>
+            <view class="picker">
+              {{timeArray[timeindex].name}}
+              <image src="{{icon1}}" style='width:25rpx' mode='widthFix'></image>
+            </view>
+          </picker> -->
+        </view>
+        <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;'></view>
+      </view>
+      <view>
+        <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;margin-left: 24rpx;'>
+          <text
+            style='width: 173rpx;height: 48rpx;font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;'>备注</text>
+          <input type="text" placeholder="客户的意向说明及其他要求" placeholder-style="color:#CCCCCC" maxlength="20"
+            style='width: 420rpx;font-size: 30rpx;' bindinput="bindRemark" value="{{remark}}" />
+        </view>
+        <view style='width: 658rpx;height: 2rpx;border: 1rpx solid #EEEEEE;margin-left:22rpx;margin-bottom: 23rpx;'>
+        </view>
+        <view
+          style='display: flex;flex-direction: column;margin-left: 30rpx;font-size: 26rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #7A7A7A;margin-bottom: 43rpx;line-height: 50rpx;'>
+          <text>*若无指定置业顾问，则自动为客户推荐贴心置业顾问。</text>
+          <!-- <text>*到访日期只能选择未来三天。</text> -->
+        </view>
+      </view>
+    </view>
+    <!-- 第三步 -->
+    <view wx:elif="{{num==2}}" style='display: flex;flex-direction: column;align-items: center;margin-bottom: 63rpx;'>
+      <!-- <image src='{{bgimg1}}' style='width:663rpx;' mode='widthFix'></image > -->
+      <view
+        style='font-size: 30rpx;font-family: PingFangSC-Medium, PingFang SC;color:#CC1D07;line-height: 41rpx;margin-top: 35rpx;text-align:center;'>
+        <text style='font-weight: 600;line-height: 52rpx;font-size:34rpx;color:black;'>资料已提交审核\n</text>
+        <text style='font-weight: 340;line-height: 52rpx;font-size:26rpx;color:black;'>感谢您的推荐！您提交的资料已提交至后台进行审核\n\n\n</text>
+        <text style='font-weight: 600;line-height: 52rpx;'>被推荐人到访有效时间：\n</text>
+        <text style='font-weight: 400;line-height:52rpx'>{{tips}}</text>
+      </view>
+      <text
+        style='font-size: 30rpx;font-family: PingFangSC-Medium, PingFang SC;color:#CC1D07;line-height: 52rpx;font-weight: 500;text-align:center'>请通知被推荐人在以上时间前往现场，逾期无效。</text>
+    </view>
+    <view
+      style="width: 201rpx;height: 77rpx;background: #BC9C63;border-radius: 3rpx;display:flex;align-items: center;justify-content: center;margin-left: 242rpx;margin-bottom: 63rpx;"
+      bindtap="{{nextFunctionName}}">
+      <text wx:if="{{num!=2}}"
+        style='height: 44rpx;font-size: 34rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #FFFFFF;line-height: 44rpx;'>下一步</text>
+      <text wx:else
+        style='height: 44rpx;font-size: 34rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #FFFFFF;line-height: 44rpx;'>完成</text>
+    </view>
+  </view>
+</view>

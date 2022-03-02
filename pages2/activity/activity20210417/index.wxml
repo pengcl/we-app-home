@@ -1,0 +1,72 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">新世界美好生活+</view>
+</cu-custom>
+
+<view wx:for="{{detailList}}" wx:key="id" wx:for-item="item" style="display: flex;">
+    <image src="{{item.img}}" mode="widthFix" style="width: 100%;margin:0"></image>
+</view>
+
+<view>
+  <view>
+    <!-- 标题 -->
+    <view
+      style='height:77rpx;background: #797979;border-radius: 5px;margin:0 44rpx;margin-top:80rpx;display:flex;'>
+      <view style="margin:auto">
+        <text class="font_color" style="font-size:32rpx">报名登记</text>
+      </view>
+    </view>
+    <!-- 内容 -->
+    <!-- <view style='width: 704rpx;background: #797979;border-radius: 5px;margin:0 20rpx;'>
+      <view class="item_view">
+        <text class="item_text font_color">姓名</text>
+        <input type="text" class="item_input" bindinput="bindUserName" value="{{vUserName}}" maxlength="15" />
+      </view>
+      <view class="item_view">
+        <text class="item_text font_color" >手机号</text>
+        <input type="text" class="item_input" bindinput="bindPhoneNum" value="{{vPhoneNum}}" disabled="true" maxlength="15" />
+      </view>
+      <view class="item_view">
+        <text class="item_text font_color">身份</text>
+        <picker class="item_input" bindchange="bindPickerChange" value="{{index}}" range="{{arrUserType}}">
+            <text style="padding-left:16rpx">{{arrUserType[index]}}</text>
+        </picker>
+        <image src="{{icon6}}" style='width:25rpx;margin-left: -30rpx;' mode='widthFix'></image>
+      </view>
+      <view class="item_view">
+        <text class="item_text font_color">到场人数</text>
+        <input type="text" class="item_input" bindinput="bindVisitors" value="{{vVisitors}}" maxlength="15" />
+      </view>
+    </view> -->
+
+
+    <view style="padding: 36rpx 56rpx">
+      <input type="text" class="myinput" bindinput="bindUserName" value="{{vUserName}}" maxlength="15" placeholder="姓名"/>
+      <input type="text" class="myinput" bindinput="bindPhoneNum" value="{{vPhoneNum}}" disabled="true" maxlength="15" />
+      <view  style="background: #cecdcd;display:flex;height: 72rpx;">
+        <picker bindchange="bindPickerChange" value="{{index}}" style="height:100%;width:100%;padding-top:13rpx;" range="{{arrUserType}}">
+            <text style="padding-left:40rpx">{{arrUserType[index]}}</text>
+        </picker>
+        <image src="{{icon6}}" style='width:25rpx;margin-left: -50rpx;margin-top:23rpx;' mode='widthFix'></image>
+      </view>
+      <view style="margin-top:36rpx">
+        <input type="text" class="myinput" bindinput="bindVisitors" value="{{vVisitors}}" maxlength="15" placeholder="到场人数"/>
+      </view>
+      
+    </view>
+
+    <!-- 按钮 -->
+    <view>
+      <view style="margin:auto;margin:0 120rpx">
+        <view 
+      style="width: 100%;height: 77rpx;background: #BC9C63;border-radius: 8rpx;display:flex;align-items: center;justify-content: center;margin-bottom: 63rpx;margin-top:70rpx;"  bindtap="submit_tap">
+      <text style='height: 44rpx;font-size: 32rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #FFFFFF;line-height: 44rpx;'>提交信息</text>
+    </view>
+      </view>
+		</view>
+		<view style="height:150rpx">
+
+		</view>
+  </view>
+</view>
+<Author></Author>

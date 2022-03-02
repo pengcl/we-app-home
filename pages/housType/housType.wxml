@@ -1,0 +1,194 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">户型详情</view>
+</cu-custom>
+<view>
+  <!-- <nav>
+    <view slot="content">
+      户型详情
+    </view>
+  </nav> -->
+  <view>
+    <!-- 轮播图 -->
+    <swiper interval="2000" duration="300" indicator-dots='{{indicatorDots}}' circular='true' current='{{curTop}}' bindchange='changeTop' style="height: 358rpx;">
+      <block wx:for="{{topImgUrls}}">
+        <swiper-item style="background:url({{item}});background-repeat: no-repeat;background-size:100% 100%; ">
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view style='margin-left:36rpx'>
+    <view style='margin-top:40rpx'>
+      <view style='width: 100%;display:flex'>
+        <text class='font1'>逸青云|建筑面积172平4房户型</text>
+        <view style="justify-content: center;align-items: center;margin: 16rpx 0 0 130rpx;" bindtap='islike_tap'>
+          <image style="width:40rpx;height: 37rpx;" src="{{domain}}/image/{{islike?'i07_b':'i07'}}.png" mode="aspectFill" />
+          <view style="font-size:20rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:#070707;line-height:29rpx;padding-top: 5rpx;min-width: 70rpx;text-align: center;margin: 0 0 0 -16rpx;">
+            {{islike?'已收藏':'收藏'}}
+          </view>
+        </view>
+      </view>
+      <view style='margin: 15rpx 0 30rpx 0;'>
+        <text class='font2'>4室2厅3卫1厨</text>
+      </view>
+      <view style='display: flex;flex-direction: row;'>
+        <block wx:for='{{feature}}'>
+          <view style='background:#F6F1E7;margin-right: 30rpx;'>
+            <text class='font3' space="ensp">{{item}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+    <view style='margin-top: 40rpx;'>
+      <image src='{{imagejsq}}' style='height: 66rpx;width: 677rpx;'></image>
+    </view>
+    <view>
+      <!-- 建议后续优化循环取数 -->
+      <view>
+        <text class='font4'>户型特色</text>
+        <text class='font5'>暂无</text>
+      </view>
+      <view>
+        <text class='font4'>户型卖点</text>
+        <text class='font5'>4房刚需</text>
+      </view>
+      <view>
+        <text class='font4'>套内面积</text>
+        <text class='font5'>172㎡</text>
+      </view>
+      <view>
+        <text class='font4'>赠送面积</text>
+        <text class='font5'>10㎡</text>
+      </view>
+      <view>
+        <text class='font4'>户型朝向</text>
+        <text class='font5'>南</text>
+      </view>
+      <view>
+        <text class='font4'>装修情况</text>
+        <text class='font5'>精装</text>
+      </view>
+    </view>
+    <view style='background: #FFFCF4;height: 30rpx;margin-left: -50rpx;'></view>
+    <view>
+      <view>
+        <view class='font6'>户型咨询（10人）</view>
+        <view class='font7'>有什么不清楚的，可以问问TA</view>
+      </view>
+      <view>
+        <view style="min-height: 350rpx;">
+          <!-- 先做假分页 -->
+          <block wx:for='{{zxInfo}}' wx:for-item='item' data-curPage='{{zxcurrent}}' wx:for-index='index' wx:if='{{index<=zxcurrent*3-1 && index>(zxcurrent-1)*3-1}}'>
+            <view style='display: flex;margin-top: 30rpx;'>
+              <image style='width: 90rpx;height: 90rpx;' src='{{item.icon}}'></image>
+              <text class='font8'>{{item.name}}</text>
+              <view style='display:flex;width:115rpx;height:37rpx;background:rgba(249,243,233,1);border-radius:19px;margin: 30rpx 0 0 87rpx;'>
+                <image style='width: 23rpx;height: 23rpx;margin: 6rpx 0 0 25rpx;' src='{{icon1}}'></image>
+                <text class='font9'>{{item.point}}分</text>
+              </view>
+              <image style='width: 60rpx;height: 60rpx;margin: 12rpx 0 0 135rpx;' src='{{icon2}}' bindtap="zixun"></image>
+              <image style='width: 60rpx;height: 60rpx;margin: 12rpx 0 0 35rpx;' src='{{icon3}}' data-phone='{{item.phonenum}}' bindtap="phoneCall"></image>
+            </view>
+          </block>
+        </view>
+        <!-- 分页控件 -->
+        <view style='display:flex;flex-direction:row;margin-top:30rpx'>
+          <!-- 前一页 -->
+          <view class='prebtn' bindtap="btnpre">
+          </view>
+          <text style='position: absolute;margin: 17rpx 0 0 45rpx;color:#595959;font-size:32rpx' bindtap="btnpre">上一页</text>
+          <!-- 页数 -->
+          <view style='margin: 17rpx 120rpx 0 120rpx;color:#595959;font-size: 35rpx;'>{{zxcurrent}}/{{zxtotal}}</view>
+          <!-- 后一页 -->
+          <view class='prebtn' bindtap="btnnext">
+          </view>
+          <text style='position: absolute;margin: 17rpx 0 0 530rpx;color:#595959;font-size:32rpx' bindtap="btnnext">下一页</text>
+        </view>
+      </view>
+    </view>
+    <view style='background: #FFFCF4;height: 30rpx;margin: 40rpx 0 30rpx -50rpx;'></view>
+    <view>
+      <!-- 点评问答 -->
+      <view style="display:flex">
+        <text style='font-size:42rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(0,0,0,1);line-height:59rpx;'>点评&问答</text>
+        <image src='{{moreAsk}}' style='width: 160rpx;height: 60rpx;margin: -2rpx 0 0 300rpx;' bindtap='moreAsk'></image>
+      </view>
+      <block wx:for='{{questionInfo}}'>
+        <view>
+          <!-- 提问 -->
+          <view style='display: flex;margin-top: 36rpx;'>
+            <image src='{{item.askIcon}}' style='width:90rpx;height:90rpx'></image>
+            <text class='font10'>{{item.askName}}</text>
+            <view style='width: 99rpx;height: 38rpx;background-color: #F9F3E9;margin: 8rpx 14rpx 0 14px;'>
+              <text class='font12'>{{item.readStatus}}</text>
+            </view>
+            <text class='font11'>{{item.askTime}}</text>
+          </view>
+          <view style='margin: 20rpx 0 0 120rpx;width: 554rpx;'>
+            <text style='font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(0,0,0,1);line-height:42rpx;'>{{item.askInfo}}</text>
+          </view>
+        </view>
+        <view style='margin: 20rpx 0 0 120rpx;width: 554rpx;background-color: #FFF9F0;min-height: 237rpx;'>
+          <!-- 回复 -->
+          <view style='display: flex;'>
+            <image src='{{item.gwIcon}}' style='width: 67rpx;height: 67rpx;margin: 20rpx;'></image>
+            <text style='color:rgba(18,18,18,1);line-height:32rpx;width: 140rpx;margin: 23rpx 0 0 0;font-size:23rpx;'>{{item.gwName}}</text>
+            <text style='position: absolute;margin: 58rpx 0 0 108rpx;color:rgba(113,109,109,1);font-size:23rpx;'>置业顾问回复</text>
+            <image src='{{icon2}}' style='width: 60rpx;height: 60rpx;margin: 24rpx 0 0 133rpx;' bindtap="zixun"> </image>
+            <image src='{{icon3}}' style='width: 60rpx;height: 60rpx;margin: 24rpx 0 0 35rpx;' bindtap="phoneCall" data-phone='{{item.gwPhone}}'></image>
+          </view>
+          <view style='display:flex'>
+            <text style='margin: 35rpx 0 32rpx 108rpx;font-weight:400;color:rgba(55,55,55,1);line-height:36rpx;font-size: 25rpx;max-width: 213px;'>{{item.gwInfo}}</text>
+          </view>
+        </view>
+      </block>
+      <view style='width:678rpx;height:80rpx;background:rgba(190,158,97,1);border:1rpx solid rgba(190,158,97,1);display:flex;margin:36rpx 0 0 0' bindtap="ask">
+        <text style='font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(255,255,255,1);line-height:42rpx;margin: 19rpx 200rpx;'>我要进行点评&提问</text>
+      </view>
+    </view>
+    <view style='background: #FFFCF4;height: 30rpx;margin: 40rpx 0 30rpx -50rpx;'></view>
+    <view>
+      <!-- 更多推荐户型 -->
+      <view>
+        <text style='font-size:42rpx;color:rgba(0,0,0,1);line-height:59rpx;'>更多推荐户型</text>
+      </view>
+      <block wx:for='{{moreType}}'>
+        <view style="display:flex;margin-top: 30rpx;">
+          <image src='{{item.houseImg}}' style='width:300rpx;height:325rpx'></image>
+          <view style='display: flex;flex-direction: column;margin-left: 330rpx;position: absolute;width: 320rpx;'>
+            <text style='font-size:40rpx;font-weight:600;color:rgba(7,7,7,1);line-height:56rpx;'>{{item.houseName}}</text>
+            <text style='font-size:30rpx;font-weight:400;color:rgba(7,7,7,1);line-height:42rpx;margin-top:15rpx'>{{item.housetype}}</text>
+            <view style='margin: 50rpx 0 0 0;'>
+              <text style='font-size:29rpx;font-weight:400;color:rgba(114,116,132,1);line-height:41rpx;'>套内面积</text>
+              <text style='font-size:29rpx;margin-left: 44rpx'>{{item.houseArea}}</text>
+            </view>
+            <view style='margin-top: 10rpx;'>
+              <text style='font-size:29rpx;font-weight:400;color:rgba(114,116,132,1);line-height:41rpx;'>户型朝向</text>
+              <text style='font-size:29rpx;margin-left: 44rpx'>{{item.houseToward}}
+            </text>
+            </view>
+          </view>
+        </view>
+      </block>
+      <view style='height: 200rpx;'></view>
+    </view>
+  </view>
+  <view style='width:749rpx;height:142rpx;background:rgba(255,255,255,1);box-shadow:0px -1rpx 8rpx 4rpx rgba(255,238,187,0.5);display: flex;position: fixed;bottom: 0;'>
+    <view style='display: flex;flex-direction: column;margin: 37rpx 0 0 30rpx;'>
+      <image src='{{icon5}}' style='width: 41rpx;height: 41rpx;'></image>
+      <text style='font-size:20rpx;font-weight:400;color:rgba(190,158,97,1);line-height:28rpx;margin: 10rpx 0 0 0;'>分享</text>
+    </view>
+    <view style='display: flex;flex-direction: column;margin: 37rpx 0 0 40rpx;' bindtap="phoneCall" data-phone='12345678910'>
+      <image src='{{icon4}}' style='width: 41rpx;height: 41rpx;margin: 0 0 0 20rpx;'></image>
+      <text style='font-size:20rpx;font-weight:400;color:rgba(190,158,97,1);line-height:28rpx;margin: 10rpx 0 0 0;'>电话咨询</text>
+    </view>
+    <view style='display: flex;flex-direction: column;margin: 36rpx 0 0 30rpx;' bindtap="zixun">
+      <image src='{{bg1}}' style='width:235rpx;height:80rpx'></image>
+      <text style='font-size:40rpx;font-weight:400;color:rgba(190,161,91,1);line-height:56rpx;margin: 15rpx 0 0 40rpx;position: absolute;'>在线咨询</text>
+    </view>
+    <view style='display: flex;flex-direction: column;margin: 36rpx 0 0 30rpx;' bindtap="yuyue">
+      <image src='{{bg2}}' style='width:235rpx;height:80rpx'></image>
+      <text style='font-size:40rpx;font-weight:400;color:rgba(255,255,255,1);line-height:56rpx;margin: 15rpx 0 0 40rpx;position: absolute;'>预约看房</text>
+    </view>
+  </view>
+</view>

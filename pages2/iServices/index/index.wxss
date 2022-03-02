@@ -1,0 +1,113 @@
+
+@import "../../../colorui/main.wxss";
+@import "../../../colorui/icon.wxss";
+
+page {
+    background: #ebebeb;
+}
+
+image {
+    display: block;
+}
+
+.itabbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+   
+  }
+  
+  .view-bg{
+    background:white;
+  }
+
+.myinput {
+    background: #cecdcd;
+    margin-bottom: 36rpx;
+    border-radius: 5rpx;
+    padding: 10rpx 36rpx;
+    height: 72rpx;
+    color: #000000;
+}
+
+.video {
+    width: 750rpx;
+    height: 600rpx;
+}
+
+.headTitle {
+    margin-left: 40rpx;
+    margin-top: -180rpx;
+    font-size: 32rpx;
+    color: white;
+}
+.headContent {
+    margin-left: 40rpx;
+    margin-top: 40rpx;
+    font-size: 24rpx;
+    color: white;
+}
+.turntable {
+    /* width: 95%;
+    position: absolute; */
+    /* top: 400rpx; */
+    border-radius: 14rpx;
+    padding: 0 20rpx;
+
+    background-color: #FFF;
+    padding-top: 38rpx;
+}
+
+.turntable .row-turntable {
+
+    height: 166rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align-items: center; */
+    top: 0;
+    margin: auto;
+}
+
+.turntable .item-turntable {
+    width: 136rpx;
+    height: 118rpx;
+    margin: 0;
+    text-align: center;
+    font-size: 24rpx;
+}
+
+.top-174 {
+    top: 174rpx !important;
+}
+
+.top-348 {
+    top: 348rpx !important;
+}
+
+.center {
+    display: flex;
+    /*设置显示样式**/
+    align-items: center;
+    /**子view垂直居中*/
+    vertical-align: center;
+    /**垂直居中*/
+    justify-content: center;
+    /**内容居中*/
+    flex-direction: row;
+    height: 86rpx;
+}
+
+.item-Title {
+    display: flex;
+    /* margin-top: 38rpx; */
+    margin-left: 10rpx;
+    font-weight: bold;
+    text-indent: 0.5em;
+    height: 60rpx;
+}
+
+.item-Content-img {
+    width: 60rpx;
+    height: 60rpx;
+}

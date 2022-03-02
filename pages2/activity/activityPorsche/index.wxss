@@ -1,0 +1,40 @@
+
+.item_view{
+  display: flex;
+  height: 96rpx;
+  font-size:30rpx;
+  align-items: center;
+  margin-top:29rpx;
+  margin-left:50rpx;
+  margin-top:14rpx;
+}
+
+.item_text
+{
+  width: 170rpx;height: 48rpx;font-size: 30rpx;    font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;
+}
+
+.item_input{
+  width: 400rpx;
+  font-size: 30rpx;
+  background: #F1F1F1;
+  /* border-radius: 5px; */
+}
+
+.font_color{
+  color: white;
+}
+
+
+.myinput {
+  background: #cecdcd;
+  margin-bottom: 36rpx;
+  border-radius: 5rpx;
+  padding: 10rpx 36rpx;
+  height: 72rpx;
+  color: #000000;
+}
+
+button[class="main"]::after {
+  border: 0;
+} 

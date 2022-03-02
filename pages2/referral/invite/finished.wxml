@@ -1,0 +1,57 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">诚邀到访</view>
+</cu-custom>
+
+<view style='display: flex;flex-direction: column;'>
+  <!-- 背景图 -->
+  <image src='{{bgimg}}' style='width:750rpx' mode='widthFix'></image>
+
+  <view style='margin-top: -1440rpx;z-index: 999;'>
+  <view style="text-align:right;margin-right:30rpx;height:240rpx">
+    <text style="color:#E5E5E5;font-size:24rpx">{{viewGID}}</text>
+  </view>
+  
+  <view
+  style='width: 704rpx;background: #FFFFFF;border-radius: 17px;margin-left: 24rpx; '> 
+  <!-- margin-top:  -1300rpx;z-index: 999; -->
+  <!-- 头部 -->
+    <view>
+      <view style='text-align: center;height: 56rpx;'>
+        <text
+          style='width: 636rpx;height: 66rpx;font-size: 30rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight:bold;color: #0E0E0E;line-height: 128rpx;'>我们已收到您的信息</text>
+      </view>
+      <view style='text-align: center;height: 66rpx;margin-top:18rpx'>
+        <text
+          style='width: 663rpx;height: 49rpx;font-size: 24rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #949292;line-height: 28rpx;'>
+          您提交的资料将有专人进行跟进，感谢您的支持</text>
+      </view>
+      <view style='width: 706rpx;height: 1rpx;border: 1rpx solid #EEEEEE;margin-top:50rpx'></view>
+      <view style='text-align: center;height: 700rpx;font-size: 24rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #949292;line-height: 33rpx;background:#FFFFFF;margin-top:60rpx;border-radius: 17px'>
+        <image src='{{invitesuccess}}' style='width:480rpx;height:324rpx' mode='widthFix'></image>
+        <text
+          style='width: 663rpx;height: 49rpx;font-size: 24rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #949292;line-height: 33rpx;'>
+          </text>
+        <br/>
+     <view style='margin-top:40rpx;line-height:24rpx'>
+        <text style='width: 170rpx;font-size: 26rpx;font-family:PingFangSC-Regular,PingFang SC;color: red;'>
+          请您在以下时间前往项目，我们将有专人为您服务：
+        </text>
+        <text style='width: 170rpx;height: 30rpx;font-size: 26rpx;    font-family: PingFangSC-Regular, PingFang SC;color: red;'>
+          {{detail}}
+        </text>
+        <text style='width: 170rpx;height: 30rpx;font-size: 26rpx;    font-family: PingFangSC-Regular, PingFang SC;color:black;line-height:26rpx'>
+          专业VIP顾问 {{salername}}     手机 {{salerphone}}
+        </text>
+      </view>
+      </view>
+  <view style='height:120rpx'>
+  <view
+      style="width: 201rpx;height: 77rpx;background: #BC9C63;border-radius: 3rpx;display:flex;align-items: center;justify-content: center;margin-left: 242rpx;margin-bottom: 63rpx;margin-top:40rpx"  bindtap="finish_tap">
+      <text style='height: 44rpx;font-size: 34rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #FFFFFF;line-height: 44rpx;'>完成</text>
+    </view>
+  </view>
+    </view>
+  </view>
+  </view>
+</view>

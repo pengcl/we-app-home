@@ -1,0 +1,8 @@
+<!--pages2/community/YY/huxingvr/huxingvr.wxml-->
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">凯粤湾</view>
+</cu-custom>
+
+<web-view src="{{vrurl}}" />
+<!-- <Author></Author> -->

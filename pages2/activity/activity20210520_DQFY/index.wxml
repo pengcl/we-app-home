@@ -1,0 +1,22 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">瓷器上的丹青凤雅</view>
+</cu-custom>
+
+<view >
+  <view>
+    <view style="display: flex;" wx:if="{{hasPhoneNum}}">
+      <image src='{{mainImg}}' mode='widthFix' style="width:100%;" bindtap="redir_tap" >
+      </image>
+    </view>
+
+      <button wx:else style="padding-left:0;padding-right:0;display: flex;"     open-type="getPhoneNumber" bindgetphonenumber="redir_tap" class="main">
+        <image src='{{mainImg}}' mode='widthFix' style="width:100%;">
+        </image>
+      </button>
+  </view>
+
+  <view wx:for="{{detailList}}" wx:key="id" wx:for-item="item" style="display: flex;">
+    <image src="{{item.img}}" mode="widthFix" style="width: 100%;margin:0"></image>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+{
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "cu-custom": "../../colorui/components/cu-custom",
+    "Author": "../../component/Author/Author"
+  }
+}

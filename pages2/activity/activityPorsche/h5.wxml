@@ -1,0 +1,5 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">保时捷周年庆典</view>
+</cu-custom>
+<web-view src='https://v06.alltuu.com/r/uI7zIv/'></web-view>

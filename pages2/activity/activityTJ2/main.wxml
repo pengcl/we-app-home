@@ -1,0 +1,21 @@
+
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">一“荐”万金</view>
+</cu-custom>
+
+<view style="display: flex;">
+  <image src='{{img1}}' mode='widthFix' style="width: 100%;"></image>
+</view>
+<view style="display: flex;">
+  <image src='{{img2}}' mode='widthFix' style="width: 100%;"></image>
+</view>
+<view style="display: flex;">
+  <image src='{{img3}}' mode='widthFix' style="width: 100%;"></image>
+</view>
+
+<view  class="u_column_nowrap" 
+    style="position:fixed;bottom:0;z-index:900;width: 100vw;padding:18px;justify-content:center;" >
+    <image src='{{btnSource}}' mode='widthFix' bindtap="banner_tap" style="height:77px;margin:0 auto;width:77px;"></image>
+
+</view>

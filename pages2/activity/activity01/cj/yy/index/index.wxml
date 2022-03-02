@@ -1,0 +1,63 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">抽奖</view>
+</cu-custom>
+<view class='lottery'>
+  <view style='margin-top:228rpx'>
+    <image src='{{bgimg}}' style='width:750rpx' mode='widthFix'></image>
+  </view>
+  <!-- 转盘 -->
+  <view class='turntable'>
+    <!-- <image class='img-turntable' src='{{zpbgimg}}'></image> -->
+    <view class='row-turntable'>
+      <image class="item-turntable" src="{{color[0] == 0.5 ? block : unblock1}}"></image>
+      <image class='item-turntable' src="{{color[1] == 0.5 ? block : unblock2}}"></image>
+      <image class='item-turntable' src="{{color[2] == 0.5 ? block : unblock3}}"></image>
+    </view>
+    <view class='row-turntable'>
+      <view class="item-turntable prize">
+        <image class='img-prize' src='{{lp1img}}' mode='widthFix'></image>
+      </view>
+      <view class='item-turntable prize'>
+        <image class='img-prize' src='{{lp2img}}' mode='widthFix'></image>
+      </view>
+      <view class='item-turntable prize'>
+        <image class='img-prize' src='{{lp3img}}' mode='widthFix'></image>
+      </view>
+    </view>
+    <view class='row-turntable top-174'>
+      <image class='item-turntable' src="{{color[7] == 0.5 ? block : unblock4}}"></image>
+      <image class='item-turntable' src='{{clickicon}}'></image>
+      <image class='item-turntable' src="{{color[3] == 0.5 ? block : unblock5}}"></image>
+    </view>
+    <view class='row-turntable top-174'>
+      <view class='item-turntable prize'>
+        <image class='img-prize' src='{{lp8img}}' mode='widthFix'></image>
+      </view>
+      <view class='item-turntable prize' bindtap='{{clickName}}'></view>
+      <view class='item-turntable prize'>
+        <image class='img-prize' src='{{lp4img}}' mode='widthFix'></image>
+      </view>
+    </view>
+    <view class='row-turntable top-348'>
+      <image class='item-turntable' src="{{color[6] == 0.5 ? block : unblock6}}"></image>
+      <image class='item-turntable' src="{{color[5] == 0.5 ? block : unblock7}}"></image>
+      <image class='item-turntable' src="{{color[4] == 0.5 ? block : unblock8}}"></image>
+    </view>
+    <view class='row-turntable top-348'>
+      <view class='item-turntable prize'>
+        <image class='img-prize' src='{{lp7img}}' mode='widthFix'></image>
+      </view>
+      <view class='item-turntable prize'>
+        <image class='img-prize' src='{{lp6img}}' mode='widthFix'></image>
+      </view>
+      <view class='item-turntable prize'>
+        <image class='img-prize' src='{{lp5img}}' mode='widthFix'></image>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 弹窗 -->
+<Dialog wx:if="{{isWinning}}" isShow="{{isWinning}}" bind:continue="continueWinning" bind:cancel="cancelWinning" bind:showRecord="toRecord" />
+<!-- 未中奖弹窗 -->
+<NoDialog wx:if="{{isNoWinning}}" isShow="{{isNoWinning}}" bind:continue="continueWinning" bind:cancel="cancelNoWinning" bind:back="toIndex" />

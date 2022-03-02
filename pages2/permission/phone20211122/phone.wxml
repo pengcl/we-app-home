@@ -1,0 +1,51 @@
+<!--pages2/permission/phone/phone.wxml-->
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">快速登录</view>
+</cu-custom>
+<view style="padding: 0 20rpx;">
+    <view style="background: #FFF;height: {{statusBarHeight}}px;">
+
+    </view>
+    <image src='{{domain}}image/unionlogo/logo1.png' mode='widthFix' style="width: 100%;">
+    </image>
+    <!--<view
+        style="margin-top: 71rpx; font-size:42rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(47,60,77,1);line-height:60rpx;">
+        欢迎体验新赏家-置业大赏
+    </view>
+    <view
+        style="margin-top: 71rpx;font-size:34rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(86,102,122,1);line-height:48rpx;">
+        “房住不炒，买家至上”—— 登录后一对一的专属置业顾问为您提供专业服务
+    </view>-->
+
+    <view class="" hover-class="none" hover-stop-propagation="false" style="padding:30rpx;">
+        <checkbox-group bindchange="checkboxChange">
+            <view style="padding: 10rpx 0;">
+                <label class="checkbox">
+                    <checkbox value="cb" style="margin-right: 10rpx;" />我已阅读并同意
+                </label><text bindtap="UserAgreement_tap" style="color: #C5A064;text-decoration:none;">《用户服务协议》</text>
+            </view>
+            <view style="padding: 10rpx 0;">
+                <label class="checkbox">
+                    <checkbox value="cb2" color="#FF0000" style="margin-right: 10rpx;" />我已阅读并同意
+                </label><text bindtap="PrivacyAgreement_tap"
+                    style="color: #C5A064;text-decoration:none;">《用户个人隐私保密协议》</text>
+            </view>
+        </checkbox-group>
+    </view>
+
+    <button wx:if="{{protocols.length<2}}" bindtap="getPhoneNumber" class="button"
+        style="background:#a8a8a8; border: 1px solid #555454;" size="default">
+        微信快速登录
+    </button>
+    <button wx:else open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="button" size="default">
+        微信快速登录
+    </button>
+
+    
+
+    <!-- <view style="word-break:break-all">
+            {{log}}
+        </view> -->
+
+</view>

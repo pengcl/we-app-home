@@ -1,0 +1,12 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">详情</view>
+</cu-custom>
+<view>
+  <view>
+    <image src='{{bgimag}}' style='width:750rpx;position: relative;' mode='widthFix'></image>
+  </view>
+  <view>
+    <image src='{{qrcodeURL}}'style='width: 210rpx;position: absolute;top:630rpx;left: 270rpx;' mode='widthFix'></image>
+  </view>
+</view>

@@ -1,0 +1,23 @@
+/* pages/im/imlist/imlist.wxss */
+@import "../../../colorui/main.wxss";
+@import "../../../colorui/icon.wxss";
+
+page {
+    background-color: #FEFDF7;
+    /* background-color:red; */
+}
+
+.ll {
+    width: 95rpx;
+    height: 51rpx;
+    background: rgba(255, 249, 240, 1);
+    box-shadow: 0rpx 5rpx 3rpx 2rpx rgba(224, 205, 161, 0.59);
+    border-radius: 22rpx;
+    border: 1px solid rgba(190, 161, 91, 1);
+    font-size: 30rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: rgba(190, 161, 91, 1);
+    line-height: 42rpx;
+    margin: 22rpx auto;
+}

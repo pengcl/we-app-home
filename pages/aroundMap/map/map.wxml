@@ -1,0 +1,42 @@
+<!-- 导航条 -->
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">周边配套</view>
+</cu-custom>
+<view>
+  <view>
+    <map id="map" longitude="{{CommunityInfo.longitude}}" latitude="{{CommunityInfo.latitude}}" scale="14" markers="{{PinZhouBianMap}}" show-location style="width: 100%; height: 100vh;"></map>
+  </view>
+  <view class="u_row_nowrap" style="justify-content: space-between;align-items: center;position: fixed;bottom: 50rpx;background-color: white;width: 80%;margin: 0 0 0 10%;">
+    <view style="text-align: center;" data-code="gj" bindtap='PinZhouBian_Type_tap'>
+      <image src="{{bus}}" style="width:100rpx;height: 100rpx;" mode="aspectFit" lazy-load="false" />
+      <view style="padding-top:20rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(103,79,50,1);line-height:42rpx;">
+        公交
+      </view>
+    </view>
+    <view style="text-align: center;" data-code="xx" bindtap='PinZhouBian_Type_tap'>
+      <image src="{{school}}" style="width:100rpx;height: 100rpx;" mode="aspectFit" lazy-load="false" />
+      <view style="padding-top:20rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(103,79,50,1);line-height:42rpx;">
+        学校
+      </view>
+    </view>
+    <view style="text-align: center;" data-code="dt" bindtap='PinZhouBian_Type_tap'>
+      <image src="{{metro}}" style="width:100rpx;height: 100rpx;" mode="aspectFit" lazy-load="false" />
+      <view style="padding-top:20rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(103,79,50,1);line-height:42rpx;">
+        地铁
+      </view>
+    </view>
+    <view style="text-align: center;" data-code="yy" bindtap='PinZhouBian_Type_tap'>
+      <image src="{{hospital}}" style="width:100rpx;height: 100rpx;" mode="aspectFit" lazy-load="false" />
+      <view style="padding-top:20rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(103,79,50,1);line-height:42rpx;">
+        医院
+      </view>
+    </view>
+    <view style="text-align: center;" data-code="gw" bindtap='PinZhouBian_Type_tap'>
+      <image src="{{shopping}}" style="width:100rpx;height: 100rpx;" mode="aspectFit" lazy-load="false" />
+      <view style="padding-top:20rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(103,79,50,1);line-height:42rpx;">
+        购物
+      </view>
+    </view>
+  </view>
+</view>

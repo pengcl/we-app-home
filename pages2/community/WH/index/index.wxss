@@ -1,0 +1,172 @@
+/* pages2/community/ZC/index/index.wxss */
+@import "../../../../colorui/main.wxss";
+@import "../../../../colorui/icon.wxss";
+
+page {
+    background: #FFF;
+}
+
+image {
+    display: block;
+}
+
+
+.myinput {
+    background: #cecdcd;
+    margin-bottom: 36rpx;
+    border-radius: 5rpx;
+    padding: 10rpx 36rpx;
+    height: 72rpx;
+    color: #000000;
+}
+
+.video {
+    width: 750rpx;
+}
+
+.tabsfiex {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+  }
+
+  .itabbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+   
+  }
+
+
+  .mask {
+    width: 100%;
+    height: 100%;
+    top: 260rpx;
+    background: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    z-index: 9;
+    position: fixed;
+  }
+
+
+  .mask_layer {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+  left:0;top:0;
+    background: #000;
+    opacity: 0.5;
+    overflow: hidden;
+  }
+  .modal_box {
+    width: 82%;
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    z-index: 1001;
+    background: #fafafa;
+    margin: -180px 9% 0 9%;
+    border-radius: 24px;
+  }
+
+  .modal_cancle {
+    width: 10%;
+    overflow: hidden;
+    position: fixed;
+    top: 80%;
+    left: 0;
+    z-index: 1001;
+    /* background: #fafafa; */
+    margin: -110px 45% 0 45%;
+    border-radius: 24px;
+  }
+   
+  
+   
+  .content {
+    overflow-y: scroll; /*超出父盒子高度可滚动*/
+  }
+   
+   .input_show1{
+     margin: 0 auto;
+     width: 80%;
+     margin-left: 10%;
+     font-size: 32rpx;
+     text-align: center;
+   }
+  .btn1 {
+    width: 100%;
+    margin-top: 65rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background-color: white;
+  }
+   
+  .Add {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: rgb(13, 178, 228);
+  }
+
+  .Cancle {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: black;
+  }
+   
+  .Call {
+    width: 100%;
+    padding: 10px;
+    color: #25ad2c;
+    background-color: white;
+    border-left: 1px solid #d0d0d0;
+    text-align: center;
+  }
+   
+  .modalMsg {
+    text-align: center;
+    margin-top: 45rpx;
+    display: block;
+  }
+
+
+  .bottom_bar{
+      background-color: #FFF;
+    position:fixed;
+    bottom:0;
+
+    display: flex;
+    width: 100%;
+    height: 49px;
+    line-height: 49px;
+    box-sizing: border-box;
+    justify-content: space-around;
+    align-items: center;
+    -webkit-box-align: center;
+  }
+
+  .bottom_bar_item{
+      display: flex;
+      width: 33%;
+  }
+
+
+  .buttonShare {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border-radius: 0;
+    background-color: transparent;
+    line-height: inherit;
+    width: max-content;
+  }
+  .buttonShare:after {
+    border: none;
+  }

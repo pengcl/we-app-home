@@ -1,0 +1,115 @@
+/* pages/index/index.wxss */
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+page{
+    background: #FFF;
+}
+
+.tools_view{
+    background:#FFF;
+    box-shadow:0rpx 2rpx 20rpx 0rpx rgba(176, 176, 176, 0.5);
+    border-radius:13rpx;
+    justify-content:space-between;
+    align-items: center;
+    padding: 28rpx 62rpx;
+}
+.tools_item{
+      justify-content:center;
+      align-items: center;
+}
+.tools_item_img{
+    width: 95rpx;
+    height: 95rpx;
+}
+.tools_item_title {
+    margin-top: 15rpx;
+    font-size:20rpx;
+    font-family:PingFangSC-Medium,ingFang SC;
+    font-weight:500;
+    color:rgba(63, 63, 63, 1);
+    line-height:28rpx;
+}
+.tools_item_subtitle {
+    font-size: 16rpx;
+    font-family: PingFangSC-Medium, ingFang SC;
+    font-weight: 500;
+    color: rgba(63, 63, 63, 1);
+    line-height: 28rpx;
+    height: 28rpx;
+}
+.sreach_view{
+    padding: 16rpx 36rpx 36rpx;
+    align-items: center;
+}
+.sreach_button {
+   flex:1 1 auto;
+   background:#FFF;
+   margin-left: 38rpx;
+   height:65rpx;
+   border-radius:41rpx;
+   border:1rpx solid rgba(204, 201, 201, 1);
+   line-height:65rpx;
+   align-items: center;
+   
+}
+.comm_name{
+    font-size:30rpx;
+    font-family:PingFangSC-Regular, PingFang SC;
+    font-weight:400;
+    color:#000;
+    line-height:42rpx;
+    margin-bottom: 6rpx;
+}
+.comm_desc{
+    font-size:15rpx;
+    font-family:PingFangSC-Light,PingFang SC;
+    font-weight:300;
+    color:rgba(0, 0, 0, 1);
+    line-height:21rpx;
+    letter-spacing:10rpx;
+    border-bottom:solid 1rpx #A09FA2;
+    padding-bottom: 6rpx;
+    margin-bottom: 6rpx;
+}
+.comm_subDesc{
+    font-size:18rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(0, 0, 0, 1);
+    line-height:25rpx;
+    margin-bottom: 11rpx;
+}
+
+.comm_tag{
+    font-size:13rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(255, 255, 255, 1);
+    line-height:22rpx;
+    padding: 0 6rpx;
+    margin-right:8rpx;
+    margin-bottom: 8rpx;
+    background:radial-gradient(circle, rgba(209, 149, 105, 1) 0%, rgba(167, 109, 64, 1) 100%);
+    border-radius:4px;
+}
+
+.comm_watch {
+    height: 40rpx;
+
+    padding: 0 19rpx;
+    /* background: linear-gradient(180deg, rgba(209, 149, 105, 1) 0%, rgba(167, 109, 64, 1) 100%); */
+    background: radial-gradient(circle, rgba(209, 149, 105, 1) 0%, rgba(167, 109, 64, 1) 100%);
+    border-radius: 4px;
+
+    font-size:25rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(255, 255, 255, 1);
+    line-height:40rpx;
+}
+
+.itabbar{
+    position:fixed;
+    bottom:0;
+    width: 100%;
+}

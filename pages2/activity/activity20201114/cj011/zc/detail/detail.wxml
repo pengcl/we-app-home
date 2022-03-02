@@ -1,0 +1,41 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">抽奖结果</view>
+</cu-custom>
+<view>
+  <view bindtap="showAdModal">
+    <image src='{{bgimag}}' style='width:750rpx' mode='widthFix'></image>
+  </view>
+  <!--<view>
+    <image src='{{qrcodeURL}}'style='width: 210rpx;position: absolute;top: 630rpx;left: 270rpx;' mode='widthFix'></image>
+  </view>-->
+
+</view>
+
+<!-- 弹窗 -->
+<view  class="cu-modal {{adModalShow?'show':''}} ">
+    <view style="position: relative;display: inline-block;vertical-align: middle;width:80%;">
+        <view wx:if="{{isuse!=true}}">
+        <view  style="background: #FFFFFF;padding: 36rpx 36rpx 5vh;">
+        <view>请输入核销密码</view>
+        <view style="background:#EEEEEE;height:40px;font-size: 30rpx;margin-top:20px;">
+          <view style="height:45px;align-items:center;display:flex;"><input placeholder=""  value="" bindinput="password_input"></input>
+          </view>
+        </view>
+        </view>
+        <view bindtap="HX_tap" style="background: #cab08b;padding: 10rpx;text-align: center;font-size: 30rpx;line-height: 72rpx; color: #FFF;">
+            确认核销
+        </view>
+        </view>
+        <view wx:else>
+          <view style="background: #cab08b;padding: 36rpx 36rpx 5vh;text-align: center;font-size: 30rpx;line-height: 72rpx; color: #FFF;">
+            已核销过
+        </view>
+        </view>
+        <!-- 关闭弹窗 -->
+        <view class="action" bindtap="hideAdModal" style="text-align: center;margin-top: 20rpx;">
+            <text class="cuIcon-roundclose" style="color: white;font-size: 70rpx;line-height: 66rpx;"></text>
+        </view>
+    </view>
+</view>
+

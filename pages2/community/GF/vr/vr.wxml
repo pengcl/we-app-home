@@ -1,0 +1,9 @@
+<!--pages2/community/GF/vr/vr.wxml-->
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">广佛新世界</view>
+</cu-custom>
+
+<web-view src="{{vrurl}}" />
+<!-- <Author></Author> -->
+

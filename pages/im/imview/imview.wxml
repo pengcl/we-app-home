@@ -1,0 +1,111 @@
+<!-- 导航条 -->
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">置业顾问 {{SalerUserName}}</view>
+</cu-custom>
+<view class="cu-chat">
+<!--
+    <view
+        style="margin: 33rpx 40rpx;padding: 25rpx 30rpx; background:linear-gradient(90deg,rgba(255,255,255,1) 0%,rgba(255,255,255,0.61) 100%);">
+        <view
+            style="font-size:35rpx;font-family:PingFangSC-Semibold,PingFang SC;font-weight:600;color:rgba(7,7,7,1);line-height:49rpx;">
+            岭南新世界云逸
+        </view>
+        <view
+            style="font-size:29rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(44,44,44,1);line-height:41rpx;">
+            建筑面积 172m² / 逸青云 | 172平4房户型
+        </view>
+        <view
+            style="font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(155,155,155,1);line-height:42rpx;">
+            4室2厅3卫1厨
+        </view>
+
+        <view style="float: right;background:#FFF8F0;background:rgba(255,249,240,1);border-radius:2px;border:1px solid rgba(190,158,97,1);width: 155rpx;height: 63rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(190,161,91,1);line-height:63rpx;text-align: center;">
+            发送户型
+        </view>
+    </view>
+    -->
+    <!--<view class="cu-item self">
+        <view class="main">
+            <view class="content shadow bg_im_self">
+                <text>建筑面积 172m² / 逸青云 | 172平4房户型</text>
+            </view>
+        </view>
+        <view class="cu-avatar radius"
+            style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big107000.jpg);"></view>
+        <view class="date">2018年3月23日 13:23</view>
+    </view>
+    <view class="cu-info round">对方撤回一条消息!</view>
+    <view class="cu-item">
+        <view class="cu-avatar radius"
+            style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big143004.jpg);"></view>
+        <view class="main">
+            <view class="content shadow bg_im_left">
+                <text>您好，我是云逸的置业顾问丁皓，我会为您解答你所想了解的任何问题。</text>
+            </view>
+        </view>
+        <view class="date "> 13:23</view>
+    </view>-->
+  <!--
+     <view
+         style="margin: 33rpx 40rpx;padding: 25rpx 30rpx; background:linear-gradient(90deg,rgba(255,255,255,1) 0%,rgba(255,255,255,0.61) 100%);">
+         <view
+             style="font-size:35rpx;font-family:PingFangSC-Semibold,PingFang SC;font-weight:600;color:rgba(7,7,7,1);line-height:49rpx;">
+             请为我的服务进行评分
+         </view>
+         <view>
+             a
+         </view>
+           <view>
+               sdsd
+           </view>
+    </view>
+-->
+<scroll-view scroll-y="true" style="height: 100vh;" scroll-into-view="{{toView}}">
+    <view wx:for='{{ContextList}}' wx:key="id" wx:for-item="WechatItem">      
+        <view id="{{'item'+WechatItem.id}}" class="cu-item self" wx:if="{{WechatItem.wctype==0}}">
+            <view class="main">
+                <view class="content shadow bg_im_self">
+                    <text>{{WechatItem.wccontext}}</text>
+                </view>
+            </view>
+            <view class="cu-avatar radius"
+                style="background-image:url('{{WechatItem.userpic}}');"></view>
+            <view class="date">{{WechatItem.addtime}}</view>
+        </view>
+        <view id="{{'item'+WechatItem.id}}" class="cu-item" wx:if="{{WechatItem.wctype==1}}">
+            <view class="cu-avatar radius"
+                style="background-image:url('{{WechatItem.hfsalerpic}}');"></view>
+            <view class="main">
+                <view class="content shadow bg_im_left">
+                    <text>{{WechatItem.hfcontext}}</text>
+                </view>
+            </view>
+            <view class="date "> {{WechatItem.hftime}}</view>
+        </view>
+    </view>
+</scroll-view>
+</view>
+
+<view style="min-height:200rpx;">
+
+</view>
+<!-- <view class="u_row_nowrap bottombar" >
+     <view class='text_box'>
+         <textarea fixed='true' contenteditable="true" contenteditable="true" auto-height="true" class='weui-textarea'
+             name='commentValue' placeholder='评论' maxlength='50'
+             style='background-color: white'></textarea>
+     </view>
+      <button class="textarea_btn">发送</button>
+</view> -->
+
+<view class=" bottombar">
+<view class="u_row_nowrap" style="justify-content: space-between;align-items: center;">
+   <textarea fixed='true' auto-height="true"
+         placeholder='请输入您要咨询的内容..' maxlength='200' 
+         placeholder-class='textarea_placeholder' class="textarea_class" bindinput="BindInputContext"
+        value="{{MyContext}}"></textarea>
+    <view class="send_btn" bindtap="WeChatAdd">发送</view>
+    </view>
+</view>
+<Author></Author>

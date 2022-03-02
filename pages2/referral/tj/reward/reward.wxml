@@ -1,0 +1,113 @@
+<!-- 引入wxs脚本 -->
+<wxs module="tool" src="reward.wxs"></wxs>
+
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">我的奖励</view>
+</cu-custom>
+
+<view>
+  <!-- 头部 -->
+  <view class="title_view title_view_center" >
+    <!-- <view class="title_text"> -->
+    若找不到您的有效奖励记录，请联系：38740330转6809
+    <!-- </view> -->
+  </view>
+  <!-- <view>
+    <view wx:if="{{infoList.length<1}}" style='display: flex;justify-content: center;margin-top: 263rpx;'>
+    <image src='{{bgimg1}}' style="width:636rpx" mode="widthFix"></image>
+  </view> -->
+  <view style='margin-left:25rpx;margin-top: 30rpx;'>
+    <block wx:for="{{tjRewardList}}" wx:key='{{index}}' wx:for-item="item">
+      <view style='width: 701rpx;height: 252rpx;background: #FFFFFF;border-radius: 11rpx;margin-bottom: 20rpx'
+        bindtap="redirect_tap" data-status="{{item.Status}}" data-gid="{{item.gid}}" data-name="{{item.RewardUserName}}"  data-amount="{{item.RewardAmount}}" data-withdrawID="{{item.WithdrawID}}" data-calculate_num="{{item.CalculateNumber}}"
+        data-projectName="{{item.ProjectName}}" data-invoiceSubject="{{item.InvoiceSubject}}" data-roomNumber ="{{item.RoomNumber}}"
+        >
+        <view style='display: flex;align-items: center;padding: 34rpx 0 0 30rpx;'>
+          <!-- 头标icon -->
+          <image src='{{icon4}}' style='width:47rpx;margin-right: 10rpx;margin-top:-46rpx' mode='widthFix'></image>
+        
+          <!-- 推荐人 -->
+          <span style="text-align:center">
+            <text
+            style='height: 44rpx;font-size: 32rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #2D2D2D;line-height: 48rpx;margin-left:2rpx'>{{item.TJEUserName}}</text> 
+            <text>\r\n</text>
+            <text
+            style='height: 44rpx;font-size: 22rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #7B7B7B;line-height: 48rpx;margin-left:2rpx'>({{item.TJEUserPhone}})</text>
+          </span>
+          <!-- 箭头 -->
+            <image src='{{img6}}' style='width:47rpx;margin-left: 16rpx;margin-top:-40rpx' mode='widthFix'></image>
+          <!-- 被推荐人 -->
+          <span style="text-align:center">
+            <text
+            style='height: 44rpx;font-size: 32rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #2D2D2D;line-height: 48rpx;margin-left:6rpx'>{{item.TJCUserName}}</text> 
+            <text>\r\n</text>
+            <text
+            style='height: 44rpx;font-size: 22rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #7B7B7B;line-height: 48rpx;margin-left:6rpx'>({{item.TJCUserPhone}})</text>
+          </span>
+            <!-- 状态 -->
+          <span class="type{{item.Status}}" style="margin-top:-42rpx;margin-left:6rpx"><text style='margin:8rpx 8rpx;color:white;font-size:26rpx'>{{tool.getName(item.Status)}} </text>
+          </span>
+        </view>
+        <view
+          style='height: 47rpx;font-size: 26rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;margin: 10rpx 0 0 80rpx;display: flex;align-items: center;color:#7B7B7B'>
+          <image src='{{img4}}' style='width:33rpx' mode='widthFix'></image>
+
+          <text style='color:#2D2D2D;margin-left: 23rpx;'>{{item.RewardUserType}} 奖励：{{item.RewardAmount}} 元（税前）</text>
+        </view>
+        <view
+          style='width: 9rpx;height: 73rpx;background: #C1A375;border-radius: 6rpx;margin-top: -168rpx;margin-left: -2rpx;'>
+        </view>
+        <view 
+          style='width: 50rpx;border-radius: 6rpx;margin-left: 618rpx;margin-top: -7rpx;display: flex;align-items: center;justify-content: center;flex-direction: column;'>
+          <image src="{{img5}}" mode='widthFix'></image>
+        </view>
+        <view style='margin-top:58rpx;margin-left: 134rpx;' >
+          <text style='color:#29282881;font-size:24rpx;'>备注：{{item.RoomNumber}} </text></view>
+      </view>
+      
+    </block>
+  </view>
+
+
+
+  <!-- 推荐列表 -->
+  <!-- <view style="padding: 0rpx 20rpx;" >
+    <!-- <view
+      style="display:flex;margin: 50rpx 20rpx 0rpx 20rpx;border: 1px solid black;border-radius:10rpx;background-color: #C8AD82">
+      <view class='turntable'>
+        <view wx:for="{{tjRewardList}}"  class='row-turntable' wx:for-item="item">
+          <view class="item-turntable" bindtap="QiaTan_tap">
+            <view style="width:90%" class="center">
+              <!-- <text>{{item.TJEUserName}}</text>
+              <image src="{{img1}}" style="width:10rpx;height:74rpx;"  ></image>
+                <image src="{{img2}}" style="width:47rpx;height:47rpx;"  ></image>
+                <span style="width:40rpx;height:88rpx;background-color:green;">待审批</span>
+            </view>
+            
+          </view>
+          <view class="item-turntable" bindtap="Other_tap">
+            <view style="width:100%" class="center">
+              
+            </view>
+            <text>{{item.TJCUserName}}</text>
+          </view>
+           <view class="item-turntable">
+            <view style="width:100%" class="center">
+            
+            </view>
+          <text>认购日期</text>
+          </view>
+          <view class="item-turntable">
+            <view style="width:100%;margin-top:36rpx" >
+              <button bindtap="redirect_tap" data-status="{{item.Status}}" data-gid="{{item.gid}}" style="height:54rpx;width:130rpx;font-size:22rpx" class="type{{item.Status}}">{{tool.getName(item.Status)}}</button>
+          
+          </view>
+          
+          </view>
+        </view>
+
+      </view>
+  </view> -->
+</view>
+<Author></Author>

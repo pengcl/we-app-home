@@ -1,0 +1,76 @@
+<wxs module="filter" src="../../filter.wxs"></wxs>
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">兑换记录</view>
+</cu-custom>
+<view class="tabs">
+    <view bindtap="tabChange" data-status="" class="tab {{status === '' ? 'curr' : ''}}">
+        <view class="label">
+            全部
+            <view wx:if="{{count['全部']}}" class="count">{{count['全部']}}</view>
+        </view>
+    </view>
+    <view bindtap="tabChange" data-status="未使用" class="tab {{status === '未使用' ? 'curr' : ''}}">
+        <view class="label">
+            未使用
+            <view wx:if="{{count['未使用']}}" class="count">{{count['未使用']}}</view>
+        </view>
+    </view>
+    <view bindtap="tabChange" data-status="已使用" class="tab {{status === '已使用' ? 'curr' : ''}}">
+        <view class="label">
+            已使用
+            <view wx:if="{{count['已使用']}}" class="count">{{count['已使用']}}</view>
+        </view>
+    </view>
+    <view bindtap="tabChange" data-status="即将过期" class="tab {{status === '即将过期' ? 'curr' : ''}}">
+        <view class="label">
+            即将过期
+            <view wx:if="{{count['即将过期']}}" class="count">{{count['即将过期']}}</view>
+        </view>
+    </view>
+    <view bindtap="tabChange" data-status="已过期" class="tab {{status === '已过期' ? 'curr' : ''}}">
+        <view class="label">
+            已过期
+            <view wx:if="{{count['已过期']}}" class="count">{{count['已过期']}}</view>
+        </view>
+    </view>
+</view>
+<view class="page">
+    <view wx:if="{{filterOrders && filterOrders.length === 0}}" class="nodata">
+        <image src="/pages3/images/nodata.png"></image>
+    </view>
+    <view bindtap="link" data-url="/pages3/KDPMall/order/item/item?orderno={{item.orderno}}" wx:for="{{filterOrders}}" wx:key="*orderno" class="weui-panel weui-panel_access">
+        <view class="weui-panel__hd">{{item.partnershowname}} <view class="{{item.status === '未使用' ? 'green' : item.status === '即将过期' ? 'red' : 'gray'}} weui-panel__hd_extra">{{item.status}}</view>
+        </view>
+        <view class="weui-panel__bd">
+            <view class="weui-media-box weui-media-box_appmsg">
+                <view class="weui-media-box__hd">
+                    <image class="weui-media-box__thumb" src="{{item.imgurl}}" alt=""></image>
+                </view>
+                <view class="weui-media-box__bd">
+                    <view class="weui-media-box__title">{{item.goodsname}} <view class="weui-media-box__title_extra">x{{item.goodscount}}</view>
+                    </view>
+                    <!-- <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view> -->
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">
+                            <view class="points">
+                                <image src="../../../images/k.png"></image>
+                                <view class="num">{{filter.formatAmount(item.totalkdppoints)}}积分</view>
+                            </view>
+                        </view>
+                        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">有效期至{{item.deadline}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{loading}}" class="weui-loadmore" aria-role="alert">
+        <text aria-hidden="true" aria-label="加载中" class="weui-primary-loading" aria-role="img">
+            <text class="weui-primary-loading__dot"></text>
+        </text>
+        <text class="weui-loadmore__tips">正在加载</text>
+    </view>
+    <view wx:if="{{!loading && orders.length === filterOrders.length && filterOrders.length >= 10}}"  class="weui-loadmore weui-loadmore_line">
+        <text class="weui-loadmore__tips">暂无数据</text>
+    </view>
+</view>

@@ -1,0 +1,23 @@
+@import "../../../../colorui/main.wxss";
+@import "../../../../colorui/icon.wxss";
+
+.sumbit {
+  width: 82%;
+  height: 88rpx;
+  position: relative;
+  top: -70rpx;
+  left: 9%;
+  background:#CFA76E;
+  border-radius: 10rpx;
+}
+
+.font {
+  font-size: 36rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 50rpx;
+  position: relative;
+  top: 20rpx;
+  left:80rpx;
+}

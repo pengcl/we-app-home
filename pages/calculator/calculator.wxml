@@ -1,0 +1,13 @@
+<!-- 导航条 -->
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">房贷计算器</view>
+</cu-custom>
+<scroll-view scroll-x class="bg-white nav">
+    <view class="flex text-center">
+        <view class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}" wx:for="{{TabList}}" wx:for-item="item" wx:key="index" bindtap="tabSelect"
+            data-id="{{index}}">
+            {{item}}
+        </view>
+    </view>
+</scroll-view>

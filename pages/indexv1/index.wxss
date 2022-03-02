@@ -1,0 +1,27 @@
+
+.search{
+    margin: 0 20rpx 23rpx;
+    background-color: #FFF;
+    border-radius: 50rpx;
+    height: 99rpx;
+    width: 710rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.item_title{
+    font-size:42rpx;
+    font-family:PingFangSC-Medium,PingFang SC;
+    font-weight:500;
+    color:rgba(0, 0, 0, 1);
+    line-height:59rpx;
+}
+.item_subtitle{
+    font-size:30rpx;
+    font-family:PingFangSC-Regular,PingFang SC;
+    font-weight:400;
+    color:rgba(98, 98, 98, 1);
+    line-height:42rpx;
+}

@@ -1,0 +1,23 @@
+<!--pages2/community/YY/ad/video/video01.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{false}}" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">白云山下，邂逅更好的新世界</view>
+</cu-custom>
+
+
+<view wx:for="{{pageData.list}}" wx:key="index" wx:for-item="item">
+    <video wx:if="{{item.type=='video'}}" id="v_{{item.id}}" muted="{{true}}" show-mute-btn="{{true}}" class="video"
+        style="height: {{item.height}}rpx;" src="{{item.imgurl}}" autoplay="{{hasPhoneNum}}" loop="true"></video>
+    <image wx:elif="{{item.type=='img'}}" src='{{item.imgurl}}' mode='widthFix' style="width: 100%;"
+        data-code="{{item.code}}" data-vrurl="{{item.vrurl}}" data-src="{{item.imgurl}}"
+        bindtap="{{item.isVR?'vr_tap':'img_tap'}}"></image>
+    <swiper wx:elif="{{item.type=='swiper'}}" style="height:{{item.height}}rpx;" class="screen-swiper square-dot"
+        indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="swiper_change">
+        <swiper-item wx:for="{{item.images}}" wx:key="index" wx:for-item="sitem" data-id="{{sitem.id}}"
+            item-id="{{sitem.vrurl}}" data-src="{{sitem.imgurl}}" bindtap="HuXingPreview_tap">
+            <image src="{{sitem.imgurl}}" mode="widthFix" style="width: 100%;">
+            </image>
+        </swiper-item>
+    </swiper>
+</view>
+<Author></Author>

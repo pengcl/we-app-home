@@ -1,0 +1,13 @@
+<!--pages/TrackTest/index.wxml-->
+<view style="display: flex;justify-content: center;align-items: center;height: 100vh;flex-flow: column ;">
+    <text>pages/TrackTest/index.wxml</text>
+    <view id='aas' style="padding: 30rpx;background-color: aqua;" bindtap='go_tap'>
+        go
+    </view>
+
+       <view id='aas' style="padding: 30rpx;background-color: aqua;" bindtap='test_tap'>
+        test
+    </view>
+</view>
+  
+

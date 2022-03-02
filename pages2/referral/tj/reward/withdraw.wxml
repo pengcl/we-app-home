@@ -1,0 +1,10 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">结算</view>
+</cu-custom>
+<web-view src='https://kaola.kaolashebao.com/p/newReward/bank_prompt?recruit_id={{recruitID}}&calculate_amount={{withdrawAmonut}}&third_user_id={{thirdUserID}}&third_calculate_number={{withdrawID}}&third_project_name={{projectName}}&invoice_remark={{invoice}}&third_project_remark={{third_project_remark}}'></web-view>
+
+
+
+<!-- 测试 -->
+<!-- <web-view src='https://kaolashebao.han-zi.cn/p/newReward/bank_prompt?recruit_id={{recruitID}}&calculate_amount={{withdrawAmonut}}&third_user_id={{thirdUserID}}&third_calculate_number={{withdrawID}}&third_project_name={{projectName}}&invoice_remark={{invoice}}'></web-view> -->

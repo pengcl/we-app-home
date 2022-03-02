@@ -1,0 +1,7 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">授权页</view>
+</cu-custom>
+<view>
+  <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+</view>

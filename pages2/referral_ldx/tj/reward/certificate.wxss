@@ -1,0 +1,44 @@
+
+page {
+  background: white
+}
+
+button::after {
+  border: 0;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  z-index: 9;
+  position: fixed;
+}
+
+.item_row{
+  display: flex;height: 96rpx;font-size:30rpx;align-items: center;
+}
+
+.item_name{
+  width: 190rpx;height: 48rpx;
+  font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;color: #333333; line-height: 48rpx;
+}
+.item_line{
+  height: 1rpx;border: 1rpx solid #EEEEEE;
+}
+.item_font{
+  width: 300rpx;font-size: 30rpx;
+}
+.item_imgView{
+  margin-top: 29rpx;margin-bottom: 26rpx;
+}
+
+.uploadView{
+  width: 697rpx;height: 287rpx;margin: auto;
+}
+.uploadDelete{
+  width:30rpx;position:absolute;right:40rpx;margin-top: -280rpx;
+}

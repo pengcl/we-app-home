@@ -1,0 +1,101 @@
+<!-- 引入wxs脚本 -->
+<wxs module="tool" src="reg.wxs"></wxs>
+
+<cu-custom bgColor="bg-white" isCustom="{{true}}"  bindBackPage="BackPage1" isCustomBackEvent="{{true}}" >
+  <view slot="backText">返回</view>
+  <view slot="content">新友家</view>
+</cu-custom>
+<view>
+  <image src='{{bgimg}}' style='width:750rpx;margin-bottom: 41rpx;' mode="widthFix"></image>
+  <view style='width: 700rpx;margin-left: 25rpx;'>
+    <view style='display: flex;justify-content: space-between;'>
+      <text
+        style='width: 500rpx;height: 42rpx;font-size: 30rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #000000;line-height: 42rpx;'>欢迎加入新世界中国“新友家”活动</text>
+      <!-- <text
+        style='width: 120rpx;height: 42rpx;font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #BC9C63;line-height: 42rpx;'>注册说明</text> -->
+    </view>
+    <!-- 填写信息 -->
+    <view>
+      <!-- 姓名 -->
+      <view>
+        <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;margin-top:29rpx'>
+          <text
+            style='width: 190rpx;height: 48rpx;font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;'>阁下名称</text>
+          <input type="text" placeholder="请填写阁下名称" placeholder-style="color:#CCCCCC" maxlength="28"
+            style='width: 505rpx;font-size: 30rpx;' bindinput="bindUserName" value="{{userName}}" />
+        </view>
+        <view style='width: 724rpx;height: 1rpx;border: 1rpx solid #EEEEEE;'></view>
+      </view>
+      <!-- 性别 -->
+      <view>
+        <view
+          style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;'>
+          <text style='width: 190rpx;height: 48rpx;font-size: 30rpx;line-height: 48rpx;'>性别</text>
+          <view style='width:505rpx;font-size:30rpx;display: flex;'>
+            <view bindtap="ChangeSex_tap" data-value="M">
+              <image src='{{iconM}}' style='width:24rpx' mode='widthFix'></image>
+              <text style='margin-left: 10rpx;'>先生</text>
+            </view>
+            <text style='margin-left: 30rpx;margin-right:30rpx'>/</text>
+            <view bindtap="ChangeSex_tap" data-value='W'>
+              <image src='{{iconW}}' style='width:24rpx' mode="widthFix"></image>
+              <text style='margin-left: 10rpx;'>女士</text>
+            </view>
+          </view>
+        </view>
+        <view style='width: 724rpx;height: 1rpx;border: 1rpx solid #EEEEEE;'></view>
+      </view>
+      <!-- 手机号 -->
+      <view>
+        <view style='display: flex;height: 96rpx;font-size:30rpx;align-items: center;'>
+          <text
+            style='width: 190rpx;height: 48rpx;font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #333333;line-height: 48rpx;'>手机号</text>
+          <input type="number" placeholder="请授权手机号" placeholder-style="color:#CCCCCC" maxlength="11"
+            style='width: 300rpx;font-size: 30rpx;' disabled="{{true}}" value="{{phonenum}}" />
+          <button
+            style='width: 210rpx;height: 42rpx;font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #BC9C63;line-height: 42rpx;background: white;'
+            open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权手机号</button>
+        </view>
+        <view style='width: 724rpx;height: 1rpx;border: 1rpx solid #EEEEEE;'></view>
+      </view>
+    </view>
+    <!-- 协议 -->
+    <!--<view
+      style='height: 42rpx;font-size: 30rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;line-height: 42rpx; margin-top:61rpx;display: flex;align-items: center;justify-content: center;'>
+      <image src='{{icon5}}' style="width:32rpx;margin-right: 6rpx;" mode="widthFix" bindtap="agree_tap"
+        data-value='{{protocolsel}}'>
+      </image>
+      <text style='color:#0E0E0E' bindtap="agree_tap" data-value='{{protocolsel}}'>已阅读并同意</text>
+      <text style='color:#91632F' bindtap="protocol_tap">《“新友家”活动规则与须知》</text>
+    </view>-->
+  </view>
+  <!-- 提交 -->
+  <view style='width:100%;height:200rpx'></view>
+  <view>
+    <view
+      style='width:750rpx;height:150rpx;background:rgba(255,255,255,1);position:fixed;bottom:0;display:flex;justify-content: space-around;'>
+      <view
+        style='width:702rpx;height:88rpx;background:#BC9C63;box-shadow:0rpx 5rpx 3rpx 2rpx rgba(224,205,161,0.59);border-radius:5rpx;text-align:center;font-size:40rpx;font-weight:500;color:#FFFFFF;line-height:88rpx;letter-spacing:1rpx;margin: 18px 0 0 0rpx;position: absolute;'
+        bindtap="submit_tap">提交</view>
+    </view>
+  </view>
+
+  
+  <!-- 遮罩层 -->
+  <!-- 
+  <view class='mask' style='display:{{maskDisplay}};flex-direction: column;' catchtouchmove='true'>
+    <view
+      style='width: 528rpx;height: 348rpx;background: #FFFFFF;border-radius: 16rpx;margin-left:112rpx;    margin-top: 600rpx;display: flex;flex-direction: column;align-items: center;justify-content: space-evenly;'>
+      <text
+        style='height: 66rpx;font-size: 34rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #0E0E0E;line-height: 48rpx;'>注册信息授权</text>
+      <text
+        style='height: 49rpx;font-size: 24rpx;font-family: PingFangSC-Regular, PingFang SC;font-weight: 400;color: #949292;line-height: 33rpx;'>为确保注册有效性，请授权头像、昵称</text>
+      <view>
+        <button
+          style='width: 201rpx;height: 77rpx;background: #BC9C63;border-radius: 3rpx;font-size: 34rpx;font-family: PingFangSC-Medium, PingFang SC;font-weight: 500;color: #FFFFFF;line-height: 44rpx;display: flex;justify-content: center;align-items: center;'
+          open-type="getUserInfo" bindgetuserinfo="UserInfo_tap">授权信息</button>
+      </view>
+    </view>
+  </view>
+  -->
+</view>

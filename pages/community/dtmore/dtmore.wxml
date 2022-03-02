@@ -1,0 +1,19 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">更多动态</view>
+</cu-custom>
+<view class="body_Item">
+  <view class="u_row_nowrap" style="margin-top: 26rpx;" wx:for="{{YueDongTi}}" wx:for-item="item" wx:key="id">
+    <view style="width: 266rpx;height: 188rpx;">
+      <image src="{{item.imageurl}}" style="width: 266rpx;height: 188rpx;" mode="aspectFit" lazy-load="false" />
+    </view>
+    <view class="u_column_nowrap" style="padding-left: 36rpx;justify-content: space-between;">
+      <view style="font-size:34rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(61,61,61,1);line-height:48rpx;">
+        {{item.name}}
+      </view>
+      <view style="font-size:29rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(148,148,148,1);line-height:41rpx;">
+        {{item.date}}
+      </view>
+    </view>
+  </view>
+</view>

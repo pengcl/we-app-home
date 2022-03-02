@@ -1,0 +1,85 @@
+<!--pages/im/imselect/imselect.wxml-->
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">沟通列表</view>
+</cu-custom>
+<view style='background: #FFFCF4;height: 30rpx;margin-left: -50rpx;'></view>
+    <view>
+      <view>
+        <view class='font6'>置业顾问</view>
+        <view class='font7'>免费为您提供：楼盘信息、户型解读、答疑等</view>
+      </view>
+      <view>
+        <view style="min-height: 350rpx;">
+<view class="u_column_nowrap" style="margin-top: 30rpx;background: #FFF;">
+    <view wx:for="{{ListData}}" wx:for-item="item" wx:key="id" class="u_row_nowrap" style="padding: 30rpx 40rpx 0 38rpx;" data-id="{{item.id}}" data-salercode="{{item.usercode}}">
+       <!--
+       <view>
+           <image src="{{domain}}/{{item.userheadpic}}" mode="aspectFit" lazy-load="false" style="width: 128rpx;height: 128rpx;border-radius: 50%;" />
+       </view>
+         <view class="u_column_nowrap" style="padding-left: 36rpx;">
+            <view class="u_row_nowrap" style="justify-content: start;align-items: center;">
+                <view style="font-size:33rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(12,12,12,1);line-height:46rpx;">
+                    {{item.username}}
+                </view>
+                  <view style="background:#F9F3E9;border-radius:19px;font-size:25rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:#D7B481;line-height:37rpx;padding: 0 14rpx;margin-left: 20rpx;">
+                      {{item.GradeName}}
+                  </view>
+            </view>
+            <view class="text_ellipsis"
+                style="width: 508rpx; padding: 24rpx 0 41rpx 0;border-bottom:solid 1px #E4E4E4;font-size:28rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(132,132,132,1);line-height:40rpx;">
+                {{item.userremark}}
+            </view>
+         </view>-->
+        <view style='display: flex;margin-top: 30rpx;'>
+              <image style='width: 90rpx;height: 90rpx;' src='{{domain}}/{{item.userheadpic}}'></image>
+              <text class='font8'>{{item.username}}</text>
+              <view style='display:flex;width:115rpx;height:37rpx;background:rgba(249,243,233,1);border-radius:19px;margin: 30rpx 0 0 50rpx;'>
+                <image style='width: 23rpx;height: 23rpx;margin: 6rpx 0 0 25rpx;' src='{{icon1}}'></image>
+                <text class='font9'>{{item.userscore}}分</text>
+              </view>
+              <image style='width: 60rpx;height: 60rpx;margin: 12rpx 0 0 135rpx;' src='{{icon2}}'  data-salercode="{{item.usercode}}" data-salername="{{item.username}}" bindtap="imview_tap"></image>
+              <image style='width: 60rpx;height: 60rpx;margin: 12rpx 0 0 35rpx;' src='{{icon3}}' data-phone='{{item.userphone}}' bindtap="phone_tap"></image>
+            </view>
+    </view>
+</view>
+          </view>
+      </view>
+</view>    
+
+<view style="height: 160rpx;">
+</view>
+<!-- <view class="box" style=" position:fixed;bottom:0;width: 100%;">
+    <view class="cu-bar tabbar bg-white">
+        <view class="action" bindtap='xinyunjia_tap'>
+            <view class="cuIcon-cu-image">
+                <image src="{{domain}}/image/bar01b.png" style="width: 44rpx;height: 38rpx;"></image>
+            </view>
+            <view class="text-gray" style="padding-top: 9rpx;">新赏家</view>
+        </view>
+        <view class="action" bindtap='im_tap'>
+            <view class="cuIcon-cu-image">
+                <image src="{{domain}}/image/bar02a.png" style="width: 44rpx;height: 38rpx;"></image>
+            </view>
+            <view class="text-green" style="padding-top: 9rpx;">悦沟通</view>
+        </view>
+         <view class="action text-gray add-action" style="color:#C7A366;" bindtap="benefit12_tap">
+             <button class="cu-btn cuIcon-choiceness bg-green shadow"
+                 style="background:linear-gradient(180deg,rgba(249,231,168,1) 0%,rgba(235,205,166,1) 0%,rgba(201,160,99,1) 100%);"></button>
+             权益
+         </view>
+        <view class="action" bindtap="nw_tap">
+             <view class="cuIcon-cu-image">
+            <image src="{{domain}}/image/bar03b.png" style="width: 44rpx;height: 38rpx;"></image>
+            </view>
+            <view class="text-gray" style="padding-top: 9rpx;">生态圈</view>
+        </view>
+        <view class="action" bindtap="my_tap">
+             <view class="cuIcon-cu-image">
+            <image src="{{domain}}/image/bar04b.png" style="width: 44rpx;height: 38rpx;"></image>
+              </view>
+            <view class="text-gray" style="padding-top: 9rpx;">我的</view>
+        </view>
+    </view>
+</view> -->
+<Author></Author>

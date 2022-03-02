@@ -1,0 +1,16 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">奖品核销</view>
+</cu-custom>
+<view>
+	<view>
+		<image src='{{bgImg}}' style='width: 100%;' mode='widthFix'></image>
+	</view>
+	<!-- <view style='position: absolute;margin-top: -1180rpx;margin-left: 270rpx'>
+		<image src='{{qrcode}}' style='width:200rpx;height:200rpx'></image>
+	</view> -->
+
+	<!-- <view style='width:750rpx;height:153rpx;display: flex;position: fixed;bottom: 150rpx;justify-content: flex-end;margin-left: -20rpx;'>
+		<image src='{{icon_invite}}' style='width:100rpx' mode="widthFix" bindtap="assit_tj_tap"></image>
+	</view> -->
+</view>

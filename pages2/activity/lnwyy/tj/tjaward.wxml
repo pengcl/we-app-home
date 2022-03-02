@@ -1,0 +1,19 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">好友到访码</view>
+</cu-custom>
+<view>
+	<view>
+		<image src='{{bgimg}}' style='width:750rpx' mode="widthFix"></image>
+	</view>
+	<view style="position: absolute;margin-top: -1320rpx;margin-left: 230rpx;">
+		<image src='{{friendCode}}' style='width:300rpx;' mode='widthFix'></image>
+	</view>
+	<view style='position: absolute;margin: -700rpx 0 0 230rpx;'>
+		<image src="{{awardCode}}" style='width:300rpx;' mode='widthFix'></image>
+	</view>
+	<view style='height:153rpx'></view>
+	<view style='width:750rpx;height:153rpx;background:rgba(255,255,255,1);position: fixed;bottom: 0;'>
+		<view style='width:679rpx;height:93rpx;background-color:#CEA76E;text-align:center;font-size:40rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(255,255,255,1);line-height:93rpx;letter-spacing:1rpx;margin: 35rpx;' bindtap="saveImg">保存到本地或截图（好友码）</view>
+	</view>
+</view>

@@ -1,0 +1,10 @@
+
+
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">新友家</view>
+</cu-custom>
+<view>
+<view bindtap="c1">入口1</view>
+<view bindtap="c2">入口2</view>
+</view>

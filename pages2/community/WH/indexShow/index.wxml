@@ -1,0 +1,13 @@
+<cu-custom bgColor="bg-white" isBack="{{false}}" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">漢江·雲赫</view>
+</cu-custom>
+<view style="padding: 0 20rpx;">
+    <view  style="display: flex;justify-content: center;margin: 0 auto;padding-top: 80px;"><image src='{{domain}}image/uniongoto/logo.png' mode='widthFix' style="width: 50%;">
+    </image>
+    </view>
+    <button bindtap="gotoTap" class="button"
+        style="border: 0px solid #555454;margin-top: 150rpx;" size="default">
+        查看项目介绍
+    </button>
+</view>

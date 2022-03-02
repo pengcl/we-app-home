@@ -1,0 +1,10 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">抽奖中</view>
+</cu-custom>
+<!--<view class='lottery'>
+  <view style='margin-top:228rpx' wx:if="{{iscj}}}">
+    <image src='{{cjimg}}' style='width:750rpx' mode='widthFix'></image>
+  </view>
+</view>
+<Author needUserInfo="{{true}}"></Author>-->

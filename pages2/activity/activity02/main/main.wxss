@@ -1,0 +1,8 @@
+/* pages2/activity/activity02/main/main.wxss */
+page {
+    background: #ebebeb;
+}
+
+image {
+    display: block;
+}

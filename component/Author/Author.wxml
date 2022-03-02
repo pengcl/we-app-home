@@ -1,0 +1,10 @@
+<view wx:if="{{needUserInfo}}">
+    <view wx:if="{{!UserInfoStatus}}" class="view">
+        <button class="button" size="default" open-type="getUserInfo" bindgetuserinfo="UserInfo_tap"></button>
+    </view>
+</view>
+<view wx:else>
+    <view wx:if="{{!PhoneNumStatus}}" class="view">
+        <button class="button" size="default" bindtap="PhoneNum_tap"></button>
+    </view>
+</view>

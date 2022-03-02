@@ -1,0 +1,27 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">快速登录</view>
+</cu-custom>
+<view style="padding: 0 20rpx;">
+    <view style="background: #FFF;height: {{statusBarHeight}}px;">
+    </view>
+    <view  style="display: flex;justify-content: center;margin: 0 auto;padding-top: 50px;">
+    <image src='{{domain}}image/uniongoto/logo.png' mode='widthFix' style="width: 50%;">
+    </image>
+    </view>
+    <view style="display: flex;justify-content: center;margin: 0 auto;padding-top: 20px;">
+    <image src='{{domain}}image/uniongoto/loading.gif' mode='widthFix' style="width: 10%;">
+    </image>
+    </view>
+    <view  style="display: flex;justify-content: center;margin: 0 auto;padding-top: 60px;" bindtap="GotoNext_tap">
+    <image src='{{domain}}image/uniongoto/n.png' mode='widthFix' style="width: 90%;">
+    </image>
+    </view>
+    <view  style="display: flex;justify-content: center;margin: 0 auto;padding-top: 60px;" bindtap="GotoIndex_tap">
+    <image src='{{domain}}image/uniongoto/b2.png' mode='widthFix' style="width:50%;">
+    </image>
+    </view>
+</view>    
+<view wx:if="{{IsUserInfoStatus==false}}"  class="UserInfoView" id="ViewUserInfo">
+    <button class="button" size="default" open-type="getUserInfo" bindgetuserinfo="UserInfo_tap"  class="UserInfoButton"></button>
+</view>

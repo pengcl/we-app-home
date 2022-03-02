@@ -1,0 +1,23 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">预约看房</view>
+</cu-custom>
+<view>
+  <view style='display: flex;flex-direction: column;margin: 80rpx 0 0 100rpx;'>
+    <text style='font-size:35rpx;font-family:PingFangSC-Semibold,PingFang SC;font-weight:600;color:rgba(7,7,7,1);line-height:49rpx;'>{{info.prjName}}</text>
+    <text style='font-size:29rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(44,44,44,1);line-height:41rpx;margin: 30rpx 0 0 0'>{{info.houseInfo}}</text>
+    <text style='font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(155,155,155,1);line-height:42rpx;margin: 30rpx 0 0 0'>{{info.houseType}}</text>
+  </view>
+  <view style='margin-left: 40rpx;margin-top: 100rpx;'>
+    <input placeholder="请输入您的真实姓名" maxlength="10" style='font-size: 34rpx;' bindinput='inputName' value='{{name}}'></input>
+    <view style="width:670rpx;height:2rpx;background-color:#EEEEEE;margin: 20rpx 0 20rpx 0;"></view>
+    <view style='display:flex'>
+      <input placeholder="请输入您的手机号" style='font-size: 34rpx;' type="number" bindinput="inputPhone" value='{{phoneNumber}}' maxlength="11"></input>
+      <image src='{{icon}}' style='width: 31rpx;height: 31rpx;margin: 8rpx 0 0 250rpx;' wx:if='{{checkedNum}}'></image>
+    </view>
+  </view>
+  <view style='display: flex;margin: 150rpx 0 0 60rpx;' bindtap="submit">
+    <image src='{{bg}}' style='width:628rpx;height:94rpx'></image>
+    <text style='font-size:36rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(255,255,255,1);line-height:50rpx;position: absolute;margin: 22rpx 0 0 280rpx;'>提交</text>
+  </view>
+</view>

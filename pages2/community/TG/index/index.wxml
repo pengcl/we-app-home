@@ -1,0 +1,158 @@
+<!--pages2/community/TG/index/index.wxml-->
+<!--塔岗-->
+<view>
+    <cu-custom bgColor="bg-white" isBack="{{false}}" isCustom="{{true}}">
+        <view slot="backText">返回</view>
+        <view slot="content">新世界星辉</view>
+    </cu-custom>
+
+    <i-tabs current="{{ current }}" color="#BE9E61" bindchange="handleChange" style="position:fixed;z-index: 999;width: 100%;">
+    <i-tab key="t1" title="项目介绍"></i-tab>
+    <!--<i-tab key="t2" title="项目楼书"></i-tab>-->
+    <i-tab key="t3" title="区域头条"></i-tab>
+    </i-tabs>
+
+<view wx:if="{{current=='t1'}}" style="margin-top:30rpx">
+    <view wx:for="{{pageData.list}}" wx:key="index" wx:for-item="item">
+        <video wx:if="{{item.type=='video'}}" id="v_{{item.id}}" muted="{{true}}" show-mute-btn="{{true}}" class="video"
+            style="height: {{item.height}}rpx;" src="{{item.imgurl}}" autoplay="true" loop="true"></video>
+        <image wx:elif="{{item.type=='img'}}" src='{{item.imgurl}}' mode='widthFix' style="width: 100%;"
+            data-code="{{item.code}}" data-vrurl="{{item.vrurl}}" data-src="{{item.imgurl}}"
+            bindtap="{{item.isVR?'vr_tap':'img_tap'}}"></image>
+        <view wx:elif="{{item.type=='swiper'}}"
+            style="background: url({{item.imgurl}}) no-repeat;background-size:100% 100%;height:{{item.bgheight}}rpx;padding:{{item.padding}};">
+            <swiper style="height:{{item.height}}rpx;" class="screen-swiper square-dot" indicator-dots="true"
+                circular="true" autoplay="true" interval="5000" duration="500" bindchange="swiper_change">
+                <swiper-item wx:for="{{item.images}}" wx:key="index" wx:for-item="sitem" data-id="{{sitem.id}}"
+                    item-id="{{sitem.vrurl}}" data-src="{{sitem.imgurl}}" bindtap="HuXingPreview_tap">
+                    <image src="{{sitem.imgurl}}" mode="scaleToFill" style="width: 100%;height: {{item.height}}rpx;">
+                    </image>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+
+
+    <view id="YuYue" style="padding: 36rpx 36rpx 50vh;" bindtap="view_YuYue_tap">
+        <input class="myinput" placeholder="姓名" placeholder-style="color:gary" value="{{YuYue_UserName}}"
+            bindinput="YuYue_UserName_input"></input>
+        <input class="myinput" placeholder="手机" placeholder-style="color:gary" value="{{YuYue_UserPhone}}"
+            bindinput="YuYue_UserPhone_input"></input>
+        <picker bindchange="bindSalerPickerChange" value="{{index}}" range="{{SalerList}}" range-key="username">
+            <view class="myinput">
+                置业顾问：{{currSaler.username}}
+            </view>
+        </picker>
+        <!-- <view class="u_row_nowrap" style="padding-bottom: 36rpx;align-items: center;">
+        <checkbox value="Y" checked="" color="#cab08b" bindtap="YuYue_Cache_tap" />保存信息，下次自动填写
+    </view> -->
+        <view bindtap="YuYue_tap"
+            style="background: #cab08b;padding: 10rpx;text-align: center;font-size: 30rpx;line-height: 72rpx; color: #FFF;">
+            预约品鉴
+        </view>
+    </view>
+
+    <view class="u_column_nowrap" style="position: fixed;bottom: 220rpx;right: 22rpx;z-index: 999;width: 100rpx;">
+        <block wx:if="{{hasPhoneNum}}">
+            <view wx:for="{{pageData.exSideMenu}}" wx:key="index" wx:for-item="item" style="width: 100%;">
+                <image src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-type="{{item.type}}"
+                    data-data="{{item.data}}" data-url="{{item.url}}" bindtap="exSideMenu_tap">
+                </image>
+            </view>
+        </block>
+        <block wx:else>
+            <button wx:for="{{pageData.exSideMenu}}" wx:key="index" wx:for-item="item" data-type="{{item.type}}"
+                data-data="{{item.data}}" data-url="{{item.url}}" open-type="getPhoneNumber"
+                bindgetphonenumber="exSideMenu_tap" style="width: 100%;padding-left:0;padding-right:0;">
+                <image src='{{item.imgurl}}' mode='widthFix' style="width: 100%;"></image>
+            </button>
+        </block>
+        <image src='{{domain}}image/qy/icon_01.png' mode='widthFix' style="width: 100%;" bindtap="wechat_tap"></image>
+        <image src='{{domain}}image/qy/icon_02.png' mode='widthFix' style="width: 100%;" bindtap="map_tap"></image>
+        <image src='{{domain}}image/qy/icon_03.png' mode='widthFix' style="width: 100%;" bindtap="goYuYue"></image>
+    </view>
+
+    <view wx:if="{{pageData.banner!=null}}" class="u_column_nowrap"
+        style="position: fixed;bottom: 0;z-index: 900;width: 100vw;padding: 36rpx;">
+        <image src='{{pageData.banner.imgurl}}' mode='widthFix' style="width: 100%;"
+            data-type="{{pageData.banner.type}}" data-data="{{pageData.banner.data}}" data-url="{{pageData.banner.url}}"
+            bindtap="banner_tap"></image>
+    </view>
+</view>
+<view wx:if="{{current=='t2'}}" style="margin-top:100rpx">
+    <image src='{{pageData.loushuImg}}' mode='widthFix' style="width: 100%;"
+            bindtap="LS_tap"></image>
+</view>
+<view wx:if="{{current=='t3'}}" style="margin-top:100rpx">
+  <view class="u_column_nowrap" style="padding-bottom: 30rpx;">
+  <view wx:if="{{NWList.length>0}}">
+    <view wx:for="{{NWList}}" wx:for-item="item" wx:key="id" class="u_row_nowrap"
+      style="padding: 36rpx 36rpx 0 36rpx;background: white;" data-gid="{{item.gid}}"
+      bindtap='{{(item.type=="xcx")?"xcxView_tap":(item.type=="h5")?"h5view_tap":"nwview_tap"}}' data-content="{{item.contentInfo}}"  data-xcxappid="{{item.xcxappid}}"  data-xcxpath="{{item.xcxpath}}"
+      data-url="{{item.url}}"> 
+      <view>
+        <image src="{{item.imgurlCDN}}" mode="aspectFit" lazy-load="false"
+          style="width: 266rpx;height: 188rpx;" />
+      </view>
+      <view class="u_column_nowrap" style="padding-left: 36rpx;justify-content: space-between;">
+        <view class="text_ellipsis2"
+          style="font-size:34rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(61,61,61,1);line-height:48rpx;">
+          {{item.title}}
+        </view>
+        <view
+          style="font-size:29rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(148,148,148,1);line-height:41rpx;">
+          {{item.titletimeshow}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:else class="u_column_nowrap"
+    style="justify-content: center;align-items: center;background: #FEFDF7;height:50vh;">
+    暂无记录
+  </view>
+  </view>
+</view>
+
+
+
+    <!-- 弹窗广告 -->
+    <view wx:if="{{pageData.adModal!=null}}" class="cu-modal {{adModalShow?'show':''}} ">
+        <view style="position: relative;display: inline-block;vertical-align: middle;width:80%;">
+            <view wx:if="{{hasPhoneNum}}">
+                <image src='{{pageData.adModal.imgurl}}' mode='widthFix' style="width:100%;border-radius: 26rpx;"
+                    data-type="{{pageData.adModal.type}}" data-data="{{pageData.adModal.data}}"
+                    data-url="{{pageData.adModal.url}}" bindtap="admodal_tap">
+                </image>
+            </view>
+
+            <button wx:else style="padding-left:0;padding-right:0;" data-type="{{pageData.adModal.type}}"
+                data-data="{{pageData.adModal.data}}" data-url="{{pageData.adModal.url}}" open-type="getPhoneNumber"
+                bindgetphonenumber="admodal_tap">
+                <image src='{{pageData.adModal.imgurl}}' mode='widthFix' style="width:100%;border-radius: 26rpx;">
+                </image>
+            </button>
+
+            <!-- 关闭弹窗 -->
+            <view class="action" bindtap="hideAdModal" style="text-align: center;margin-top: 20rpx;">
+                <text class="cuIcon-roundclose" style="color: white;font-size: 70rpx;line-height: 66rpx;"></text>
+            </view>
+        </view>
+    </view>
+
+
+    <!-- 加载提示 -->
+    <view class="cu-modal {{IsLoadingShow?'show':''}} ">
+        <view style="position: relative;display: inline-block;vertical-align: middle;width:20%;">
+            <view>
+                <image src='{{LoadingShowPIC}}' mode='widthFix' style="width:100%;border-radius: 26rpx;"
+                    data-type="" data-data=""
+                    data-url="" bindtap="LoadingShow_tap">
+                </image>
+            </view>
+        </view>
+    </view>
+
+
+    <!-- <Author></Author> -->
+    <!-- </scroll-view> -->
+</view>

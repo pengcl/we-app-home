@@ -1,0 +1,58 @@
+ <!-- 导航条 -->
+ <cu-custom bgColor="bg-white" isCustom="{{true}}">
+     <view slot="backText">返回</view>
+     <view slot="content">点评和回答</view>
+ </cu-custom>
+
+   
+ <view class="u_column_nowrap" wx:for="{{DianPing}}" wx:for-item="item" wx:key="id" style="border-bottom: solid 1rpx #EAEAEA;padding: 36rpx;">
+     <view class="u_row_nowrap" style="justify-content: space-between;align-items:center;">
+         <image src="{{item.uavatar}}" style="width: 90rpx;height: 90rpx;border-radius: 50%;" mode="aspectFit"
+             lazy-load="false" />
+         <view style="flex:1 1 auto;padding-left:30rpx;">
+             <view
+                 style="font-size:33rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(18,18,18,1);line-height:46rpx;">
+                 {{item.uname}}
+                 <view
+                     style="float:right;background: #F7F4E7;padding: 0 12rpx;font-size:25rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(122,91,46,1);line-height:38rpx;">
+                     已看过
+                 </view>
+             </view>
+             <view
+                 style="font-size:29rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(148,148,148,1);line-height:41rpx;">
+                 {{item.date}}</view>
+         </view>
+     </view>
+     <view style="padding: 20rpx 0 36rpx 121rpx;">
+         <view
+             style="font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(0,0,0,1);line-height:42rpx;">
+             {{item.content}}
+         </view>
+         <view style="background: #FFF9F0;padding: 20rpx 20rpx 32rpx;" wx:for="{{item.Reply}}" wx:for-item="reply"
+             wx:key="id">
+             <view class="u_row_nowrap" style="justify-content: space-between;align-items:center;">
+                 <image src="{{reply.gwavatar}}" style="width: 67rpx;height: 67rpx;border-radius: 50%;" mode="aspectFit"
+                     lazy-load="false" />
+                 <view style="flex:1 1 auto;padding: 0 20rpx;">
+                     <view
+                         style="font-size:23rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(18,18,18,1);line-height:32rpx;">
+                         {{reply.gwname}}</view>
+                     <view
+                         style="font-size:23rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:#716D6D;line-height:32rpx;">
+                         置业顾问回复</view>
+                 </view>
+                 <image style="width: 60rpx;height: 60rpx;" src="{{domain}}/image/i15.png" mode="aspectFit"
+                     lazy-load="false" />
+                 <image style="width: 60rpx;height: 60rpx;margin-left: 35rpx;" src="{{domain}}/image/i16.png"
+                     mode="aspectFit" lazy-load="false" />
+             </view>
+             <view
+                 style="padding: 20rpx 0 0 88rpx;font-size:25rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(55,55,55,1);line-height:36rpx;">
+                 {{reply.content}}
+             </view>
+         </view>
+
+
+     </view>
+
+ </view>

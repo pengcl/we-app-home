@@ -1,0 +1,8 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">结算详情</view>
+</cu-custom>
+<web-view src='https://kaola.kaolashebao.com/p/newReward/billing_detail?calculate_number={{calculate_num}}'></web-view>
+
+<!-- 测试 -->
+<!-- <web-view src='https://kaolashebao.han-zi.cn/p/newReward/billing_detail?calculate_number={{calculate_num}}'></web-view> -->

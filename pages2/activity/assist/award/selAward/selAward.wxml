@@ -1,0 +1,25 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">选择奖品</view>
+</cu-custom>
+<view>
+  <view>
+    <view bindtap="selectAward" data-id='yy'>
+      <image src='{{activityInfo.activBanner4}}' mode='widthFix' style='width:100%'></image>
+      <image src='{{icon}}' style='width: 50rpx;height: 50rpx;position: absolute;margin: -234rpx 0 0 576rpx;display:{{statusyy}}'></image>
+    </view>
+    <view style='margin: -8rpx 0 0 0;' data-id='kyw' bindtap="selectAward">
+      <image src='{{activityInfo.activBanner5}}' mode='widthFix' style='width:100%'></image>
+      <image src='{{icon}}' style='width: 50rpx;height: 50rpx;position: absolute;margin: -230rpx 0 0 622rpx;display:{{statuskyw}}'></image>
+    </view>
+    <view style='margin: -8rpx 0 0 0;' data-id='gf' bindtap="selectAward">
+      <image src='{{activityInfo.activBanner6}}' mode='widthFix' style='width:100%'></image>
+      <image src='{{icon}}' style='width: 50rpx;height: 50rpx;position: absolute;margin: -258rpx 0 0 630rpx;display:{{statusgf}}'></image>
+    </view>
+  </view>
+  <view style='width: 100%;height: 153rpx;'></view>
+  <view style='width:750rpx;height:153rpx;background:rgba(255,255,255,1);display:flex;position: fixed;bottom: 0;'>
+    <view style='background-color: #CEA76E;border-radius: 10rpx;text-align: center;width: 679rpx;height: 93rpx;font-size:40rpx;font-weight:400;color:rgba(255,255,255,1);line-height:93rpx;letter-spacing:1rpx;margin: 35rpx' bindtap="award_tap">领取奖品
+    </view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+<!--union/authorize/test.wxml-->
+<view style="min-height: 100vh;">
+  <view>
+    <button bindtap="gotoA" class="button">页面主操作 Normal</button>
+  </view>
+</view>

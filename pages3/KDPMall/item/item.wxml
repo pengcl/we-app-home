@@ -1,0 +1,177 @@
+<wxs module="filter" src="../filter.wxs"></wxs>
+<cu-custom bgColor="bg-white" isCustomAction="{{true}}">
+    <view class="action" slot="action">
+        <image bindtap="toHome" src="/pages3/images/home.png"></image>
+    </view>
+    <view slot="content">商品详情</view>
+</cu-custom>
+<view class="page">
+    <view class="page-section page-section-swiper swiper">
+        <swiper class="banners" indicator-dots="{{true}}" autoplay="{{true}}" duration="500">
+            <block wx:for="{{swipers}}" wx:key="*imgurl">
+                <swiper-item>
+                    <view class="swiper-item {{item}}">
+                        <image wx:if="{{item.dataformat === 'image'}}" src="{{item.imgurl}}"></image>
+                        <video wx:if="{{item.dataformat === 'video'}}" src="{{item.imgurl}}"></video>
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <view class="description">
+        <view open-type="share" class="name">{{detail.goodsname}} <button open-type="share" class="share">
+                <image src="/pages3/images/share.png"></image>
+            </button></view>
+        <view class="address">
+            <image src="../../images/pin.png"></image>{{detail.exchangeaddress}}
+        </view>
+        <view class="points">
+            <image src="../../images/k.png"></image>
+            <view class="num">{{filter.formatAmount(detail.kdppoints)}}积分</view>
+            <view class="change-able">{{detail.ischange ? '可退换' : '不可退换'}}</view>
+        </view>
+    </view>
+    <view class="content">
+        <view class="ql-container">
+            <view class="ql-editor">
+                <rich-text nodes="{{detail.goodsdetailhtml}}"></rich-text>
+            </view>
+        </view>
+        <block wx:for="{{contents}}" wx:key="*datatype">
+            <view class="content-title">{{item.headlinedata}}</view>
+            <view class="content-content">
+                <view class="item-content-item {{item.contentformat === 'image' ? 'image' : ''}}" wx:for="{{item.contentdescribelist}}" wx:key="*this">
+                    <view wx:if="{{item.contentformat === 'content'}}" class="item-content-item-content">
+                        {{item.contentdata}}
+                    </view>
+                    <view wx:if="{{item.contentformat === 'image'}}" class="item-content-item-image">
+                        <image src="{{item.contentdata}}" mode="widthFix"></image>
+                    </view>
+                    <view wx:if="{{item.contentformat === 'video'}}" class="item-content-item-video">
+                        <video src="{{item.contentdata}}" mode="widthFix"></video>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:for="{{contentRole}}" wx:key="*datatype">
+            <view class="content-title">{{item.headlinedata}}</view>
+            <view class="content-content">
+                <view class="item-content-item {{item.contentformat === 'image' ? 'image' : ''}}" wx:for="{{item.contentdescribelist}}" wx:key="*this">
+                    <view wx:if="{{item.contentformat === 'content'}}" class="item-content-item-content">
+                        {{item.contentdata}}
+                    </view>
+                    <view wx:if="{{item.contentformat === 'image'}}" class="item-content-item-image">
+                        <image src="{{item.contentdata}}" mode="widthFix"></image>
+                    </view>
+                    <view wx:if="{{item.contentformat === 'video'}}" class="item-content-item-video">
+                        <video src="{{item.contentdata}}" mode="widthFix"></video>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:for="{{contentPhone}}" wx:key="*datatype">
+            <view class="content-title">{{item.headlinedata}}</view>
+            <view class="content-content">
+                <view class="item-content-item {{item.contentformat === 'image' ? 'image' : ''}}" wx:for="{{item.contentdescribelist}}" wx:key="*this">
+                    <view wx:if="{{item.contentformat === 'content'}}" class="item-content-item-content">
+                        {{item.contentdata}}
+                    </view>
+                    <view wx:if="{{item.contentformat === 'image'}}" class="item-content-item-image">
+                        <image src="{{item.contentdata}}" mode="widthFix"></image>
+                    </view>
+                    <view wx:if="{{item.contentformat === 'video'}}" class="item-content-item-video">
+                        <video src="{{item.contentdata}}" mode="widthFix"></video>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
+<view wx:if="{{valid !== null}}" class="page-footer">
+    <button disabled="{{detail.maxExchangeCount === 0 || !valid}}" bindtap="askForsubmit" class="button">
+        {{!valid ? '已过期' : (detail.maxExchangeCount === 0 ? '已兑完' : '立即兑换')}}</button>
+</view>
+
+<page-container class="submit-container" bindenter="onEnter" show="{{show}}" overlay="{{true}}" duration="{{300}}" position="bottom" close-on-slide-down="{{false}}">
+    <view class="page-header">
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_appmsg">
+                    <view class="weui-media-box__hd">
+                        <image class="weui-media-box__thumb" src="{{detail.imgurl}}" alt=""></image>
+                    </view>
+                    <view class="weui-media-box__bd">
+                        <view class="weui-media-box__title">{{detail.goodsname}}</view>
+                        <view class="weui-media-box__info">
+                            <view class="weui-media-box__info__meta">
+                                <view class="points">
+                                    <image src="../../images/k.png"></image>
+                                    <view class="num">{{filter.formatAmount(detail.kdppoints)}}积分</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="detail-page">
+        <view class="count weui-cell">
+            <view class="weui-cell__bd">
+                数量
+            </view>
+            <view class="weui-cell__ft">
+                <stepper max="{{detail.maxExchangeCount}}" bind:num="getNum"></stepper>
+            </view>
+        </view>
+        <view class="detail-page-body">
+            <view class="max-num" style="text-align: right;">单次最多可兑换数量：{{detail.maxExchangeCount}}</view>
+            <view wx:for="{{contentRole}}">
+                <view class="h3">{{item.headlinedata}}</view>
+                <view wx:for="{{item.contentdescribelist}}" class="txt">{{item.contentdata}}</view>
+            </view>
+
+            <view wx:if="{{detail.exchangeaddress}}">
+                <view class="h3">适用商家</view>
+                <view class="address">
+                    <image src="../../images/pin.png"></image>{{detail.exchangeaddress}}
+                </view>
+            </view>
+            <view wx:for="{{contentPhone}}" class="text">
+                <text class="txt">{{item.headlinedata}}</text>
+                <text wx:for="{{item.contentdescribelist}}" class="txt">{{item.contentdata}}</text>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{!isKDP}}" class="page-footer">
+        <view class="weui-cells">
+            <view class="weui-cell">
+                <view style="text-align: center; text-decoration: underline;" class="weui-cell__bd">
+                    请先注册/绑定新中会会员，查询K分赏积分
+                </view>
+            </view>
+        </view>
+        <button bindtap="xsjcrm_tap" class="register button" aria-role="button">注册/绑定新中会会员</button>
+    </view>
+    <view wx:if="{{isKDP}}" class="page-footer">
+        <view class="weui-cells">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    K分赏
+                </view>
+                <view class="weui-cell__ft">
+                    目前可用积分：{{filter.formatAmount(points)}}
+                </view>
+            </view>
+            <view class="weui-cell">
+                <view class="weui-cell__bd"></view>
+                <view class="weui-cell__ft">
+                    本次扣减积分：-{{filter.formatAmount(detail.kdppoints * params.goodscount)}}
+                </view>
+            </view>
+        </view>
+        <button disabled="{{detail.maxExchangeCount === 0 || !valid || detail.kdppoints * params.goodscount > points}}" bindtap="submit" class="button" aria-role="button">
+            {{!valid ? '已过期' : (detail.maxExchangeCount === 0 ? '已兑完' : (detail.kdppoints * params.goodscount > points ? '积分不足' : '确认兑换'))}}</button>
+    </view>
+</page-container>
+<Author></Author>

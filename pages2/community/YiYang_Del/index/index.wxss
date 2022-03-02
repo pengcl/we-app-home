@@ -1,0 +1,12 @@
+.button {
+  width: 450rpx;
+  background: linear-gradient(180deg, rgba(255, 219, 175, 1) 0%, rgba(231, 179, 117, 1) 100%);
+  border-radius: 10rpx;
+  border: 1px solid rgba(194, 165, 133, 1);
+
+  font-size: 36rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(116, 75, 37, 1);
+  margin: 30rpx 0 50rpx;
+}

@@ -1,0 +1,7 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">活动规则</view>
+</cu-custom>
+<view>
+  <image src='{{icon}}' style="width:750rpx" mode="widthFix"></image>
+</view>

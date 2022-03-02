@@ -1,0 +1,45 @@
+<!-- 导航条 -->
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">详情</view>
+</cu-custom>
+<!-- <view>
+  <rich-text nodes='{{contentInfo}}'></rich-text>
+</view> -->
+<view style='margin-bottom: 94rpx;'>
+  <image src='{{contentInfo}}' mode='widthFix' style='width:100%'></image>
+</view>
+<view style='height：50rpx'></view>
+<view class="box" style=" position:fixed;bottom:0;width: 100%;">
+  <view class="cu-bar tabbar bg-white">
+    <view class="action" bindtap='xinyunjia_tap'>
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar01b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">新赏家</view>
+    </view>
+    <view class="action" bindtap='im_tap'>
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar02b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">悦沟通</view>
+    </view>
+    <view class="action text-gray add-action" style="color:#C7A366;" bindtap="benefit_tap">
+      <button class="cu-btn cuIcon-choiceness bg-green shadow"
+        style="background:linear-gradient(180deg,rgba(249,231,168,1) 0%,rgba(235,205,166,1) 0%,rgba(201,160,99,1) 100%);"></button>
+      权益
+    </view>
+    <view class="action" bindtap="nw_tap">
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar03a.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-green" style="padding-top: 9rpx;">生态圈</view>
+    </view>
+    <view class="action" bindtap="my_tap">
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar04b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">我的</view>
+    </view>
+  </view>
+</view>

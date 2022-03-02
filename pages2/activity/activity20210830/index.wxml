@@ -1,0 +1,8 @@
+
+
+
+
+<web-view wx:if="{{visible}}" src='https://wgame.9fsz.com/guns/wx/oauth/userinfo/xzhlottery'>
+
+</web-view>
+<!-- <Author></Author> -->

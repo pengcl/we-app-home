@@ -1,0 +1,179 @@
+<!-- 导航条 -->
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">更多信息</view>
+</cu-custom>
+<view style="background-color: #FFF; ">
+  <view class="u_row_nowrap" style="justify-content: space-between;padding:36rpx;align-items: center;">
+    <view style="font-size:50rpx;font-family:PingFangSC-Semibold,PingFang SC;font-weight:600;color:#070707;line-height:70rpx;">
+      岭南新世界云逸
+    </view>
+    <view class="u_column_nowrap" style="justify-content: center;align-items: center;" bindtap='islike_tap'>
+      <image style="width:40rpx;height: 37rpx;" src="{{domain}}/image/{{CommunityInfo.islike?'i07_b':'i07'}}.png" mode="aspectFill" />
+      <view style="font-size:20rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:#070707;line-height:29rpx;padding-top: 5rpx;min-width: 70rpx;text-align: center;">
+        {{CommunityInfo.islike?'已收藏':'收藏'}}
+      </view>
+    </view>
+  </view>
+  <view class="u_row_nowrap" style="justify-content: space-between;padding:36rpx;align-items: flex-start;">
+    <view class="u_row_wrap" style="justify-content: start;">
+      <view wx:for="{{CommunityInfo.tags}}" wx:for-item="tag" wx:key="index" style="background:#F6F1E7;font-size:18rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:#948669;line-height:25rpx;padding: 0 4rpx;margin-right:24rpx;margin-bottom: 6rpx;">
+        {{tag}}
+      </view>
+    </view>
+    <view class="u_column_nowrap" style="justify-content: center;align-items: center;min-width: 70rpx;" bindtap='loushu_tap'>
+      <image style="width:40rpx;height: 40rpx;" src="{{domain}}/image/i08.png" mode="aspectFill" />
+      <view style="font-size:20rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:#070707;line-height:29rpx;padding-top: 5rpx;min-width: 70rpx;text-align: center;">
+        楼书
+      </view>
+    </view>
+  </view>
+  <view class="u_column_nowrap" style="padding: 0 36rpx;">
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        建筑面积
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.buildingarea}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        建筑面积
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.buildingarea}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        最新开盘
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.LatestOpened}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        总户数
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.TotalHouse}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        车位比
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.ParkingRatio}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        楼盘地址
+      </view>
+      <view class="head_info_right" style="width: 406rpx;">
+        {{CommunityInfo.addr}}
+      </view>
+      <view style="width:86rpx;height: 86rpx;background-color:#F8F3E9;border-radius:50%;margin: 0 5rpx 0 28rpx;">
+        <image style="width:49rpx;height: 49rpx;margin:18rpx;" src="{{domain}}/image/i06.png" mode="aspectFit" />
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        教育配套
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.education}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        内部配套
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.internalFacility}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        产权年限
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.propertyYear}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        物业类型
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.propertyType}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        项目特色
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.feature}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        占地面积
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.area}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        容积率
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.volumeRate}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        绿化率
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.greeningRate}}
+      </view>
+    </view>
+    <view class="u_row_nowrap">
+      <view class="head_info_left">
+        楼栋总数
+      </view>
+      <view class="head_info_right">
+        {{CommunityInfo.buildingsNum}}
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view style="min-height:200rpx;">
+
+</view>
+<view class="u_row_nowrap bottombar">
+  <view style="text-align: center;">
+    <image src="{{domain}}/image/i17.png" style="width:41rpx;height: 39rpx;" mode="aspectFit" lazy-load="false" />
+    <view style="font-size:20rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(190,158,97,1);line-height:28rpx;">
+      分享</view>
+  </view>
+  <view style="text-align: center;" bindtap="phoneCall" data-phone="12345678910">
+    <image src="{{domain}}/image/i18.png" style="width:39rpx;height: 39rpx;" mode="aspectFit" lazy-load="false" />
+    <view style="font-size:20rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(190,158,97,1);line-height:28rpx;">
+      电话咨询</view>
+  </view>
+  <view class="bottombar_button" style=" background:url({{domain}}/image/i19.png) no-repeat;background-size: 100%;color:#BEA15B;" bindtap="gwChat" data-id=''>
+    在线咨询
+  </view>
+  <view class="bottombar_button" style=" background:url({{domain}}/image/i20.png) no-repeat;background-size: 100%;color:#FFFFFF;" bindtap="yuyue">
+    在线咨询
+  </view>
+</view>

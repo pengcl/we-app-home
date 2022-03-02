@@ -1,0 +1,111 @@
+<cu-custom bgColor="bg-white" isBack="{{false}}">
+  <view slot="content">我的</view>
+</cu-custom>
+<view style='margin-left:40rpx;margin-top: 45rpx;'>
+  <view style='display: flex;'>
+    <view style="width: 119rpx;height: 119rpx;">
+      <open-data type='userAvatarUrl'
+        style="width: 119rpx;height: 119rpx;border-radius: 100rpx;overflow: hidden;display: block;"></open-data>
+      <!-- <image src='{{userInfo.avatarUrl}}' style="width: 119rpx;height: 119rpx;border-radius: 100rpx;"></image> -->
+    </view>
+    <view style='display: flex;flex-direction: column;margin: 0 0 0 36rpx;'>
+      <view>
+        <open-data type='userNickName'
+          tyle="font-size:50rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(0,0,0,1);line-height:70rpx;">
+        </open-data>
+        <!-- <text style="font-size:50rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(0,0,0,1);line-height:70rpx;">{{nickName}}</text> -->
+      </view>
+      <text
+        style="font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(105,105,105,1);line-height:42rpx;margin: 40rpx 0 0 0;">{{userPhone}}</text>
+    </view>
+    <!-- <view style='display: flex;margin: 40rpx 0 0 200rpx;width: 149rpx;height: 65rpx;'>
+      <image src='{{bg1}}' style='width:149rpx;height:65rpx'></image>
+      <text style='font-size:35rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(190,161,91,1);line-height:49rpx;position: absolute;margin: 6rpx 0 0 42rpx'>退出</text>
+    </view> -->
+  </view>
+  <!-- <view bindtap="activity_tap">
+    <image src='{{banner}}' style='width: 680rpx;height: 263rpx;margin: 22rpx 0 0 0;'></image>
+  </view> -->
+  <view bindtap="mytj_tap" wx:if="{{tjIsValid}}">
+    <image src='{{banner}}' style='width: 680rpx;margin: 22rpx 0 0 0;' mode='widthFix'></image>
+  </view>
+  <view wx:if="{{tjIsValid}}" style='display: flex;margin: 30rpx 0 30rpx 0;' bindtap="mytj_tap">
+    <text class='font1'>我的推荐</text>
+    <image src='{{icon}}' style='width: 17rpx;height: 31rpx;margin: 10rpx 0 0 530rpx;'></image>
+  </view>
+  <view wx:if="{{tjIsValid}}" class='split'></view>
+  <view style='display: flex;margin-top: 40rpx;margin-bottom: 30rpx;' bindtap="myCard">
+    <text class='font1'>我的卡券</text>
+    <image src='{{icon}}' style='width: 17rpx;height: 31rpx;margin: 10rpx 0 0 530rpx;'></image>
+  </view>
+  <view class='split'></view>
+  <view style='display: flex;margin: 30rpx 0 30rpx 0;' bindtap="myPoint">
+    <text class='font1'>我的积分</text>
+    <image src='{{icon}}' style='width: 17rpx;height: 31rpx;margin: 10rpx 0 0 530rpx;'></image>
+  </view>
+  <view class='split'></view>
+  <!-- <view style='display: flex;margin: 30rpx 0 30rpx 0;' bindtap="myBook">
+    <text class='font1'>我的预约</text>
+    <image src='{{icon}}' style='width: 17rpx;height: 31rpx;margin: 10rpx 0 0 530rpx;'></image>
+  </view>
+  <view class='split'></view> -->
+  <!-- <view style='display: flex;margin: 30rpx 0 30rpx 0;' bindtap="myCollect">
+    <text class='font1'>我的收藏</text>
+    <image src='{{icon}}' style='width: 17rpx;height: 31rpx;margin: 10rpx 0 0 530rpx;'></image>
+  </view>
+  <view class='split'></view> -->
+  <!-- <view style='display: flex;margin: 30rpx 0 30rpx 0;'>
+    <text class='font1'>我的预算表</text>
+    <image src='{{icon}}' style='width: 17rpx;height: 31rpx;margin: 10rpx 0 0 500rpx;'></image>
+  </view>
+  <view class='split'></view>
+  <view style='display: flex;margin: 30rpx 0 30rpx 0;' bindtap="viewHis">
+    <text class='font1'>浏览历史</text>
+    <image src='{{icon}}' style='width: 17rpx;height: 31rpx;margin: 10rpx 0 0 530rpx;'></image>
+  </view>
+  <view class='split'></view> -->
+  <!-- <view style='display: flex;margin: 30rpx 0 30rpx 0;'>
+    <text class='font1'>官方公众号</text>
+    <text
+      style="font-size:24rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(112,112,112,1);line-height:33rpx;margin: 8rpx 0 0 10rpx;">微信搜索“新世界中国在华南”</text>
+    <image src='{{bg2}}' style='width:98rpx;height:47rpx;margin: 0 0 0 70rpx;' data-text='新世界中国在华南' bindtap="copyText">
+    </image>
+  </view> -->
+  <view class='split'></view>
+</view>
+<view style="height: 160rpx;">
+</view>
+<view class="box" style=" position:fixed;bottom:0;width: 100%;z-index: 10000;">
+  <view class="cu-bar tabbar bg-white">
+    <view class="action" bindtap='xinyunjia_tap'>
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar01b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">新赏家</view>
+    </view>
+    <view class="action" bindtap='im_tap'>
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar02b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">蕴服务</view>
+    </view>
+    <view class="action text-gray add-action" style="color:#C7A366;" bindtap="benefit_tap">
+      <button class="cu-btn cuIcon-choiceness bg-green shadow"
+        style="background:linear-gradient(180deg,rgba(249,231,168,1) 0%,rgba(235,205,166,1) 0%,rgba(201,160,99,1) 100%);"></button>
+        活动
+    </view>
+    <view class="action" bindtap="nw_tap">
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar03b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">生态圈</view>
+    </view>
+    <view class="action" bindtap="my_tap">
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar04a.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-green" style="padding-top: 9rpx;">我的</view>
+    </view>
+  </view>
+</view>
+<Author></Author>

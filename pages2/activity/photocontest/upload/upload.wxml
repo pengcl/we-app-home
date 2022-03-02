@@ -1,0 +1,46 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">逸趣时光摄影大赛</view>
+</cu-custom>
+<view style='display: flex;flex-direction:column'>
+	<image src="{{bgImg}}" mode="widthFix" style='width:750rpx;'></image>
+	<view style='display:flex;flex-direction:column;margin: 720rpx 0 0 150rpx;position:absolute;'>
+		<view>
+			<view>
+				<input placeholder="姓名" bindinput="bindusername" style='background:#E4E4E4;height:60rpx;line-height:60rpx;padding-left: 20rpx;width:500rpx' maxlength="10" value='{{username}}'></input>
+			</view>
+			<view style='margin-top: 30rpx;'>
+				<input placeholder="电话" bindinput="binduserphone" maxlength="11" type='number' value='{{userphone}}' style='background:#E4E4E4;height:60rpx;line-height:60rpx;padding-left: 20rpx;width:500rpx'></input>
+			</view>
+		</view>
+		<view>
+			<view style='display:flex;margin-top: 30rpx;background:#E4E4E4;width:500rpx'>
+				<picker bindchange="bindPickerChange" value="{{index}}" range="{{typeList}}" range-key="{{'name'}}">
+					<view style='margin-left: 20rpx;height:60rpx;line-height:60rpx;width:480rpx'>
+						{{typeList[index].name}}
+					</view>
+				</picker>
+			</view>
+			<view style='margin-top:30rpx'>
+				<input placeholder="作品主题" bindinput="bindWorksName" style='background:#E4E4E4;height:60rpx;line-height:60rpx;padding-left: 20rpx;width:500rpx' maxlength="10"></input>
+			</view>
+			<view style='margin-top:30rpx'>
+				<input placeholder="作品简介" bindinput="bindWorkIntro" style='background:#E4E4E4;height:60rpx;line-height:60rpx;padding-left: 20rpx;width:500rpx' maxlength="20"></input>
+			</view>
+		</view>
+		<view style='display: flex;margin-top: 50rpx;flex-wrap: wrap;flex-direction:column'>
+			<!-- 上传图片 -->
+			<view wx:for='{{picsthumb}}' style='width: 500rpx;height: 500rpx;margin: 17rpx;'>
+				<image style='width: 500rpx;' src='{{item}}' mode='aspectFit' bindtap="preview_tap"></image>
+			</view>
+			<image src='{{icon1}}' style='width:30rpx;display:{{deleteVisible}};position:absolute;right:40rpx;margin-top: -20rpx;' mode='widthFix' bindtap="delete_tap"></image>
+			<image src='{{button1}}' style='width: 330rpx;margin: 16rpx 16rpx 16rpx 72rpx;display:{{uploadVisible}}' bindtap="chooseImage" mode='widthFix'></image>
+		</view>
+		<view style='margin-top:30rpx;margin-bottom:60rpx'>
+			<view bindtap="photoContest_tap">
+				<image src='{{button2}}' style='width: 501rpx;' mode='widthFix'></image>
+			</view>
+		</view>
+	</view>
+</view>
+<Author></Author>

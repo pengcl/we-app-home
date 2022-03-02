@@ -1,0 +1,72 @@
+/* pages/im/imview/imview.wxss */
+@import "../../../colorui/main.wxss";
+@import "../../../colorui/icon.wxss";
+
+.bg_im_self {
+    background-color: #BE9E61 !important;
+    color: #FFFFFF !important;
+    font-size: 25rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 1);
+    line-height: 36rpx;
+    padding: 30rpx 25rpx;
+}
+
+.bg_im_left {
+    /* background-color: #BE9E61 !important;
+    color: #FFFFFF !important; */
+    font-size: 25rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #000000;
+    line-height: 36rpx;
+    padding: 30rpx 25rpx;
+}
+
+.bottombar {
+    position: fixed;
+    bottom: 0;
+    min-height: 140rpx;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px -1px 8px 4px rgba(255, 238, 187, 0.5);
+    padding: 36rpx 32rpx 26rpx 26rpx;
+}
+
+.send_btn {
+    width: 141rpx;
+    height: 75rpx;
+    padding: 0;
+    color: white;
+    background: #C0A05D;
+    box-shadow: 0rpx 5rpx 3rpx 2rpx rgba(224, 205, 161, 0.59);
+    border-radius: 5px;
+    border: 1rpx solid rgba(190, 161, 91, 1);
+    font-size: 40rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    line-height: 75rpx;
+     text-align: center;
+}
+
+.textarea_placeholder {
+    font-size: 40rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: rgba(101, 101, 101, 1);
+
+}
+
+.textarea_class {
+    width: 476rpx;
+    margin: auto 51rpx auto 10rpx;
+    font-size: 40rpx;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #000;
+    background: #FFF;
+    max-height: 300rpx;
+}

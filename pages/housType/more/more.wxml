@@ -1,0 +1,39 @@
+<!-- 导航条 -->
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">户型列表</view>
+</cu-custom>
+<view style="background-color: #FFF; padding: 36rpx;">
+  <view class="u_row_nowrap" style="justify-content: start;margin-bottom:43rpx ;" wx:for="{{housTypeList}}" wx:for-item="item" wx:key="id" bindtap="houseType_tap">
+    <image style="width: 253rpx;height: 280rpx;box-shadow:0px 0px 15px 4px rgba(211,211,211,0.5);" src="{{item.imageurl}}" mode="scaleToFill" lazy-load="false">
+    </image>
+    <view class="u_column_nowrap" style="padding-left: 25rpx;width: 426rpx;justify-content: space-between;">
+      <view style="font-size:40rpx;font-family:PingFangSC-Semibold,PingFang SC;font-weight:600;color:rgba(7,7,7,1);line-height:56rpx;">
+        {{item.name}}</view>
+      <view style="flex: 1 1 auto;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(7,7,7,1);line-height:42rpx;">
+        {{item.room}}</view>
+      <view class="u_row_nowrap" style="font-size:29rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;line-height:44rpx;">
+        <view style="color:rgba(114,116,132,1);">
+          套内面积
+        </view>
+        <view style="color:#2C2C2C;padding-left: 44rpx;">
+          {{item.area}}
+        </view>
+      </view>
+      <view class="u_row_nowrap" style="justify-content: space-between;align-items: flex-end; font-size:29rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;line-height:41rpx;">
+        <view style="color:rgba(114,116,132,1);">
+          户型朝向
+        </view>
+        <view style="color:#2C2C2C;padding-left: 44rpx;flex:1 1 auto">
+          {{item.direction}}
+        </view>
+        <view style="width:165rpx;height:63rpx;background:rgba(190,161,91,1);box-shadow:0rpx 5rpx 3rpx 2rpx rgba(224,205,161,0.59);border-radius:5rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(255,255,255,1);line-height:62rpx;text-align: center;"
+          bindtap='book_tap'>
+          预约看房
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+</view>

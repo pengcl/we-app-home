@@ -1,0 +1,13 @@
+/* pages/community/more/more.wxss */
+@import "../../../colorui/main.wxss";
+@import "../../../colorui/icon.wxss";
+
+page {
+    background-color: #FFF;
+    /* background-color:red; */
+}
+
+#ZhiYeGuWenFaBu_img:after {
+    content: "";
+    width: 213rpx;
+}

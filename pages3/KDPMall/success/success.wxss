@@ -1,0 +1,226 @@
+.page {
+  padding-bottom: 204rpx;
+}
+.points {
+  font-size: 30rpx;
+  font-weight: 400;
+  color: #7D5939;
+  letter-spacing: 2rpx;
+  position: relative;
+}
+
+.points image {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.points image,
+.points .label,
+.points .num {
+  display: inline-block;
+  line-height: 26rpx;
+  vertical-align: middle;
+  margin-right: 5rpx;
+}
+
+.weui-msg {
+  padding-top: 24rpx;
+  padding-bottom: 10rpx;
+}
+
+.weui-msg__icon-area {
+  margin-bottom: 0;
+}
+
+.weui-msg__title {
+  margin-bottom: 8rpx;
+  font-size: 40rpx;
+  font-weight: normal;
+}
+
+.weui-icon_msg.weui-icon_msg {
+  color: #C5AD79;
+}
+
+.weui-msg__text-area {
+  margin-bottom: 0;
+}
+
+.weui-cells {
+  text-align: unset;
+  font-size: 25rpx;
+  margin-top: 0;
+}
+
+.weui-cells::before,
+.weui-cells::after,
+.weui-cell::after,
+.weui-cell::before {
+  display: none;
+}
+
+.weui-cell {
+  padding: 8rpx 32rpx;
+}
+
+.weui-cell .weui-cell__bd {
+  text-align: left;
+}
+
+.codes {
+  margin: 32rpx 0 8rpx;
+  height: 700rpx;
+}
+
+.swiper-item {
+  background-color: #fff;
+  box-shadow: 0px 0px 4px 3px rgba(222, 222, 222, 0.5);
+  margin: 0 5px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.swiper-dots {
+  text-align: center;
+}
+
+.swiper-dots .swiper-dot {
+  display: inline-block;
+  height: 8rpx;
+  width: 72rpx;
+  background-color: #D8D8D8;
+  border-radius: 4rpx;
+  vertical-align: middle;
+  margin: 0 5rpx;
+}
+
+.swiper-dots .swiper-dot.current {
+  background-color: #9A804F;
+}
+
+.code-hd,
+.code-bd,
+.code-ft {
+  padding: 30rpx 40rpx;
+}
+
+.code-hd {
+  position: relative;
+}
+
+.code-bd .qr-code canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.code-hd::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 1rpx;
+  border-bottom: 1px solid #ededed;
+}
+
+.code-hd .title {
+  position: relative;
+  font-size: 30rpx;
+  text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    padding-right: 100rpx;
+    position: relative;
+}
+
+.code-bd .qr-code {
+  margin: 0 auto;
+  display: block;
+  width: 360rpx;
+  height: 360rpx;
+  background-color: #ededed;
+}
+
+.code-hd .desc {
+  font-size: 24rpx;
+  color: #6D6D6D;
+  margin-top: 20rpx;
+}
+
+.code-hd .title .used {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.code-hd .title .used.red {
+  color: #A11D1D;
+}
+
+.code-hd .title .used.green {
+  color: #009900;
+}
+
+.code-hd .title .used.gray {
+  color: #A9A9A9;
+}
+
+.code-bd {
+  padding: 40rpx 0 0;
+}
+
+.code-ft {
+  text-align: center;
+  font-size: 30rpx;
+  color: #5F605F;
+}
+
+.page-footer {
+  padding: 5rpx 24rpx 40rpx;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0px 0px 4px 3px rgba(222, 222, 222, 0.5);
+}
+
+.page-footer .button {
+  display: block;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 40rpx;
+  background: linear-gradient(90deg, #B89E67 0%, #E7D6AA 100%, #E7C692 100%);
+  text-align: center;
+}
+
+.page-footer .weui-grids::before,
+.page-footer .weui-grids::after,
+.page-footer .weui-grid::before,
+.page-footer .weui-grid::after {
+  display: none;
+}
+
+.page-footer .weui-grid {
+  width: 50%;
+}
+
+.page-footer .weui-grid .weui-grid__label {
+  height: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #3B3B3B;
+  border-radius: 40rpx;
+  box-sizing: border-box;
+  border: 2rpx solid #000;
+}
+
+.page-footer .weui-grid .records {
+  background-image: linear-gradient(to right, #B89E67, #E7D6AA);
+  border: 2rpx solid transparent;
+}

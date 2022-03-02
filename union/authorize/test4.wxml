@@ -1,0 +1,5 @@
+<view style="min-height: 100vh;margin-top:100px;">
+  <view>
+    <button bindtap="gotoA" class="button">访问物业APP</button>
+</view>
+</view>

@@ -1,0 +1,156 @@
+<cu-custom bgColor="bg-white" isBack="{{false}}">
+  <!-- <view slot="backText">返回</view>
+  <view slot="content">蕴服务</view> -->
+</cu-custom>
+
+<view style="padding: 0 20rpx;">
+  <view style="height:30rpx;">
+
+  </view></view>
+<view>
+  <view style="padding: 0 20rpx;height:240rpx;">
+     <image src="{{imgHead}}" mode='widthFix' style="width:100%;z-index:-1;" >
+     </image>
+     <view class="headTitle">蕴服务</view>
+     <view class="headContent">足不出门，在线办理各类业务</view>
+  </view>
+</view>
+<view style="height:20rpx"></view>
+<view style="padding: 0 20rpx;">
+<view class='turntable'>
+    <view class="item-Title">
+      <image  src="{{imgLine}}" style="width:10rpx;height:30rpx"></image>
+      <text style="padding-left:5rpx;font-weight:bord">看房</text>
+    </view>
+    <view class='row-turntable '>
+      <view class="item-turntable" bindtap="QiaTan_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{imgQiaTan}}" class="item-Content-img"></image>
+        </view>
+        <text>在线洽谈</text>
+      </view>
+      <view class="item-turntable" bindtap="Other_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{imgYuYue}}" class="item-Content-img"></image>
+        </view>
+        <text>预约看房</text>
+      </view>
+      <view class="item-turntable" >
+        <!-- <image  src="{{imgQiaTan}}" class="item-Content-img"></image> -->
+      </view>
+      <view class="item-turntable">
+        <!-- <image  src="{{imgQiaTan}}" class="item-Content-img"></image> -->
+      </view>
+    </view>
+    <view class="item-Title">
+      <image  src="{{imgLine}}" style="width:10rpx;height:30rpx"></image>
+      <text style="padding-left:5rpx;font-weight:bord">购房</text>
+    </view>
+    <view class='row-turntable top-174'>
+      <view class="item-turntable" bindtap="Other_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{imgDengJi}}" class="item-Content-img"></image>
+        </view>
+        <text>意向登记</text>
+      </view>
+      <view class="item-turntable" bindtap="Other_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{imgJiSuanQi}}" class="item-Content-img"></image>
+        </view>
+        <text>贷款计算器</text>
+      </view>
+      <view class="item-turntable" bindtap="Other_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{imgYuQianYue}}" class="item-Content-img"></image>
+        </view>
+        <text>预约签约</text>
+      </view>
+      <view class="item-turntable" bindtap="Other_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{imgGouFang}}" class="item-Content-img"></image>
+        </view>
+        <text>购房进程</text>
+      </view>
+    </view>
+    <view class="item-Title">
+      <image  src="{{imgLine}}" style="width:10rpx;height:30rpx"></image>
+      <text style="padding-left:5rpx;font-weight:bord">入住</text>
+    </view>
+    <view class='row-turntable top-348'>
+      <view class="item-turntable" bindtap="Other_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{imgBaoXiu}}" class="item-Content-img"></image>
+        </view>
+        <text>我要报修</text>
+      </view>
+      <view class="item-turntable" bindtap="Other_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{imgZiXun}}" class="item-Content-img"></image>
+        </view>
+        <text>业主咨询</text>
+      </view>
+      <view class="item-turntable" >
+        <!-- <image  src="{{imgQiaTan}}" mode='widthFix'></image> -->
+      </view>
+      <view class="item-turntable">
+        <!-- <image  src="{{imgQiaTan}}" mode='widthFix'></image> -->
+      </view>
+    </view>
+    <view class="item-Title">
+      <image  src="{{imgLine}}" style="width:10rpx;height:30rpx"></image>
+      <text style="padding-left:5rpx;font-weight:bord">商家服务</text>
+    </view>
+    <view class='row-turntable top-348'>
+      <view class="item-turntable" bindtap="ScanCode_tap">
+        <view style="width:100%" class="center"> 
+          <image  src="{{imgScanCode}}" class="item-Content-img"></image>
+        </view>
+        <text>扫一扫</text>
+      </view>
+      <view class="item-turntable" bindtap="Other_tap">
+        <!-- <image  src="{{imgQiaTan}}" mode='widthFix'></image> -->
+      </view>
+      <view class="item-turntable" >
+        <!-- <image  src="{{imgQiaTan}}" mode='widthFix'></image> -->
+      </view>
+      <view class="item-turntable">
+        <!-- <image  src="{{imgQiaTan}}" mode='widthFix'></image> -->
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="box itabbar">
+  <view class="cu-bar tabbar bg-white">
+    <view class="action" bindtap='xinyunjia_tap'>
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar01b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">新赏家</view>
+    </view>
+    <view class="action" bindtap='im_tap'>
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar02a.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-green" style="padding-top: 9rpx;" bindtap="wechatindex_tap">蕴服务</view>
+    </view>
+    <view class="action text-gray add-action" style="color:#C7A366;" bindtap="benefit_tap">
+      <button class="cu-btn cuIcon-choiceness bg-green shadow"
+        style="background:linear-gradient(180deg,rgba(249,231,168,1) 0%,rgba(235,205,166,1) 0%,rgba(201,160,99,1) 100%);"></button>
+        活动
+    </view>
+    <view class="action" bindtap="nw_tap">
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar03b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">生态圈</view>
+    </view>
+    <view class="action" bindtap="my_tap">
+      <view class="cuIcon-cu-image">
+        <image src="{{domain}}/image/bar04b.png" style="width: 44rpx;height: 38rpx;"></image>
+      </view>
+      <view class="text-gray" style="padding-top: 9rpx;">我的</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,45 @@
+/* pages/community/comment/list/list.wxss */
+@import "../../../../colorui/main.wxss";
+@import "../../../../colorui/icon.wxss";
+
+page {
+  background-color: #fffcf4;
+  /* background-color:red; */
+}
+
+.viewFalse {
+  width: 196rpx;
+  height: 65rpx;
+  background: rgba(255, 249, 240, 1);
+  border-radius: 2rpx;
+  border: 1rpx solid rgba(190, 158, 97, 1);
+  display: flex;
+}
+
+.viewTrue {
+  width: 196rpx;
+  height: 65rpx;
+  background: rgba(190, 158, 97, 1);
+  border-radius: 2px;
+  border: 1rpx solid rgba(190, 158, 97, 1);
+  display: flex;
+}
+
+.fontFalse {
+  font-size: 27rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(190, 158, 97, 1);
+  line-height: 38rpx;
+  height: 38rpx;
+  margin: 10rpx 0 0 46rpx;
+}
+
+.fontTrue {
+  font-size: 27rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 38rpx;
+  margin: 10rpx 0 0 56rpx;
+}

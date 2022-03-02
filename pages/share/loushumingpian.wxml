@@ -1,0 +1,4 @@
+<!--pages/share/loushumingpian.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{false}}">
+</cu-custom>
+<Author></Author>

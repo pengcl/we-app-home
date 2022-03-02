@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "cu-custom": "../../../../colorui/components/cu-custom",
+    "i-input": "../../../../dist/input/index",
+    "i-panel": "../../../../dist/panel/index",
+    "i-button": "../../../../dist/button/index"
+  }
+}

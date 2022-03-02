@@ -1,0 +1,10 @@
+.action image{
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.page image{
+  width: 100%;
+  display: block;
+  height: auto;
+}

@@ -1,0 +1,6 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">详情</view>
+</cu-custom>
+<web-view  src="{{url}}" />
+<Author needUserInfo="{{true}}"></Author>

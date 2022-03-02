@@ -1,0 +1,22 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">逸趣时光摄影大赛</view>
+</cu-custom>
+<view>
+	<view style='display:flex'>
+		<image src="{{bgImg}}" mode="widthFix" style='width:750rpx;'></image>
+		<view style='display:flex;flex-direction:column;margin: 600rpx 0 0 134rpx;position:absolute;'>
+			<view>
+				<input placeholder="姓 名" bindinput="bindusername" style='background:#E4E4E4;height:60rpx;line-height:60rpx;padding-left: 20rpx;width:480rpx' maxlength="10" value='{{name}}'></input>
+			</view>
+			<view style='margin-top: 60rpx;'>
+				<input placeholder="电 话" bindinput="binduserphone" maxlength="11" type='number' value='{{phone}}' style='background:#E4E4E4;height:60rpx;line-height:60rpx;padding-left: 20rpx;width:480rpx'></input>
+			</view>
+			<view style='margin-top:60rpx;display: flex;justify-content: space-between;'>
+				<image src='{{icon1}}' style="width:200rpx" mode='widthFix' bindtap="userSave_tap"></image>
+				<image src='{{icon2}}' style="width:200rpx" mode='widthFix' bindtap="back_tap"></image>
+			</view>
+		</view>
+	</view>
+</view>
+<Author></Author>

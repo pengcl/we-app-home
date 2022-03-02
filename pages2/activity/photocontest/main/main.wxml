@@ -1,0 +1,17 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">美好岭南 掠影时光</view>
+</cu-custom>
+<view>
+	<view style='display: flex;flex-direction: column;'>
+		<image src='{{contestInfo.Image1}}' style='width:750rpx' mode='widthFix'></image>
+		<image src='{{contestInfo.Image2}}' style='width:750rpx' mode='widthFix'></image>
+		<image src='{{contestInfo.Image3}}' style='width:750rpx' mode='widthFix'></image>
+	</view>
+	<view style='display: flex;flex-direction: column;position: fixed;bottom: 30rpx;right: 15rpx;'>
+		<image src='{{icon1}}' style='width:100rpx;height:100rpx;margin-bottom:10rpx' bindtap="apply_tap"></image>
+		<image src='{{icon2}}' style='width:100rpx;height:100rpx;margin-bottom:10rpx' bindtap="vote_tap"></image>
+		<image src='{{icon3}}' style='width:100rpx;height:100rpx;margin-bottom:10rpx'	bindtap="result_tap"></image>
+		<image src='{{icon4}}' style='width:100rpx;height:100rpx;margin-bottom:10rpx'	bindtap="award_tap"></image>
+	</view>
+</view>

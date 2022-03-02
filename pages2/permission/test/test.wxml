@@ -1,0 +1,32 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">快速登录</view>
+</cu-custom>
+<view style="padding: 0 20rpx;" wx:if='{{!PhoneNumStatus}}'>
+  <view style="background: #FFF;height: {{statusBarHeight}}px;">
+
+  </view>
+  <image src='{{domain}}image/indexv2_head02.jpg' mode='widthFix' style="width: 100%;">
+  </image>
+  <view style="margin-top: 71rpx; font-size:42rpx;font-family:PingFangSC-Medium,PingFang SC;font-weight:500;color:rgba(47,60,77,1);line-height:60rpx;">
+    欢迎体验新赏家-置业大赏
+  </view>
+  <view style="margin-top: 71rpx; ;font-size:34rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(86,102,122,1);line-height:48rpx;">
+    “房住不炒，买家至上”—— 登录后一对一的专属置业顾问为您提供专业服务
+  </view>
+
+  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="button" size="default">
+    微信快速登录
+  </button>
+
+  <!-- <view style="word-break:break-all">
+            {{log}}
+        </view> -->
+
+</view>
+<view wx:elif="{{!UserInfoStatus}}">
+  <button class="button" size="default" open-type="getUserInfo" bindgetuserinfo="UserInfo_tap">用户信息授权</button>
+</view>
+<view wx:else>
+  手机、用户信息均以授权
+</view>

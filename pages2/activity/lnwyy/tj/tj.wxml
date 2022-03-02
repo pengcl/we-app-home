@@ -1,0 +1,80 @@
+<!--pages2/activity/activity01/tj/index.wxml-->
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">邀请好友</view>
+</cu-custom>
+<view style="background: #FCF2E9">
+	<view>
+		<image src='{{image2}}' style="width:750rpx" mode="widthFix"></image>
+	</view>
+	<view style='display: flex;flex-direction: column;'>
+		<view style='padding: 10rpx 30rpx;color: #595856;'>请填写推荐人信息，方便我们后续跟进。</view>
+		<view style='background-color: #E4E4E4;margin-left: 30rpx;width: 90%;border-radius: 10rpx;'>
+			<view style='margin-left: 30rpx;color: #898989;'>
+				<view style='display:flex;margin-top: 20rpx;margin-bottom:20rpx'>
+					个人身份：
+					<picker bindchange="bindUserTypeChange" value="{{userindex}}" range="{{usertype}}" range-key="{{'value'}}" style='margin-left: 30rpx;'>
+						<view>
+							{{usertype[userindex].value}}
+						</view>
+					</picker>
+				</view>
+				<view style='width:600rpx;height:3rpx;background-color:white;margin-top: 10rpx;display:{{houseDisplay}}'>
+				</view>
+				<view style='margin-top: 10rpx;display:{{houseDisplay}};margin-bottom: 10rpx;'>
+					<text decode='{{true}}'>房&emsp;&emsp;&nbsp;号：</text>
+					<input placeholder="建议填写楼盘项目名+房号" style='margin-left: 30rpx;width: 400rpx;' bindinput="bindHouseNo"></input>
+				</view>
+			</view>
+		</view>
+	</view>
+	<view style='display: flex;flex-direction: column;'>
+		<view style='padding: 10rpx 30rpx;color: #595856;'>请填写被推荐人信息，方便我们后续跟进。</view>
+		<view style='background-color: #E4E4E4;margin-left: 30rpx;width: 90%;border-radius: 10rpx;color: #898989;'>
+			<view style='margin-left: 30rpx;'>
+				<!-- <view style='display:flex;margin-top: 20rpx;'>
+					参观项目：
+					<picker bindchange="bindPickerChange" value="{{index}}" range="{{projectArray}}" range-key="{{'name'}}" style='margin-left: 30rpx;'>
+						<view>
+							{{projectArray[index].name}}
+						</view>
+					</picker>
+				</view>
+				<view style='width:718rpx;height:3rpx;background-color:#EEEEEE;margin-top: 20rpx;'></view> -->
+				<view style='display:flex;margin-top: 20rpx;'>
+					<text decode='{{true}}'>姓&emsp;&emsp;&nbsp;名：</text>
+					<input placeholder="请输入姓名" style='margin-left: 30rpx;' bindinput="bindName"></input>
+				</view>
+				<view style='width:600rpx;height:3rpx;background-color:white;margin-top: 20rpx;'></view>
+				<view style='display:flex;margin-top: 30rpx;'>联系电话：
+					<input placeholder="请输入联系电话" style='margin-left: 30rpx;' maxlength="11" type="number" bindinput="bindPhone"></input>
+				</view>
+				<view style='width:600rpx;height:3rpx;background-color:white;margin-top: 20rpx;'></view>
+				<view style='display:flex;margin-top: 20rpx;'>到访时间：
+					<picker mode="date" value="{{date}}" start="{{startDate}}" bindchange="bindDateChange" style="width: 70%;">
+						<view class="picker" style='margin-left: 30rpx;'>
+							{{date}}
+						</view>
+					</picker>
+				</view>
+				<view style='width:600rpx;height:3rpx;background-color:white;margin-top: 20rpx;'></view>
+				<view style='display:flex;margin-top: 20rpx;margin-bottom: 20rpx;'>置业顾问：
+					<picker value="{{gwindex}}" bindchange="bindgwChange" range="{{gwlist}}" range-key="{{'username'}}">
+						<view style='margin-left: 30rpx;' data-id='{{gwlist[gwindex].userphone}}'>
+							{{gwlist[gwindex].username}}
+						</view>
+					</picker>
+				</view>
+			</view>
+		</view>
+		<view style='display: flex;justify-content: space-around;'>
+			<image src='{{button}}' bindtap="book_tap" style='width:650rpx;margin-top: 90rpx;' mode='widthFix'></image>
+		</view>
+	</view>
+	<view>
+		<image src='{{image1}}' style="width:750rpx" mode="widthFix"></image>
+	</view>
+	<!-- <view style='width:750rpx;height:153rpx;background:rgba(255,255,255,1);position: fixed;bottom: 0;'>
+		<view style='width:679rpx;height:93rpx;background-color:#CEA76E;text-align:center;font-size:40rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(255,255,255,1);line-height:93rpx;letter-spacing:1rpx;margin: 35rpx;' bindtap="book_tap">提交申请</view>
+	</view> -->
+</view>

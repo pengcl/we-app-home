@@ -1,0 +1,9 @@
+<!--union/authorize/test3.wxml-->
+<view style="min-height: 100vh;margin-top:100px;">
+  <view>
+<text>phone:{{phone}}</text>
+<text>wxid:{{wxid}}</text>
+<text>opid:{{opid}}</text>
+<text>unid:{{unid}}</text>
+</view>
+</view>

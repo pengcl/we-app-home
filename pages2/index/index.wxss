@@ -1,0 +1,136 @@
+/* pages2/index/index.wxss */
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+
+page {
+    background: #FFF;
+}
+
+image{
+     display: block;
+}
+#projList image,
+#list image {
+  margin-top: 10rpx;
+}
+
+.itabbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+ 
+}
+
+/* .view-bg{
+  background:white; 
+  
+} */
+
+
+.tabNav{
+  /* z-index: 4; 
+  position: fixed;  */
+  /* top:0;left:0;  */
+  width:100%; height:110rpx; line-height: 120rpx; 
+  /* background: rgba(150, 115, 51, 0.404);  */
+  display: flex; 
+  padding:0 20rpx; 
+  border-bottom:1px solid #f5f5f5; 
+  box-sizing: border-box; 
+  font-size: 30rpx;
+  position: relative;
+
+  
+
+}
+
+.tabNav> view{text-align: center; margin-right:30rpx;}
+.tabNav> view:last-child{ margin-right: 0;}
+.tabNav> view text{
+  padding:5 15rpx; height:85rpx; 
+  display:inline-block;
+  color:#9B9B9B
+}
+.tabNav .cur text{ 
+  border-bottom:5rpx solid #CF1331 ; 
+  color:#BE9C6F;
+  font-weight: bold;
+}
+
+
+.turntable .row-turntable {
+
+  /* height: 166rpx; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* align-items: center; */
+  top: 0;
+  margin: auto;
+}
+
+.turntable .item-turntable {
+ 
+  height: 130rpx;
+  margin: 0;
+  text-align: center;
+  font-size: 24rpx;
+}
+.item-Content-img {
+  width: 82rpx;
+  height: 82rpx;
+}
+
+.item-Content-img2 {
+  width: 130rpx;
+  height: 130rpx;
+}
+
+ /* 推荐区域弹窗样式 */
+.mask {
+  width: 100%;
+  height: 100%;
+  top: 260rpx;
+  background: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  z-index: 9;
+  position: fixed;
+}
+
+
+.mask_layer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 999;
+  left:0;top:0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+}
+.modal_box {
+  width: 80%;
+  overflow: hidden;
+  position: fixed;
+  top: 43%;
+  left: 0;
+  z-index: 1001;
+  background: #fafafa;
+  margin: -180px 10% 0 10%;
+  border-radius: 3px;
+}
+
+.modal_cancle {
+  width: 10%;
+  overflow: hidden;
+  position: fixed;
+  top: 72%;
+  left: 0;
+  z-index: 1001;
+  /* background: #fafafa; */
+  margin: -110px 45% 0 45%;
+  border-radius: 24px;
+}
+ 
+
+

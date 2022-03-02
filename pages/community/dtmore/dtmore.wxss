@@ -1,0 +1,12 @@
+@import "../../../colorui/main.wxss";
+@import "../../../colorui/icon.wxss";
+
+page {
+  background-color: #fffcf4;
+  /* background-color:red; */
+}
+
+.body_Item {
+  background-color: #fff;
+  padding: 36rpx;
+}

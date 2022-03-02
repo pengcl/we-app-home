@@ -1,0 +1,91 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">详情</view>
+</cu-custom>
+<view>
+  <view style='height: 546rpx;'>
+    <image src='{{activityInfo.activBanner2}}' mode='widthFix' style='width:100%;background:rgba(144,138,123,1);height:546rpx'></image>
+    <view style='width:714rpx;height:192rpx;background:rgba(255,255,255,1);border-radius:5rpx;display: flex;margin-left: 18rpx;margin-top: -4rpx;position: relative;'>
+      <image src='{{activityInfo.activBanner3}}' style='width:135rpx;height:135rpx;background:rgba(222,207,182,1);border-radius:11rpx;margin: 29rpx;'></image>
+      <view style='margin-top:29rpx;display: flex;flex-direction: column;'>
+        <text style='width:320rpx;height:42rpx;font-size:30rpx;font-weight:400;color:rgba(49,49,49,1);line-height:42rpx;margin-bottom:64rpx'>{{activityInfo.activName}}</text>
+        <progress percent="{{proPercent}}" border-radius='24rpx' backgroundColor='#FCF0DF' activeColor="#D0A76D" stroke-width="12" style='width: 497rpx;'>
+          <text style='font-size:21rpx;font-weight:400;color:rgba(182,101,101,1);line-height:29rpx;margin-left: 19rpx'>{{progress}}</text>
+        </progress>
+      </view>
+      <view style='width:142rpx;height:50rpx;background:rgba(201,201,199,1);box-shadow:0rpx 5rpx 3rpx 2rpx rgba(224,205,161,0.59);border-radius:5rpx;font-size:30rpx;font-weight:400;color:rgba(255,255,255,1);line-height:50rpx;position: absolute;margin: 19rpx 0 0 547rpx;text-align: center;'
+        wx:if='{{activityOrder.status<100 || activityOrder.isaward}}'>领取好礼
+      </view>
+      <view style='width:142rpx;height:50rpx;background:linear-gradient(180deg,rgba(234,199,156,1) 0%,rgba(232,197,151,1) 0%,rgba(208,167,109,1) 100%);box-shadow:0px 5rpx 3rpx 2rpx rgba(224,205,161,0.59);border-radius:5px;font-size:30rpx;font-weight:400;color:rgba(255,255,255,1);line-height:50rpx;position: absolute;margin: 19rpx 0 0 547rpx;text-align: center;'
+        wx:else bindtap="award_tap">领取好礼
+      </view>
+    </view>
+  </view>
+
+  <view style='width:750rpx;height:568rpx'>
+  </view>
+
+  <!-- 倒计时 -->
+  <view style='width:714rpx;height:620rpx;background:rgba(255,255,255,1);border-radius:5rpx;position: relative;margin: -350rpx 0 0 19rpx;display: flex;flex-direction: column;'>
+    <view class="countdownBox">
+      <text>活动剩余时间：</text>
+      <view class="item" style='margin-left:5rpx'>{{countdown.day}}</view>
+      <text>天</text>
+      <view class="item">{{countdown.hour}}</view>
+      <text>时</text>
+      <view class="item">{{countdown.minute}}</view>
+      <text>分</text>
+      <view class="item">{{countdown.second}}</view>
+      <text>秒</text>
+    </view>
+    <view style='width:577rpx;height:42rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(49,49,49,1);line-height:42rpx;margin: 37rpx 0 0 78rpx;'>
+      还差
+      <text style='width:577rpx;height:42rpx;font-size:30rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:#D8B27D;line-height:42rpx;'>{{activityInfo.needHelperNum-activityOrder.helpercount}}</text>人助力成功，分享好友完成助力吧!
+    </view>
+    <view style='margin: 46rpx 0 0 0;display: flex;flex-wrap: wrap;'>
+      <view wx:for='{{helperIcon}}' wx:for-item='detail' wx:key='index' style='display: flex;flex-direction: column;text-align: center;margin-bottom:20rpx'>
+        <image src='{{detail.icon}}' style='width: 99rpx;height: 99rpx;border-radius: 99rpx;margin: 0 0 0 36rpx;'></image>
+        <view style='width:88rpx;height:28rpx;background:linear-gradient(180deg,rgba(234,199,156,1) 0%,rgba(232,197,151,1) 0%,rgba(208,167,109,1) 100%);box-shadow:0px 5rpx 3rpx 2rpx rgba(224,205,161,0.59);border-radius:14rpx;font-size:20rpx;font-weight:400;color:rgba(255,255,255,1);line-height:28rpx;text-align:center;position: absolute;margin: 74rpx 0 0 42rpx;'
+          wx:if='{{index==0}}'>发起人</view>
+        <text>{{detail.name}}</text>
+      </view>
+    </view>
+  </view>
+  <view>
+    <image src='{{activityInfo.activBanner7}}' style='width:750rpx;' mode='widthFix'></image>
+  </view>
+  <view style='height:148rpx'></view>
+  <!-- 参与头像 -->
+  <view class="cu-avatar-group" style="direction: ltr;padding:0 36rpx;width:659rpx;height:70rpx;background:linear-gradient(to right,rgba(234,199,156,1) 0%,rgba(232,197,151,1) 0%,rgba(208,167,109,1) 100%);box-shadow:0rpx 3rpx 2rpx 0rpx rgba(143,110,31,0.59);border-radius:77rpx;margin: 0 0 0 45rpx;position: fixed;bottom: 193rpx;">
+    <view class="cu-avatar round lg" wx:for="{{activityInfo.imgIcon}}" wx:for-item="avat" wx:key="index" style="background-image:url({{avat}});width: 61rpx;height: 61rpx;margin-left: -28rpx;margin-top:8rpx" wx:if='{{index<10}}'>
+    </view>
+    <view style='display: flex;flex-direction: column;margin: -60rpx 0 0 400rpx'>
+      <view style='display:flex'>
+        <text style='font-size:25rpx;font-weight:400;color:rgba(105,73,19,1);line-height:29rpx;'>共</text>
+        <text style='font-size:25rpx;font-weight:400;color:white;line-height:29rpx;'>{{activityInfo.joinCount*9+124}}</text>
+        <text style='font-size:25rpx;font-weight:400;color:rgba(105,73,19,1);line-height:29rpx;'>人</text>
+      </view>
+      <text style='width:162rpx;font-size:25rpx;font-weight:400;color:rgba(105,73,19,1);line-height:29rpx;'>正在参与助力</text>
+    </view>
+  </view>
+
+  <!-- 底部 -->
+  <view style='width:750rpx;height:153rpx;background:rgba(255,255,255,1);display: flex;position: fixed;bottom: 0rpx;'>
+    <button bindtap="createSunCode" style="width:323rpx;height:83rpx;background:linear-gradient(180deg,rgba(234,199,156,1) 0%,rgba(232,197,151,1) 0%,rgba(208,167,109,1) 100%);margin: 34rpx 0 0 36rpx;color:#ffffff;box-shadow:0rpx 5rpx 3rpx 2rpx rgba(224,205,161,0.59);border-radius:5rpx;">
+      生成助力海报
+    </button>
+    <button style="width:323rpx;height:83rpx;background:linear-gradient(180deg,rgba(234,199,156,1) 0%,rgba(232,197,151,1) 0%,rgba(208,167,109,1) 100%);margin: 34rpx 0 0 27rpx;color:#ffffff;box-shadow:0rpx 5rpx 3rpx 2rpx rgba(224,205,161,0.59);border-radius:5rpx;"
+      open-type="share">
+      邀请好友助力
+    </button>
+  </view>
+
+  <!-- 分享海报 -->
+  <canvas style="width:{{canvasWidth}}px; height:{{canvasHeight}}px;display:{{cvDisplay}};" canvas-id="myCanvas" />
+  <view class='mask' bindtap="mask_tap" style='display:{{maskDisplay}};flex-direction: column;'>
+    <!-- 遮罩层 -->
+    <image src='{{mergeTempImg}}' style='margin: 200rpx 50rpx 50rpx 50rpx;height: 1000rpx;'></image>
+    <image src='{{saveIcon}}' bindtap="saveImg" style='width: 100rpx;height: 100rpx;margin: -50rpx 0 0 320rpx;'></image>
+  </view>
+</view>
+<Author needUserInfo="{{true}}"></Author>

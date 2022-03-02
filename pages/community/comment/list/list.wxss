@@ -1,0 +1,8 @@
+/* pages/community/comment/list/list.wxss */
+@import "../../../../colorui/main.wxss";
+@import "../../../../colorui/icon.wxss";
+
+page {
+    background-color: #FFF;
+    /* background-color:red; */
+}

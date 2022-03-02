@@ -1,0 +1,262 @@
+.page {
+    background-color: #f6f6f6;
+    padding-bottom: 210rpx;
+}
+
+.banners {
+    height: 600rpx;
+}
+
+.banners .swiper-item {
+    height: 100%;
+    overflow: hidden;
+}
+
+.description {
+    padding: 40rpx;
+    background: #fff;
+}
+
+.description .name {
+    line-height: 56rpx;
+    font-size: 40rpx;
+    font-weight: 500;
+    color: #42453E;
+    position: relative;
+}
+
+.description .name .share {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40rpx;
+    height: 40rpx;
+    background: none;
+    border: none;
+    padding: 0;
+}
+.description .name .share::after{display:none}
+.description .name .share image {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.address {
+    font-size: 26rpx;
+    font-weight: 400;
+    color: #826E4A;
+    line-height: 36rpx;
+    margin: 34rpx 0 28rpx;
+}
+
+.address image {
+    display: inline-block;
+    line-height: 36rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+    width: 36rpx;
+    height: 36rpx;
+}
+
+.description .points {
+    font-size: 44rpx;
+    font-weight: 400;
+    color: #7D5939;
+    letter-spacing: 10rpx;
+    position: relative;
+}
+
+.description .points image {
+    width: 48rpx;
+    height: 48rpx;
+}
+
+.description .points image,
+.description .points .num {
+    display: inline-block;
+    line-height: 48rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+}
+
+.description .points .change-able {
+    position: absolute;
+    right: 0;
+    line-height: 34rpx;
+    font-size: 22rpx;
+    border: 1px solid #856D44;
+    letter-spacing: 0;
+    padding: 0 20rpx;
+    top: 10rpx;
+}
+
+.page .content {
+    margin-top: 10rpx;
+    padding: 40rpx;
+    background: #fff;
+}
+
+.page .content .ql-container {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    -webkit-user-select: text;
+    user-select: text;
+    outline: none;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    min-height: 50px !important;
+  }
+
+.page .content .content-title {
+    font-size: 34rpx;
+    font-weight: 400;
+    color: #BFA474;
+    line-height: 48rpx;
+    text-align: center;
+}
+
+.page .content .content-content {
+    margin: 50rpx 0;
+    font-size: 26rpx;
+    line-height: 40rpx;
+}
+
+.page .content .content-content .item-content-item {
+    margin: 30rpx 0;
+}
+
+.page .content .content-content .item-content-item.image {
+    margin: 0;
+}
+
+.page .content .content-content .item-content-item image,
+.content .content-content .item-content-item video {
+    display: block;
+    width: 100%;
+}
+
+.page-footer {
+    padding: 5rpx 24rpx 80rpx;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.page-footer .button {
+    display: block;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 40rpx;
+    background: linear-gradient(90deg, #B89E67 0%, #E7D6AA 100%, #E7C692 100%);
+    text-align: center;
+    color: #fff;
+}
+
+.page-footer .button.register {
+    background: linear-gradient(90deg, #850707 0%, #A94141 100%);
+}
+
+.page-footer .button[disabled] {
+    background: #ededed;
+}
+
+.max-num {
+    text-align: right;
+    color: #707070;
+    font-size: 25rpx;
+}
+
+.submit-container {
+    position: absolute;
+    z-index: 9999;
+    background-color: transparent;
+}
+
+.submit-container .detail-page {
+    padding: 0 0 30rpx;
+    opacity: 0.9;
+    max-height: 700rpx;
+    overflow-y: scroll;
+}
+
+.submit-container .detail-page .detail-page-body {
+    padding: 0 40rpx;
+}
+
+.detail-page-body .h3 {
+    font-weight: bold;
+    font-size: 24rpx;
+    margin: 20rpx 0 10rpx;
+}
+
+.detail-page-body .txt {
+    font-size: 21rpx;
+    line-height: 40rpx;
+}
+
+.detail-page-body .address {
+    font-size: 25rpx;
+}
+
+.submit-container .page-footer {
+    position: static;
+    box-shadow: 0px 0px 4px 3px rgba(222, 222, 222, 0.5);
+    background: #fff;
+}
+
+.count {
+    padding: 32rpx 40rpx;
+}
+
+.page-footer .weui-cells {
+    padding: 20rpx 0;
+    font-size: 30rpx;
+}
+
+.page-footer .weui-cells::after,
+.page-footer .weui-cells::before {
+    display: none;
+}
+
+.page-footer .weui-cell {
+    padding: 15rpx 10rpx;
+}
+
+.page-footer .weui-cells .weui-cell:first-child,
+.page-footer .weui-cells .weui-cell:first-child .weui-cell__ft {
+    color: #8B7449;
+}
+
+.page-footer .weui-cell::before {
+    display: none;
+}
+
+.points {
+    font-size: 26rpx;
+    font-weight: 400;
+    color: #7D5939;
+    letter-spacing: 2rpx;
+    position: relative;
+}
+
+.points image {
+    width: 26rpx;
+    height: 26rpx;
+}
+
+.points image,
+.points .num {
+    display: inline-block;
+    line-height: 26rpx;
+    vertical-align: middle;
+    margin-right: 5rpx;
+}
+
+.action image{
+    width: 64rpx;
+    height: 64rpx;
+}

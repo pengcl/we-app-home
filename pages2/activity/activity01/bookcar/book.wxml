@@ -1,0 +1,73 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">预约滴滴专车</view>
+</cu-custom>
+<view>
+  <view>
+    <!-- <view style='margin: 30rpx 0 0 30rpx;color: black;'>请选择参观项目：</view>
+    <view style='width: 100%;background-color: white;margin-top: 10rpx;height: 50rpx;line-height: 50rpx;'>
+      <view style='margin-left:30rpx;display: flex;flex-direction: column;'>
+        <view bindtap="selectPrj" data-id='yy' style='margin-top: 10rpx;display: flex;'>新世界云逸
+          <image src='{{icon}}' style='width: 30rpx;height: 30rpx;margin: 4rpx 0 0 500rpx;display:{{statusyy}}'></image>
+        </view>
+        <view style='width:718rpx;height:3rpx;background-color:#EEEEEE;margin-top: 10rpx;'></view>
+        <view bindtap="selectPrj" data-id='kyw' style='margin-top: 10rpx;display: flex;'>凯粤湾
+          <image src='{{icon}}' style='width: 30rpx;height: 30rpx;margin: 4rpx 0 0 556rpx;display:{{statuskyw}}'></image>
+        </view>
+        <view style='width:718rpx;height:3rpx;background-color:#EEEEEE;margin-top: 10rpx;'></view>
+        <view bindtap="selectPrj" data-id='gf' style='margin-top: 10rpx;display: flex;'>广佛新世界
+          <image src='{{icon}}' style='width: 30rpx;height: 30rpx;margin: 4rpx 0 0 500rpx;display:{{statusgf}}'></image>
+        </view>
+      </view>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{projectArray}}" range-key="{{'value'}}" style='margin-left: 30rpx;'>
+        <view class="picker">
+          {{projectArray[index].value}}
+        </view>
+      </picker>
+    </view> -->
+  </view>
+  <view style='display: flex;flex-direction: column;'>
+    <view style='margin: 30rpx;color: black;'>请留下您的信息，方便我们后续跟进</view>
+    <view style='background-color: white;'>
+      <view style='margin-left: 30rpx;'>
+        <view style='display:flex;margin-top: 10rpx;'>
+          项目
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{projectArray}}" range-key="{{'name'}}" style='margin-left: 30rpx;' style='margin-left: 80rpx;'>
+            <view>
+              {{projectArray[index].name}}
+            </view>
+          </picker>
+        </view>
+        <view style='width:718rpx;height:3rpx;background-color:#EEEEEE;margin-top: 10rpx;'></view>
+        <view style='display:flex;margin-top: 10rpx;'>
+          姓名
+          <input placeholder="请输入姓名" style='margin-left: 80rpx;' bindinput="bindName"></input>
+        </view>
+        <view style='width:718rpx;height:3rpx;background-color:#EEEEEE;margin-top: 10rpx;'></view>
+        <view style='display:flex;margin-top: 10rpx;'>联系电话
+          <input placeholder="请输入联系电话" style='margin-left: 25rpx;' maxlength="11" type="number" bindinput="bindPhone"></input>
+        </view>
+        <view style='width:718rpx;height:3rpx;background-color:#EEEEEE;margin-top: 10rpx;'></view>
+        <view style='display:flex;margin-top: 10rpx;margin-bottom: 10rpx;'>到访时间
+          <picker mode="date" value="{{date}}" start="{{startDate}}" bindchange="bindDateChange">
+            <view class="picker" style='margin-left: 25rpx;'>
+              {{date}}
+            </view>
+          </picker>
+        </view>
+        <view style='width:718rpx;height:3rpx;background-color:#EEEEEE;margin-top: 10rpx;'></view>
+        <view style='display:flex;margin-top: 10rpx;margin-bottom: 10rpx;'>置业顾问
+          <picker value="{{gwindex}}" bindchange="bindgwChange" range="{{gwlist}}" range-key="{{'username'}}">
+            <view style='margin-left: 25rpx;' data-id='{{gwlist[gwindex].userphone}}'>
+               {{gwlist[gwindex].username}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style='height:153rpx'></view>
+  <view style='width:750rpx;height:153rpx;background:rgba(255,255,255,1);position: fixed;bottom: 0;'>
+    <view style='width:679rpx;height:93rpx;background-color:#CEA76E;text-align:center;font-size:40rpx;font-family:PingFangSC-Regular,PingFang SC;font-weight:400;color:rgba(255,255,255,1);line-height:93rpx;letter-spacing:1rpx;margin: 35rpx;' bindtap="book_tap">提交申请</view>
+  </view>
+</view>

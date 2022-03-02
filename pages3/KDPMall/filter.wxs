@@ -1,0 +1,12 @@
+var kFilter = {
+    formatAmount: function (num) {
+        if(!num){
+            return 0
+        }
+        var reg = getRegExp('(\d)(?=(?:\d{3})+$)','g');
+        var c = (num.toString().indexOf('.') !== -1) ? num.toLocaleString() : num.toString().replace(reg, '$1,');
+        return c;
+    }
+}
+
+module.exports = kFilter;

@@ -1,0 +1,22 @@
+/* pages2/index/index.wxss */
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+
+page {
+    background: #FFF;
+}
+
+image{
+     display: block;
+}
+#projList image,
+#list image {
+  margin-top: 10rpx;
+}
+
+.itabbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+ 
+}

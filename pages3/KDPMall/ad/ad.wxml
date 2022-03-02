@@ -1,0 +1,9 @@
+<cu-custom bgColor="bg-white" isCustomAction="{{true}}">
+    <view class="action" slot="action">
+        <image bindtap="toHome" src="/pages3/images/home.png"></image>
+    </view>
+    <view slot="content">积分商城</view>
+</cu-custom>
+<view class="page">
+  <image mode='widthFix' src="/pages3/images/ad.jpg"></image>
+</view>

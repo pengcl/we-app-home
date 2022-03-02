@@ -1,0 +1,7 @@
+<!--pages2/community/TG/map/map.wxml-->
+<view>
+    <cu-custom bgColor="bg-white" isBack="{{false}}" isCustom="{{true}}">
+        <view slot="backText">返回</view>
+        <view slot="content">新世界星辉</view>
+    </cu-custom>
+  </view>

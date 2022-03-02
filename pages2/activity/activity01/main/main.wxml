@@ -1,0 +1,7 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">十二大权益</view>
+</cu-custom>
+<view>
+<image src='{{image1}}' style='width:100%' mode='widthFix'></image>
+</view>

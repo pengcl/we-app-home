@@ -1,0 +1,34 @@
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">购买页面</view>
+</cu-custom>
+<view style="display: flex;flex-flow: column nowrap;justify-content: flex-start;height: 100vh;Background:#F4F4F4;">
+  <view style="padding:5rpx 0rpx 0;flex:0 0 auto;">
+    <i-panel title="">
+      <i-input maxlength='10' bind:change="inputusername" placeholder="请输入您的真实姓名" />
+      <i-input value="{{ userphone }}" maxlength='11' type="number" bind:change="inputuserphone" placeholder="请输入您的手机号码" />
+    </i-panel>
+  </view>
+  <view style='margin-top: 30rpx;'>
+    <image class="" src="{{pic1}}" mode="widthFix" lazy-load="false" binderror="" bindload="" style="width: 100%;">
+    </image>
+  </view>
+  <view style="margin-top: 10rpx;">
+    <image class="" src="{{pic2}}" mode="widthFix" lazy-load="false" binderror="" bindload="" style="width: 100%;">
+    </image>
+  </view>
+  <view style='position: fixed;z-index: 999;bottom: 0rpx;height: 400rpx;width:100%;'>
+    <view style='position: absolute;margin-top:280rpx; display:flex;flex-direction:row;Background:#FFFFFF;width:100%;' wx:if="{{productdetaildata.amt>0}}">
+      <view style='margin:40rpx 0 0 60rpx;width:120rpx;'>
+        <text style='color:#A4A4A4'>总计：</text>
+      </view>
+      <view style='width: 180rpx;margin:40rpx 0 0 0;'>
+        <text class='paylinefont' style="color:#CF202F;">¥{{productdetaildata.amt}}</text>
+      </view>
+      <view class="sumbit" style="margin:80rpx 0 0 10rpx;background:#CFA76E;width:300rpx;" bindtap="pay_tap">
+        <text class="font">立即支付</text>
+      </view>
+    </view>
+  </view>
+</view>
+<Author></Author>

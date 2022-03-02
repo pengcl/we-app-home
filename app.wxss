@@ -1,0 +1,57 @@
+@import "/colorui/main.wxss";
+@import "/colorui/icon.wxss";
+@import "/weui/weui-grid/weui-grid.wxss";
+@import "/weui/weui-searchbar/weui-searchbar.wxss";
+@import "/weui/icon/weui-icon.wxss";
+@import "/weui/weui-panel/weui-panel.wxss";
+@import "/weui/weui-cell/weui-cell_global.wxss";
+@import "/weui/weui-page/weui-msg.wxss";
+@import "/weui/weui-loadmore/weui-loadmore.wxss";
+@import "/weui/weui-loading/weui-primary-loading.wxss";
+
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+.u_column_nowrap {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.u_column_wrap {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.u_row_nowrap {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.u_row_wrap {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.text_ellipsis {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.text_ellipsis2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

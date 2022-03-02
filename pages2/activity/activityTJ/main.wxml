@@ -1,0 +1,22 @@
+
+<cu-custom bgColor="bg-white" isCustom="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">一“荐”百万</view>
+</cu-custom>
+
+<!-- <view>
+  <image src='{{img}}' mode='widthFix' style="width: 100%;"></image>
+</view> -->
+
+<view wx:for="{{pageData}}" style="display: flex;" wx:key="index" wx:for-item="item">
+  <image src='{{item.imgurl}}' mode='widthFix' style="width: 100%;"></image>
+
+  <!-- <image src='{{item.imgurl}}' mode='widthFix' style="width: 100%;" data-type="{{item.type}}" data-data="{{item.data}}"
+    data-url="{{item.url}}" bindtap="image_tap"></image> -->
+</view>
+
+<view  class="u_column_nowrap" 
+    style="position:fixed;bottom:0;z-index:900;width: 100vw;padding:18px;justify-content:center;" >
+    <image src='{{btnSource}}' mode='widthFix' bindtap="banner_tap" style="height:77px;margin:0 auto;width:77px;"></image>
+
+</view>
